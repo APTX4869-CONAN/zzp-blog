@@ -28,7 +28,8 @@ theme:
 
 nav:
   - 主页: index.md
-  - 美食: food/fruit.md
+  - 美食: 
+    - food: food/fruit.md
 
 plugins:
   - mermaid2:
