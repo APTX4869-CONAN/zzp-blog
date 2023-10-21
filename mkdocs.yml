@@ -30,7 +30,7 @@ nav:
   - 主页: index.md
   - 学习: 
     - 数学: study/math.md
-    - 英语： study/English.md
+    - 英语: study/English.md
 plugins:
   - mermaid2:
       arguments:
