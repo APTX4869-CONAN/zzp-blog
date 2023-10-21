@@ -1,0 +1,49 @@
+site_name: APTX4869-CONAN
+theme: 
+  name: material
+  icon:
+    logo: material/library
+  palette:
+    - scheme: default # 日间模式
+      primary: indigo # 上方的
+      accent: orange # 链接等可交互元件的高亮色
+      toggle:
+        icon: material/weather-night # 图标
+        name: 切换至夜间模式 # 鼠标悬浮提示
+    - scheme: slate # 夜间模式
+      primary: indigo
+      accent: orange
+      toggle:
+        icon: material/weather-sunny
+        name: 切换至日间模式
+
+  features:
+    - navigation.tabs
+    - navigation.top
+    - navigation.indexes
+    - navigation.expand
+    - search.suggest
+    - search.highlight
+  language: zh
+
+nav:
+  - 主页: index.md
+
+plugins:
+  - mermaid2:
+      arguments:
+        theme: light
+
+extra_css:
+  - mkdocs/css/no-footer.css # 不使用底部的翻页
+extra:
+  homepage: http://aptx4869-conan.github.io/zzp-blog
+  social: # icons
+#   - icon: fontawesome/brands/bilibili
+#     link: https://space.bilibili.com/1436476753
+#     name: Bilibili | 浩哈哈哈哈 # 鼠标悬浮提示
+    - icon: fontawesome/brands/github
+      link: https://github.com/APTX4869-CONAN
+      name: GitHub | ZZP(APTX4869-CONAN)
+## [bottom-left corner]
+copyright: Copyright &copy; 2023-现在 APTX4869-CONAN # 左下角的版权声明
