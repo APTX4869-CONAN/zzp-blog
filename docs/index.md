@@ -4,6 +4,6 @@
 
 #### 在这里，我会更新我的成长过程，记录我的学习感想与经历
 
-![]()<img src="/home/zzp/Pictures/柯南壁纸_1_可乐酱兼柯学家_来自小红书网页版.jpg" alt="柯南壁纸_1_可乐酱兼柯学家_来自小红书网页版" style="zoom:25%;" />
+^_^
 
-#### 请多多指教~
+#### ![](/home/zzp/Pictures/MidJourney｜青龙白虎｜4K 16_9电脑壁纸_2_Slim Shady Wallpaper_来自小红书网页版.jpg)请多多指教~
