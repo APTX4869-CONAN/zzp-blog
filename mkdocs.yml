@@ -28,9 +28,10 @@ theme:
 
 nav:
   - 主页: index.md
-  - 学习: 
-    - 数学: study/math.md
-    - 英语: study/English.md
+  - 附页: 
+    - 数学: appendix/math.md
+    - 英语: appendix/English.md
+    - 计算机: appendix/computer.md
 plugins:
   - mermaid2:
       arguments:
