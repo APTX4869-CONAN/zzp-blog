@@ -29,8 +29,8 @@ theme:
 nav:
   - 主页: index.md
   - 附页: 
-    - msrkdown学习记录: appendix/markdown.md
-    - 计算机学习记录: appendix/c.md
+    - msrkdown: appendix/markdown.md
+    - 计算机: appendix/c.md
     - cs: appendix/computer.md
 plugins:
   - mermaid2:
