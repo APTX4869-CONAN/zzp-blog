@@ -30,7 +30,9 @@ nav:
   - 主页: index.md
   - 附页: 
     - markdown: appendix/markdown.md
-    - 计算机: appendix/c.md
+    - 计算机:
+      - 笔记: appendix/c.md
+      - 术语: appendix/meaning.md
     - cs: appendix/computer.md
 plugins:
   - mermaid2:
