@@ -31,8 +31,8 @@ nav:
   - 附页: 
     - markdown: appendix/markdown.md
     - 计算机:
-      - 笔记: appendix/c.md
-      - 术语: appendix/meaning.md
+      - 笔记: appendix/c programming language.md
+      - 术语: appendix/c language terms.md
     - cs: appendix/computer.md
 plugins:
   - mermaid2:

@@ -1,6 +1,9 @@
-# My Github Homepage
+# くどう しんいち Github Homepage
 
+​	
 
+<img src="/home/zzp/Documents/Repo/zzp-blog/docs/柯南壁纸_1_可乐酱兼柯学家_来自小红书网页版.jpg" style="zoom:33%;" />
 
+## 小さくなっても頭脳は同じ！迷宮無しの名探偵！真実はいつもひとつ！
 
-
+#### 萌新博客，努力学习ing~
