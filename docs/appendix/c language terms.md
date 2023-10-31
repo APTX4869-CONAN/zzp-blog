@@ -17,6 +17,10 @@ print("a 的值为:", a);
 
 
 
+
+
+
+
 #### while语法：
 ``` html
 #include <stdio.h>
@@ -37,6 +41,10 @@ int main ()
 }
 print("a 的值为:", a);
 ```
+
+
+
+
 
 
 
@@ -81,6 +89,10 @@ int main ()
 
 
 
+
+
+
+
 #### for 循环语法：#include <stdio.h>
 
 
@@ -99,13 +111,19 @@ int main ()
 
 
 
+
+
+
+
 #### const 常属性
 
 
 
+
+
+
+
 #### 枚举常量 
-
-
 
 
 
@@ -123,3 +141,10 @@ int main()
     }
 }
 ```
+
+
+
+
+
+
+

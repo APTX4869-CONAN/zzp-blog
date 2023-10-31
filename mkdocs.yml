@@ -33,7 +33,8 @@ nav:
     - 计算机:
       - 笔记: appendix/c programming language.md
       - 术语: appendix/c language terms.md
-    - cs: appendix/computer.md
+      - 虚拟机: appendix/virtual machine.md
+      - Linux: appendix/Linux.md
 plugins:
   - mermaid2:
       arguments:

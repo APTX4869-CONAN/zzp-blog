@@ -2,7 +2,7 @@
 
 ​	
 
-<img src="/home/zzp/Documents/Repo/zzp-blog/docs/柯南壁纸_1_可乐酱兼柯学家_来自小红书网页版.jpg" style="zoom:33%;" />
+<img src="./柯南壁纸_1_可乐酱兼柯学家_来自小红书网页版.jpg" style="zoom:50%;" />
 
 ## 小さくなっても頭脳は同じ！迷宮無しの名探偵！真実はいつもひとつ！
 
