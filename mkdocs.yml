@@ -33,7 +33,7 @@ nav:
     - 计算机:
       - c语言笔记: appendix/c.md
       - 计算机系统基础: appendix/cs.md
-      - 虚拟机: appendix/Makefile.md
+      - Makefile: appendix/Makefile.md
       - Linux: appendix/Linux.md
       - 精通工具: appendix/tools.md
       - Tmux: appendix/tmux.md
