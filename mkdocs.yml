@@ -31,10 +31,12 @@ nav:
   - 附页: 
     - markdown: appendix/markdown.md
     - 计算机:
-      - 笔记: appendix/c programming language.md
-      - 术语: appendix/c language terms.md
-      - 虚拟机: appendix/virtual machine.md
+      - c语言笔记: appendix/c.md
+      - 计算机系统基础: appendix/cs.md
+      - 虚拟机: appendix/Makefile.md
       - Linux: appendix/Linux.md
+      - 精通工具: appendix/tools.md
+      - Tmux: appendix/tmux.md
 plugins:
   - mermaid2:
       arguments:
