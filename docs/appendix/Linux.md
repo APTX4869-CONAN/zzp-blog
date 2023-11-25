@@ -136,32 +136,32 @@ sudo 可以让普通命令带有root权限
 创建用户组命令  
 groupadd 用户组名  
 groupdel删除用户组  
-groupdel删除用户组
-useradd 用户名 -g group1
--g代表指定用户的组
-userdel
+groupdel删除用户组  
+useradd 用户名 -g group1  
+-g代表指定用户的组  
+userdel  
 	
-getent
-查看系统中有哪些用户
-语法：getent  passwd
+getent  
+查看系统中有哪些用户  
+语法：getent  passwd   
 	
-chmod修改权限
-chown
+chmod修改权限  
+chown  
+	 
+## ip地址：  
+每一台联网的电脑都会有一个地址，用于通讯  
+ipv4的版本，还有ipv6的版本。  
+ipv4的地址格式：a.b.c.d 如：192.168.88.101就是一个标准的IP地址  
+可以通过ifconfig查看本机的ip地址  
 	
-## ip地址：
-每一台联网的电脑都会有一个地址，用于通讯
-ipv4的版本，还有ipv6的版本。
-ipv4的地址格式：a.b.c.d 如：192.168.88.101就是一个标准的IP地址
-可以通过ifconfig查看本机的ip地址
-	
-## vim可视化模式
-按一下v，在通过hjkl选中，y
-yw复制一个单词
-y$从当前开始复制到行末尾
-p粘贴
-0补全角落
-o跑到前边
-也可以用跳跃命令
-vaw快速选择单词
-缩进:shift加尖括号< >
-shift和～大小写转换
+## vim可视化模式  
+按一下v，在通过hjkl选中，y  
+yw复制一个单词  
+y$从当前开始复制到行末尾  
+p粘贴  
+0补全角落  
+o跑到前边  
+也可以用跳跃命令  
+vaw快速选择单词  
+缩进:shift加尖括号< >  
+shift和～大小写转换/  
