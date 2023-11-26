@@ -36,6 +36,7 @@ nav:
       - 精通工具: appendix/tools.md
       - Tmux: appendix/tmux.md
       - markdown: appendix/markdown.md
+      - code: appendix/code.md
 plugins:
   - mermaid2:
       arguments:
