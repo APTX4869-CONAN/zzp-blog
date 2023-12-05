@@ -55,6 +55,12 @@ i++;
 其中（）中的事条件，如果是true则执行大括号里面的，如果是false则跳出括号。  
 	
 布尔表达式:只有true和false
-	
+	/
 
 ***
+## Switch 语句  
+语法：  
+switch(表达式){  
+case   
+case  
+default  
