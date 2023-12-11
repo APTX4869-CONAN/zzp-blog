@@ -29,7 +29,7 @@ theme:
 nav:
   - 主页: index.md
   - 附页: 
-      - Learn : appendix/c.md
+      - Learn c: appendix/c.md
       - 计算机系统基础: appendix/cs.md
       - Makefile: appendix/Makefile.md
       - Linux: appendix/Linux.md
