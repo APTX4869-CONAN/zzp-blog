@@ -37,6 +37,7 @@ nav:
       - Tmux: appendix/tmux.md
       - markdown: appendix/markdown.md
       - code: appendix/code.md
+      - git: appendix/git.md
 plugins:
   - mermaid2:
       arguments:
