@@ -39,6 +39,14 @@ cc -o hello hello.c
 2.研究可以用几种方法打印数字。尝试以八进制或十六进制打印，或者其它你找到的方法。  
 - [进制](https://aptx4869-conan.github.io/zzp-blog/sundries/1/)  
 	
+3.试着打印空字符串，即""。  
+/0  
+	
+4..上网搜索unsigned做了什么。  
+unsigned long 是无符号长整型数据类型，只能表示非负整数。  
+	
+5.试着自己解释（在下个练习之前）为什么char可以和int相乘。  
+- [本题答案](https://aptx4869-conan.github.io/zzp-blog/sundries/2/)  
 ## ex7 变量和类型  
 make  
 ![](./5.png)  
