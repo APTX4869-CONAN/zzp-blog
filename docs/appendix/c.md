@@ -47,6 +47,8 @@ unsigned long 是无符号长整型数据类型，只能表示非负整数。
 	
 5.试着自己解释（在下个练习之前）为什么char可以和int相乘。  
 - [本题答案](https://aptx4869-conan.github.io/zzp-blog/sundries/2/)  
+	
+
 ## ex7 变量和类型  
 make  
 ![](./5.png)  
@@ -56,46 +58,51 @@ break
 	
 有很多类型，整数型，浮点型，字符型  
 int对应%d  
-long 对应%ld  
+long 对应%ld  abcdefgabcdefg
 short对应%u  
 float 对应%f  
 double 对应%lf 
 char对应%c（单个字符）和%s（字符串）  
 字符串即多个字符  
 	
-
+	
 ## ex8 if,else  
-
-​	![](./7.jpg)
-​	
-​	
-
+	
+![](./7.jpg)
+	
+	
+	
 ## ex9 while循环和布尔表达式  
-
+	
 ![](./8.png)
-
+	
 ***
 ## ex10 switch 循环  
-
+	
 ![](./9.png)
-
-
-## 数组  
-
+	
+	
+## ex11 数组  
+	
 int arr[10]={1，2，3}  
 其中int 处填类型  
 arr处填数组名  
-[]中填元素个数  
+[]中表示元素索引，索引一般从0开始，所以[1]代表的是数组中的第二个元素，以此类推  
 填入1.2.3三个数，剩下默认为0  
 	
-
+### 附加题  
+尝试将areas的一个元素赋值为name中的字符。  
+会报错  
+	
+上网搜索在不同的CPU上整数所占的不同大小。  
+- [本题答案](https://aptx4869-conan.github.io/zzp-blog/sundries/3/)
 ***
 ## 命令  
 sizeof（name）  
 问c语言name这个量占多少字节  
 	
 ***
-## 循环  
+## 循环  abcdefg
 for  
 for(i = 1; i < argc; i++) {  
 printf("arg %d: %s\n", i, argv[i]);     
