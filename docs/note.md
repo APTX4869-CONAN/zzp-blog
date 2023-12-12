@@ -1,4 +1,4 @@
-![](./2.jpg)
+<img src="./2.jpg" style="zoom: 50%;" />
 # 2023.12.11    
 今天更新了Linux相关内容  
 更新了linux101相关内容  
