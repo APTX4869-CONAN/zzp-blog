@@ -38,6 +38,7 @@ nav:
       - markdown: appendix/markdown.md
       - code: appendix/code.md
       - git: appendix/git.md
+      - 快捷键: appendix/key.md
   - 记录: note.md
   - 解决的问题: bugs.md
   - 其他:
