@@ -42,6 +42,7 @@ nav:
   - 解决的问题: bugs.md
   - 其他:
       - makefile: sundries/makefile.md
+      - placeholder: sundries/placeholder.md
 plugins:
   - mermaid2:
       arguments:
