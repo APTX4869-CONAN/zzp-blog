@@ -1,4 +1,10 @@
 ![](/home/zzp/Documents/Repo/zzp-blog/docs/2.jpg)
-# 2023.12.10   
+# 2023.12.11    
 今天更新了Linux相关内容  
 更新了linux101相关内容  
+	
+***
+# 2023.12.12  
+今天更新了Learn c 部分内容  
+
+
