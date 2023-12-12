@@ -23,8 +23,10 @@ cc -o hello hello.c
 	
 		
 3.在另一个C语言项目中找到Makefile文件，并且尝试理解它做了什么。
-
-
+[Makefile工作原理](https://aptx4869-conan.github.io/zzp-blog/sundries/makefile/)
+	
+	
+	
 ## ex3 格式化打印  
 ![](./4.png)
 	
