@@ -32,6 +32,9 @@ cc -o hello hello.c
 	
 ## ex5 运算符，ex6语法    
 不再赘述  
+附加题  
+1.搜索“printf格式化”，试着使用一些高级的占位符。  
+[占位符](https://aptx4869-conan.github.io/zzp-blog/sundries/placeholder/)  
 	
 ## ex7 变量和类型  
 make  
