@@ -34,7 +34,10 @@ cc -o hello hello.c
 不再赘述  
 附加题  
 1.搜索“printf格式化”，试着使用一些高级的占位符。  
-[占位符](https://aptx4869-conan.github.io/zzp-blog/sundries/placeholder/)  
+- [占位符](https://aptx4869-conan.github.io/zzp-blog/sundries/placeholder/)  
+	
+2.研究可以用几种方法打印数字。尝试以八进制或十六进制打印，或者其它你找到的方法。  
+- [进制](https://aptx4869-conan.github.io/zzp-blog/sundries/1/)  
 	
 ## ex7 变量和类型  
 make  
