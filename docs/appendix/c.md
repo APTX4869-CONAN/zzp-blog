@@ -21,14 +21,14 @@ cc -o hello hello.c
 这个命令将hello.c编译成一个可执行文件，并将其命名为hello（使用-o选项指定输出文件名）。然后，你可以运行./hello来执行编译后的程序  
 ‘-wall’这个命令后缀用于在编译过程中开启额外的警告信息，帮助程序员发现代码中潜在的问题或错误  
 	
-		
-3.在另一个C语言项目中找到Makefile文件，并且尝试理解它做了什么。
+	
+3.在另一个C语言项目中找到Makefile文件，并且尝试理解它做了什么。  
 - [Makefile工作原理](https://aptx4869-conan.github.io/zzp-blog/sundries/makefile/)
 	
 	
-	
+
 ## ex3 格式化打印  
-![](./4.png)
+![](./4.png)  
 	
 ## ex5 运算符，ex6语法    
 不再赘述  
