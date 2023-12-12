@@ -9,7 +9,7 @@ Learn C the Herd way
 ### 附加题  
 1.man make 
 	
-![](/home/zzp/Documents/Repo/zzp-blog/docs/appendix/10.png)
+![](./10.png)
 	
 	
 2.man cc
@@ -23,20 +23,20 @@ cc -o hello hello.c
 	
 		
 3.在另一个C语言项目中找到Makefile文件，并且尝试理解它做了什么。
-[]()
+
 
 ## ex3 格式化打印  
-![](/home/zzp/Documents/Repo/zzp-blog/docs/appendix/4.png)
+![](./4.png)
 	
 ## ex5 运算符，ex6语法    
 不再赘述  
 	
 ## ex7 变量和类型  
 make  
-![](/home/zzp/Documents/Repo/zzp-blog/docs/appendix/5.png)  
+![](./5.png)  
 break  
 	
-![](/home/zzp/Documents/Repo/zzp-blog/docs/appendix/6.png)  
+![](./6.png)  
 	
 有很多类型，整数型，浮点型，字符型  
 int对应%d  
@@ -47,12 +47,13 @@ double 对应%lf
 char对应%c（单个字符）和%s（字符串）  
 字符串即多个字符  
 	
+
 ## ex8 if,else  
 
+​	![](./7.jpg)
+​	
+​	
 
-​	![](/home/zzp/Documents/Repo/zzp-blog/docs/appendix/7.jpg)
-​	
-​	
 ## ex9 while循环和布尔表达式  
 
 ![](./8.png)
@@ -60,7 +61,7 @@ char对应%c（单个字符）和%s（字符串）
 ***
 ## ex10 switch 循环  
 
-![](/home/zzp/Documents/Repo/zzp-blog/docs/appendix/9.png)
+![](./9.png)
 
 
 ## 数组  
