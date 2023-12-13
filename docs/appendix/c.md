@@ -201,4 +201,3 @@ void print_arguments(int argc, char *argv[])
 ## ex16 结构体和指向它们的指针  
 - [结构体](https://aptx4869-conan.github.io/zzp-blog/sundries/10/)  
 - [作业与附加题](https://aptx4869-conan.github.io/zzp-blog/sundries/11/)  
-测试  
