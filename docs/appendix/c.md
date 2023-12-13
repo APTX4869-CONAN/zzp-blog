@@ -179,7 +179,8 @@ void print_arguments(int argc, char *argv[])
 	
 ***
 ## ex15 指针  
-- [什么是指针](https://aptx4869-conan.github.io/zzp-blog/sundries/7/)  
+	
+-[什么是指针](https://aptx4869-conan.github.io/zzp-blog/sundries/7/)  
 ### 指针+-整数
 ![这是指针加数组的一串代码](./11.png)  
 数组是什么，默认是首元素的地址  指针取数组的地址实际是取的首元素的地址，也就是索引为0的地址  比如int\*p = arr  
@@ -194,10 +195,19 @@ void print_arguments(int argc, char *argv[])
 - [链接](https://aptx4869-conan.github.io/zzp-blog/sundries/8/)  
 	
 ### ex15 题目与附加题  
-- [链接](https://aptx4869-conan.github.io/zzp-blog/sundries/9/)  
+-[链接](https://aptx4869-conan.github.io/zzp-blog/sundries/9/)  
 	
 	
 	
 ## ex16 结构体和指向它们的指针  
-- [结构体](https://aptx4869-conan.github.io/zzp-blog/sundries/10/)  
+-[结构体](https://aptx4869-conan.github.io/zzp-blog/sundries/10/)  
 - [作业与附加题](https://aptx4869-conan.github.io/zzp-blog/sundries/11/)  
+	
+	
+	
+	
+	
+***
+## ex17 堆和栈的内存分配  
+-[堆和栈的内存分配](https://aptx4869-conan.github.io/zzp-blog/sundries/13/)
+-[作业与附加题](https://aptx4869-conan.github.io/zzp-blog/sundries/12/)  
