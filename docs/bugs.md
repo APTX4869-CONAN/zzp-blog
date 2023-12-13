@@ -5,19 +5,22 @@
 	
 ### 解决方法  
 在终端输入  
+~~~
 sudo service NetworkManager stop  
 	
 sudo rm /var/lib/NetworkManager/NetworkManager.state  
 	
 sudo service NetworkManager start  
-	
-	
+~~~
 
+
+或者用这个脚本(DIY)  
+![](./5.jpg)
 ## github 上传的问题  
 ### 问题  ![](./4.jpg)
 
 ### 解决方法  
 [原文链接](https://blog.csdn.net/fine_Y/article/details/131828604)  
-
+	
 ## 虚拟机与 windows 无法复制粘贴  
-### 解决方法：重启虚拟机 .
+### 解决方法：重启虚拟机 .  

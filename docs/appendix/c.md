@@ -39,9 +39,11 @@ cc -o hello hello.c
 - [占位符](https://aptx4869-conan.github.io/zzp-blog/sundries/placeholder/)  
 	
 	
+
 2.研究可以用几种方法打印数字。尝试以八进制或十六进制打印，或者其它你找到的方法。  
 - [进制](https://aptx4869-conan.github.io/zzp-blog/sundries/1/)  
 	
+
 3.试着打印空字符串，即""。  
 /0  
 	
@@ -71,25 +73,25 @@ char对应%c（单个字符）和%s（字符串）
 	
 ***
 ## ex8 if,else  
-	
+
 ![](./7.jpg)
 	
 	
 	
 ***
 ## ex9 while循环和布尔表达式  
-	
+
 ![](./8.png)
 	
 ***
 ## ex10 switch 循环  
-	
+
 ![](./9.png)
 	
 	
 ***
 ## ex11 数组  
-	
+
 int arr[10]={1，2，3}  
 其中int 处填类型  
 arr处填数组名  
@@ -104,12 +106,15 @@ __但是__:数组中的每个元素都可以使用 arr[0] 到 arr[9] 的索引�
 2.上网搜索在不同的CPU上整数所占的不同大小。  
 - [本题答案](https://aptx4869-conan.github.io/zzp-blog/sundries/3/)
 	
+
 3.如果一个字符数组占四个字节，一个整数也占4个字节，你可以像整数一样使用整个name吗？你如何用黑魔法实现它？  
 - [本题答案](https://aptx4869-conan.github.io/zzp-blog/sundries/4/)
 	
+
 4..弄清楚在for循环的每一部分你都可以放置什么样的代码。  
 - [for循环](https://aptx4869-conan.github.io/zzp-blog/sundries/5/)
 	
+
 5.查询NULL是什么东西  
 NULL 是C语言中的一个常见标识符，用于表示空指针，可以帮助在程序中更加清晰地表达和处理空指针相关的情况。  
 	
@@ -119,6 +124,7 @@ NULL 是C语言中的一个常见标识符，用于表示空指针，可以帮�
 7.我已经向你简短地介绍了&&，它执行“与”操作。上网搜索与之不同的“布尔运算符”。  
 - [布尔运算符](https://aptx4869-conan.github.io/zzp-blog/sundries/6/)  
 	
+
 8.使用if语句使循环提前退出。你需要break语句来实现它，搜索它的有关资料。  
 在(for、while、do-while)循环中，break 语句可以立即终止当前的循环，将控制转移到循环后的下一个语句。  
 在 switch 语句中，break 用于结束当前 case 分支的执行，使程序控制流跳出 switch 语句。  
@@ -149,7 +155,7 @@ i++;
 }   
 其中（）中的__条件__，如果是true则执行大括号里面的，如果是false则跳出括号。  
 
-	
+
 布尔表达式:只有true和false
 	
 	
@@ -175,11 +181,11 @@ void print_arguments(int argc, char *argv[])
         print_letters(argv[i]);
     }
 ~~~
-	
-	
+
+
 ***
 ## ex15 指针  
-	
+
 -[什么是指针](https://aptx4869-conan.github.io/zzp-blog/sundries/7/)  
 ### 指针+-整数
 ![这是指针加数组的一串代码](./11.png)  
@@ -209,5 +215,5 @@ void print_arguments(int argc, char *argv[])
 	
 ***
 ## ex17 堆和栈的内存分配  
--[堆和栈的内存分配](https://aptx4869-conan.github.io/zzp-blog/sundries/13/)
+-[堆和栈的内存分配](https://aptx4869-conan.github.io/zzp-blog/sundries/13/)  
 -[作业与附加题](https://aptx4869-conan.github.io/zzp-blog/sundries/12/)  
