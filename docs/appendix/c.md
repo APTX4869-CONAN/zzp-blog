@@ -36,9 +36,11 @@ cc -o hello hello.c
 1.搜索“printf格式化”，试着使用一些高级的占位符。  
 - [占位符](https://aptx4869-conan.github.io/zzp-blog/sundries/placeholder/)  
 	
+
 2.研究可以用几种方法打印数字。尝试以八进制或十六进制打印，或者其它你找到的方法。  
 - [进制](https://aptx4869-conan.github.io/zzp-blog/sundries/1/)  
 	
+
 3.试着打印空字符串，即""。  
 /0  
 	
@@ -67,23 +69,23 @@ char对应%c（单个字符）和%s（字符串）
 	
 	
 ## ex8 if,else  
-	
+
 ![](./7.jpg)
 	
 	
 	
 ## ex9 while循环和布尔表达式  
-	
+
 ![](./8.png)
 	
 ***
 ## ex10 switch 循环  
-	
+
 ![](./9.png)
 	
 	
 ## ex11 数组  
-	
+
 int arr[10]={1，2，3}  
 其中int 处填类型  
 arr处填数组名  
@@ -91,11 +93,17 @@ arr处填数组名
 填入1.2.3三个数，剩下默认为0  
 	
 ### 附加题  
-尝试将areas的一个元素赋值为name中的字符。  
+1.尝试将areas的一个元素赋值为name中的字符。  
 会报错  
 	
-上网搜索在不同的CPU上整数所占的不同大小。  
+2.上网搜索在不同的CPU上整数所占的不同大小。  
 - [本题答案](https://aptx4869-conan.github.io/zzp-blog/sundries/3/)
+	
+3.
+- [本题答案](https://aptx4869-conan.github.io/zzp-blog/sundries/4/)
+
+
+
 ***
 ## 命令  
 sizeof（name）  

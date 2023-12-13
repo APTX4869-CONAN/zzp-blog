@@ -46,7 +46,8 @@ nav:
       - placeholder: sundries/placeholder.md
       - 进制: sundries/1.md
       - char: sundries/2.md
-      - 整数大小: sundries/2.md
+      - 整数大小: sundries/3.md
+      - 联合体: sundries/4.md
 plugins:
   - mermaid2:
       arguments:
