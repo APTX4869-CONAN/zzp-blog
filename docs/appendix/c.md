@@ -99,13 +99,22 @@ arr处填数组名
 2.上网搜索在不同的CPU上整数所占的不同大小。  
 - [本题答案](https://aptx4869-conan.github.io/zzp-blog/sundries/3/)
 	
+
 3.如果一个字符数组占四个字节，一个整数也占4个字节，你可以像整数一样使用整个name吗？你如何用黑魔法实现它？  
 - [本题答案](https://aptx4869-conan.github.io/zzp-blog/sundries/4/)
 	
-4..弄清楚在for循环的每一部分你都可以放置什么样的代码。  
-- [本题答案](https://aptx4869-conan.github.io/zzp-blog/sundries/5/)
-	
 
+4..弄清楚在for循环的每一部分你都可以放置什么样的代码。  
+- [for循环](https://aptx4869-conan.github.io/zzp-blog/sundries/5/)
+	
+5.查询NULL是什么东西  
+NULL 是C语言中的一个常见标识符，用于表示空指针，可以帮助在程序中更加清晰地表达和处理空指针相关的情况。  
+	
+6.argc argv 是什么  
+在程序执行时，操作系统会将命令行输入的参数传递给 main 函数。argc 表示参数的数量，而argv 是一个指针数组，每个指针指向一个以 null 结尾的字符串，这些字符串存储了实际传递给程序的命令行参数。argv[0] 存储的是程序的名称。  
+	
+7.我已经向你简短地介绍了&&，它执行“与”操作。上网搜索与之不同的“布尔运算符”。  
+- [布尔运算符](https://aptx4869-conan.github.io/zzp-blog/sundries/6/)
 ***
 ## 命令  
 sizeof（name）  

@@ -49,6 +49,7 @@ nav:
       - 整数大小: sundries/3.md
       - 联合体: sundries/4.md
       - for循环: sundries/5.md
+      - 布尔代数式: sundries/6.md
 plugins:
   - mermaid2:
       arguments:
