@@ -99,10 +99,12 @@ arr处填数组名
 2.上网搜索在不同的CPU上整数所占的不同大小。  
 - [本题答案](https://aptx4869-conan.github.io/zzp-blog/sundries/3/)
 	
-3.
+3.如果一个字符数组占四个字节，一个整数也占4个字节，你可以像整数一样使用整个name吗？你如何用黑魔法实现它？  
 - [本题答案](https://aptx4869-conan.github.io/zzp-blog/sundries/4/)
-
-
+	
+4..弄清楚在for循环的每一部分你都可以放置什么样的代码。  
+- [本题答案](https://aptx4869-conan.github.io/zzp-blog/sundries/5/)
+	
 
 ***
 ## 命令  
