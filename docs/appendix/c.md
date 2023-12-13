@@ -140,14 +140,15 @@ i++ : 自增恒量变量，就是循环的内容
 	
 	
 ***
-## ex12while  
+## ex12while语句  
 语法:  
 while(i＜arge)  
 {  
 printf"xxx";  
 i++;  
-}  
-其中（）中的事条件，如果是true则执行大括号里面的，如果是false则跳出括号。  
+}   
+其中（）中的__条件__，如果是true则执行大括号里面的，如果是false则跳出括号。  
+
 	
 布尔表达式:只有true和false
 	
@@ -190,4 +191,13 @@ void print_arguments(int argc, char *argv[])
 字符串指针数组：char \*names[ ]  
 这种声明方式创建了一个数组，数组的每个元素都是一个指向字符串的指针。  
 相比于char  names[ ] 的优点：  
-- [链接](https://aptx4869-conan.github.io/zzp-blog/sundries/8/)
+- [链接](https://aptx4869-conan.github.io/zzp-blog/sundries/8/)  
+	
+### ex15 题目与附加题  
+- [链接](https://aptx4869-conan.github.io/zzp-blog/sundries/9/)  
+	
+	
+	
+## ex16 结构体和指向它们的指针  
+- [结构体](https://aptx4869-conan.github.io/zzp-blog/sundries/10/)  
+- [作业与附加题](https://aptx4869-conan.github.io/zzp-blog/sundries/11/)  
