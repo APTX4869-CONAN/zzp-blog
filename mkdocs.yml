@@ -59,6 +59,7 @@ nav:
       - ex16: sundries/11.md
       - 堆和栈的内存分配: sundries/13.md
       - ex17: sundries/12.md
+      - 预处理: sundries/14.md
 plugins:
   - mermaid2:
       arguments:

@@ -217,3 +217,38 @@ void print_arguments(int argc, char *argv[])
 ## ex17 堆和栈的内存分配  
 -[堆和栈的内存分配](https://aptx4869-conan.github.io/zzp-blog/sundries/13/)  
 -[作业与附加题](https://aptx4869-conan.github.io/zzp-blog/sundries/12/)  
+	
+	
+***
+## ex18函数指针  
+函数指针的格式类似这样：  
+~~~
+int (指针名)(int a, int b)  
+~~~
+记住如何编写它的一个方法是：  
+	
+编写一个普通的函数声明：  
+~~~
+int callme(int a, int b)  
+~~~
+将函数用指针语法包装：  
+~~~ 
+int (*callme)(int a, int b)  
+~~~
+将名称改成指针名称：   
+~~~
+int (*compare_cb)(int a, int b)  
+~~~
+指针的变量名称为compare_cb，你可以将它用作函数。这类似于指向数组的指针可以表示所指向的数组。指向函数的指针也可以用作表示所指向的函数，只不过是不同的名字。  
+![](./12.png)  
+这就是一个函数指针，它储存了show这个函数  
+为了和普通指针区别一下，它用了括号括住了  
+调用函数可以直接用show()或者 pFun()  
+### 回调函数  
+有两个函数A,B，函数A有参数，参数是函数B，则B就是回调函数  
+被当做参数来使用的函数就是回调函数  
+-[回调函数](https://aptx4869-conan.github.io/zzp-blog/sundries/14/)
+	
+	
+## ex19 一个简单的对象系统  
+-[预处理和宏定义](https://aptx4869-conan.github.io/zzp-blog/sundries/15/)
