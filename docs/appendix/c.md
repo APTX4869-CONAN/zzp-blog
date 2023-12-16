@@ -247,8 +247,10 @@ int (*compare_cb)(int a, int b)
 ### 回调函数  
 有两个函数A,B，函数A有参数，参数是函数B，则B就是回调函数  
 被当做参数来使用的函数就是回调函数  
--[回调函数](https://aptx4869-conan.github.io/zzp-blog/sundries/14/)
+-[回调函数](https://aptx4869-conan.github.io/zzp-blog/sundries/14/)  
 	
 	
 ## ex19 一个简单的对象系统  
--[预处理和宏定义](https://aptx4869-conan.github.io/zzp-blog/sundries/15/)
+-[预处理和宏定义](https://aptx4869-conan.github.io/zzp-blog/sundries/15/)  
+### C中构建面向对象系统  
+-[C中构建面向对象系统](https://aptx4869-conan.github.io/zzp-blog/sundries/16/)  

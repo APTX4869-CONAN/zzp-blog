@@ -41,6 +41,7 @@ nav:
       - 快捷键: appendix/key.md
       - 代码记录: appendix/Ccode.md
       - 想法: appendix/idea.md
+      - 代码用法: appendix/use.md
   - 记录: note.md
   - 解决的问题: bugs.md
   - 其他:
@@ -57,9 +58,11 @@ nav:
       - ex15: sundries/9.md
       - 结构体: sundries/10.md
       - ex16: sundries/11.md
-      - 堆和栈的内存分配: sundries/13.md
       - ex17: sundries/12.md
-      - 预处理: sundries/14.md
+      - 堆和栈的内存分配: sundries/13.md
+      - 回调函数: sundries/14.md
+      - 预处理: sundries/15.md
+      - OOP: sundries/16.md
 plugins:
   - mermaid2:
       arguments:
