@@ -42,7 +42,6 @@ nav:
       - 代码记录: appendix/Ccode.md
       - 想法: appendix/idea.md
       - 代码用法: appendix/use.md
-  - 记录: note.md
   - 解决的问题: bugs.md
   - 其他:
       - makefile: sundries/makefile.md
