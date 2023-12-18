@@ -170,3 +170,145 @@ shift和～大小写转换/
 摩尔定律：集成电路上可容纳的晶体管数目每两年就会翻一倍  
 Linux有很多分支..  
 安卓就是Linux著名的一个分支  
+	
+***
+### 1. 初识Linux  
+配置与使用 SSH 连接远程的 Linux 服务器  
+设置ssh密匙  
+	
+***
+### 2. 个性化配置与建站体验  
+设置外观，样式  
+自动化脚本  
+如何打开 shell:用Terminal  
+图形界面:以在 Ubuntu Server 18.04.3 (未包含图形环境的系统) 上安装桌面环境为例。只需要执行以下步骤：  
+	
+安装 ubuntu-gnome-desktop 软件：  
+$ sudo apt install ubuntu-gnome-desktop  
+接下来的提示中按输入 Y 回车即安装。  
+	
+注意  
+	
+若安装非常缓慢，可以尝试更换国内的软件源。科大源更换教程  
+	
+安装完成后输入：  
+$ sudo reboot  
+重启 后可以看到，GNOME 桌面已经安装完成。我们拥有了图形界面。  
+	
+GNOME 的 Shell 扩展  
+GNOME 支持很多扩展，并且有一个专门用于扩展的网站。 
+[](https://extensions.gnome.org/)  
+	
+要使用 GNOME 扩展，我们要先安装 gnome-shell-extensions。  
+$ sudo apt install gnome-shell-extensions  
+	
+***
+### 3.软件安装与文件操作  
+在 Ubuntu 下，我们可以使用 Ubuntu Application Store 来进行安装，下图为应用商店中的 VSCode 应用页面。  
+	
+	
+***
+### 4.进程、前后台、服务与例行性任务
+本章部分内容使用软件 htop 来讲解，建议在进一步阅读前使用 sudo apt install htop 安装并运行 htop，即时查看进程的各个属性。  
+使用鼠标与键盘都可以操作 htop。Htop 界面的最下方是一些选项，使用鼠标点击或按键盘的 F1 至 F10 功能键可以选择这些功能，常用的功能例如搜索进程（F3, Search）、过滤进程（F4, Filter，使得界面中只有满足条件的进程）、切换树形结构/列表显示（F5, Tree/List）等等  
+	
+ps（process status）是常用的输出进程状态的工具。直接调用 ps 仅会显示本终端中运行的相关进程。如果需要显示所有进程，对应的命令为 ps aux。  
+首先，有区分才有管理。进程标识符（PID，Process Identifier（是一个数字，是进程的唯一标识。在 htop 中，最左侧一列即为 PID。当用户想挂起、继续或终止进程时可以使用 PID 作为索引。  
+	
+在 htop 中，直接单击绿色条内的 PID 栏，可以将进程顺序按照 PID 升序排列，再次点击为降序排列，同理可应用于其他列。  
+前后台切换  
+上面的图片中，出现了 fg, bg 和 Ctrl + Z，涉及到的正是 shell 中前后台的概念。在 shell 中直接运行命令，将挂到前台，而如果不希望无力地看着屏幕输出不能做其他事情，那么便需要将程序切换到后台了。  
+	
+默认情况下，在 shell 中运行的命令都在前台运行，如果需要在后台运行程序，需要在最后加上 &：  
+$ ./matmul &  # 例子：运行耗时的计算同时进行其他操作  
+$ ps  
+~~~
+    PID TTY          TIME CMD
+   1720 pts/0    00:00:00 bash
+   1861 pts/0    00:00:06 matmul
+   1862 pts/0    00:00:00 ps
+~~~
+$ # 使用 ps 命令，可以发现 matmul 程序在后台运行，同时我们仍然可以操作 shell  
+而如果需要将前台程序切换到后台，则需要按下 Ctrl + Z 发送 SIGTSTP 使进程挂起，控制权还给 shell，此时屏幕输出如下所示，即（刚才挂起的进程）代号为 2，状态为 stopped，命令为 ping localhost  
+我们可以使用 jobs 命令，看到当前 shell 上所有相关的进程了。这里，后台已经有一个进程在运行，所以 ping localhost 得到的代号是 2  
+终止进程   
+正如上所述，许多信号都会引发进程的终结，然而标准的终止进程信号是 SIGTERM，意味着一个进程的自然死亡。  
+	
+在 htop 中发送信号  
+htop 中自带向进程发送信号的功能。按下 K 键，在左侧提示栏中选择需要的信号，按下回车发送。同时可以使用空格对进程进行标记，被标记的进程将改变显示颜色。此时重复上述过程，可对被标记进程批量发送信号。  
+	
+kill  
+如前所述，Linux 上最常用的发送信号的程序就是 kill。  
+	
+$ kill -l # 显示所有信号名称  
+ 1) SIGHUP       2) SIGINT       3) SIGQUIT      4) SIGILL       5) SIGTRAP  
+ 6) SIGABRT      7) SIGBUS       8) SIGFPE       9) SIGKILL     10) SIGUSR1  
+11) SIGSEGV     12) SIGUSR2     13) SIGPIPE     14) SIGALRM     15) SIGTERM  
+16) SIGSTKFLT   17) SIGCHLD     18) SIGCONT     19) SIGSTOP     20) SIGTSTP  
+21) SIGTTIN     22) SIGTTOU     23) SIGURG      24) SIGXCPU     25) SIGXFSZ  
+26) SIGVTALRM   27) SIGPROF     28) SIGWINCH    29) SIGIO       30) SIGPWR  
+31) SIGSYS      34) SIGRTMIN    35) SIGRTMIN+1  36) SIGRTMIN+2  37) SIGRTMIN+3  
+38) SIGRTMIN+4  39) SIGRTMIN+5  40) SIGRTMIN+6  41) SIGRTMIN+7  42) SIGRTMIN+8  
+43) SIGRTMIN+9  44) SIGRTMIN+10 45) SIGRTMIN+11 46) SIGRTMIN+12 47) SIGRTMIN+13  
+48) SIGRTMIN+14 49) SIGRTMIN+15 50) SIGRTMAX-14 51) SIGRTMAX-13 52) SIGRTMAX-12  
+53) SIGRTMAX-11 54) SIGRTMAX-10 55) SIGRTMAX-9  56) SIGRTMAX-8  57) SIGRTMAX-7  
+58) SIGRTMAX-6  59) SIGRTMAX-5  60) SIGRTMAX-4  61) SIGRTMAX-3  62) SIGRTMAX-2  
+63) SIGRTMAX-1  64) SIGRTMAX  
+如果不加任何参数，只有 PID，kill 命令将自动使用 15（SIGTERM）作为信号参数。  
+	
+立刻结束进程  
+	
+在信号中，9 代表 SIGKILL，收到这个信号之后，程序会立刻退出。  
+	
+在使用时，直接 kill -9 PID 即可。一个简单的记忆方法是：9 是最大的个位数。  
+	
+关于 kill 命令的来源  
+其他类 kill 命令  
+如果我们命令行中输入 apropos kill，我们可以发现各种其他的类 kill 命令，以及它们的简介。这里列举了一些：  
+	
+pgrep / pkill  
+后面接模糊名称，实际上类似于对名称进行 grep 命令。pgrep 仅列出搜索到的进程名称符合用户输入的进程标识符，而 pkill 会根据用户的输入向进程发送信号。  
+	
+killall  
+与 pkill 有一些类似，会向指定名字的进程发送信号。  
+	
+不要与 killall5 相混淆  
+	
+与 killall 不同，killall5 会向所有进程发送信号。这个命令名称来自 Unix System V 的系统管理命令（V 是罗马数字的 5）。  
+	
+xkill  
+xkill 是针对窗口的 kill，运行该命令后，鼠标点击程序对应的窗口，就可以杀死该程序。  
+	
+脱离终端  
+如果你使用过 SSH 连接到远程服务器执行任务，那么你会发现，你在 shell 中执行的程序在 SSH 断开之后会被关闭。这是因为终端一旦被关闭会向其中每个进程发送 SIGHUP（Signal hangup），而 SIGHUP 的默认动作即退出程序运行。  
+孤儿进程 (orphan) 和僵尸进程 (zombie)  
+父子关系引出了两种特殊的运行情况——父进程先退出，它的子进程成为孤儿进程 (orphan)；子进程先退出，而父进程未作出回应 (wait)，子进程则变为僵尸进程 (zombie)。  
+	
+孤儿进程（即留下的子进程）由操作系统回收，交给 init「领养」。  
+	
+僵尸进程的进程资源大部分已释放，但占用一个 PID，并保存返回值。系统中大量僵尸进程的存在将导致无法创建进程。  
+***
+### 5.用户与用户组、文件权限、文件系统层次结构  
+略  
+***
+### 6.网络、文本处理工具与 Shell 脚本  
+管道（pipe），操作符 |，作用为将符号左边的命令的 stdout 接到之后的命令的 stdin。管道不会处理 stderr。  
+	
+	
+管道是类 UNIX 操作系统中非常强大的工具。通过管道，我们可以将实现各类小功能的程序拼接起来干大事。  
+	
+#### Shell 脚本  
+什么是 Shell  
+Shell 是 Linux 的命令解释程序，是用户和内核之间的接口。除了作为命令解释程序外，Shell 同时还提供了一个可支持强大脚本语言的程序环境。  
+	
+#### Bash  
+Bourne Shell (sh)，是 Unix 系统的默认 Shell，简单轻便，脚本编程功能强，但交互性差。  
+	
+Bourne Again Shell，即 Bash，是 GNU 开发的一个 Shell，也是大部分 Linux 系统的默认 Shell，是 Bourne Shell 的扩展。  
+	
+Bash 允许用户定制环境以满足自己需要。通过修改环境文件   .bash_profile、.bashrc、.bash_logout，配置合适的环境变量，可以改变主目录、命令提示符、命令搜索路径等用户工作环境。  
+	
+此外，bash 也支持使用 alias 别名代替命令关键字（alias name='命令'）。输入 alias，可以查看目前存在的别名：  
+	
+#### alias  
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert  
