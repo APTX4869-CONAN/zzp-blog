@@ -58,8 +58,7 @@
 ​	
 ​	
 ​	
-而你，我的朋友，你才是真正的英雄  
-![homelader](./13.jpg)  
+And you ,my friend,are the true hero  
 ![homelader](./10.jpg)  
 ![homelader](./11.jpg)  
 ![homelader](./12.jpg)  
