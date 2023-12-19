@@ -1,4 +1,4 @@
-Learn C the Herd way  
+Zed的强大的调试宏Learn C the Herd way  
 
 ## 目的  
 这本书的目的是让你足够熟悉C语言，并能够使用它编写自己的软件，或者修改其他人的代码。
@@ -254,3 +254,14 @@ int (*compare_cb)(int a, int b)
 -[预处理和宏定义](https://aptx4869-conan.github.io/zzp-blog/sundries/15/)  
 ### C中构建面向对象系统  
 -[C中构建面向对象系统](https://aptx4869-conan.github.io/zzp-blog/sundries/16/)  
+	
+	
+	
+***
+## ex20 调试宏  
+-[调试宏](https://aptx4869-conan.github.io/zzp-blog/sundries/17/)  
+	
+	
+***
+## ex21 高级数据类型和控制结构  
+-[数据类型和控制结构](https://aptx4869-conan.github.io/zzp-blog/sundries/18/)  

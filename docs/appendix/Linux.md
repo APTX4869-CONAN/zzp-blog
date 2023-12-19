@@ -112,7 +112,7 @@ wq保存并退出
 w仅保存  
 q仅退出  
 q!强制退出   
-set nu显示行号  
+set nu显示行号 重要  
 set paste设置粘贴模式  
 	
 
@@ -254,8 +254,9 @@ $ kill -l # 显示所有信号名称
 53) SIGRTMAX-11 54) SIGRTMAX-10 55) SIGRTMAX-9  56) SIGRTMAX-8  57) SIGRTMAX-7  
 58) SIGRTMAX-6  59) SIGRTMAX-5  60) SIGRTMAX-4  61) SIGRTMAX-3  62) SIGRTMAX-2  
 63) SIGRTMAX-1  64) SIGRTMAX  
-如果不加任何参数，只有 PID，kill 命令将自动使用 15（SIGTERM）作为信号参数。  
+	如果不加任何参数，只有 PID，kill 命令将自动使用 15（SIGTERM）作为信号参数。  
 	
+
 立刻结束进程  
 	
 在信号中，9 代表 SIGKILL，收到这个信号之后，程序会立刻退出。  

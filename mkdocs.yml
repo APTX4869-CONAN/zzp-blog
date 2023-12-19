@@ -36,7 +36,7 @@ nav:
       - 精通工具: appendix/tools.md
       - Tmux: appendix/tmux.md
       - markdown: appendix/markdown.md
-      - code: appendix/code.md
+      - 《编码》: appendix/code.md
       - git: appendix/git.md
       - 快捷键: appendix/key.md
       - 代码记录: appendix/Ccode.md
@@ -62,6 +62,8 @@ nav:
       - 回调函数: sundries/14.md
       - 预处理: sundries/15.md
       - OOP: sundries/16.md
+      - 调试宏: sundries/17.md
+      - ex21: sundries/18.md
 plugins:
   - mermaid2:
       arguments:
