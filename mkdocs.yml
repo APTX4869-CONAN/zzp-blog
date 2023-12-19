@@ -17,6 +17,13 @@ theme:
         icon: material/weather-sunny
         name: 切换至日间模式
 
+  markdown_extensions:
+    - pymdownx.critic
+    - pymdownx.caret
+    - pymdownx.keys
+    - pymdownx.mark
+    - pymdownx.tilde
+  
   features:
     - navigation.tabs
     - navigation.top
