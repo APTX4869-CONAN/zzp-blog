@@ -64,6 +64,8 @@ nav:
       - OOP: sundries/16.md
       - 调试宏: sundries/17.md
       - ex21: sundries/18.md
+      - ex22: sundries/19.md
+      - 具体调试: sundries/20.md
 plugins:
   - mermaid2:
       arguments:

@@ -260,8 +260,15 @@ int (*compare_cb)(int a, int b)
 ***
 ## ex20 调试宏  
 -[调试宏](https://aptx4869-conan.github.io/zzp-blog/sundries/17/)  
+-[具体内容](https://aptx4869-conan.github.io/zzp-blog/sundries/20/)  
 	
 	
 ***
 ## ex21 高级数据类型和控制结构  
 -[数据类型和控制结构](https://aptx4869-conan.github.io/zzp-blog/sundries/18/)  
+	
+	
+	
+***
+## ex22 栈、作用域和全局  
+-[栈、作用域和全局](https://aptx4869-conan.github.io/zzp-blog/sundries/19/)
