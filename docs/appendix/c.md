@@ -8,7 +8,7 @@ Zed的强大的调试宏Learn C the Herd way
 ***
 ## ex2 makefile  
 ### 附加题  
-1.man make 
+1.man make   
 	
 ![](./10.png)
 	
