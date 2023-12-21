@@ -1,4 +1,4 @@
-# C语言代码记录
+# C语言代码记录  
 ## 得到数组中元素的数量  
 ~~~
 int count = sizeof(ages) / sizeof(int);
@@ -65,3 +65,36 @@ int main() {
 	
 
 ***
+## 阶乘  
+用到<mark>\*= </mark>这个东西  
+~~~
+fact *= i 是一个简写形式，表示将变量 fact 乘以变量 i，并将结果赋值给变量 fact。
+
+这种写法是 C 语言中的复合赋值运算符，它将乘法操作和赋值操作合并在一起。具体来说，fact *= i 的含义与 fact = fact * i 是相同的。
+~~~
+自己写的一个函数（用for循环实现了阶乘，并且计算了 m!/（m-n）！）
+~~~
+//用函数实现m!/（m-n）！
+#include<stdio.h>
+int jie_cheng(int n)//计算阶乘的函数
+{
+	int x = 1;
+	for (int i = 1; i <= n; i++) {
+		x *= i;
+	}
+	return x;
+}
+int main()
+{
+	int m;
+	int n;
+	printf("请输入两个数m和n");
+	scanf_s("%d,%d", m, n);
+	int result = jie_cheng(m) / jie_cheng(m - n);
+	printf("结果是：%d\n", result);
+
+	return 0;
+}
+~~~
+实现阶乘很简单  
+就是用了一个函数，里面用了一个for循环的++，只不过函数主体是x\*=1 ，这是一个实现阶乘的东西  
