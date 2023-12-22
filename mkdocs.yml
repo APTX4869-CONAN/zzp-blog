@@ -93,6 +93,7 @@ nav:
       - ex21: sundries/18.md
       - ex22: sundries/19.md
       - 具体调试: sundries/20.md
+      - 达夫设备: sundries/21.md
 plugins:
   - mermaid2:
       arguments:

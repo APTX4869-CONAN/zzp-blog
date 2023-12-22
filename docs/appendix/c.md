@@ -270,5 +270,9 @@ int (*compare_cb)(int a, int b)
 	
 	
 ***
+
 ## ex22 栈、作用域和全局  
 -[栈、作用域和全局](https://aptx4869-conan.github.io/zzp-blog/sundries/19/)
+
+## ex23 认识达夫设备  
+-[达夫设备](https://aptx4869-conan.github.io/zzp-blog/sundries/21/)  
