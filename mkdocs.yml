@@ -94,6 +94,7 @@ nav:
       - ex22: sundries/19.md
       - 具体调试: sundries/20.md
       - 达夫设备: sundries/21.md
+      - 输入输出和文件: sundries/22.md
 plugins:
   - mermaid2:
       arguments:

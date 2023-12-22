@@ -276,3 +276,9 @@ int (*compare_cb)(int a, int b)
 
 ## ex23 认识达夫设备  
 -[达夫设备](https://aptx4869-conan.github.io/zzp-blog/sundries/21/)  
+	
+	
+	
+## ex24 输入输出和文件  
+用到了fscanf 和 fgets   
+-[输入输出和文件](https://aptx4869-conan.github.io/zzp-blog/sundries/22/)  
