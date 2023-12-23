@@ -313,3 +313,17 @@ Bash 允许用户定制环境以满足自己需要。通过修改环境文件   
 	
 #### alias  
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert  
+	
+	
+#### chmod  
+##### UGO  
+`u`代表的是`user`  
+`G`代表了`group`  
+`o`代表的是`other`  
+有三种权限  
+`r` 可读  
+`w` 可写  
+`x`可执行  
+命令：chmod ugo+r 1.txt  
+ugo 三个加一起就是a  
+![](./13.jpg)
