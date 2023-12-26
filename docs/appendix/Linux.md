@@ -52,14 +52,14 @@ apt换元，安装，更新，升级，卸载
 升级：sudo apt upgrade 
 卸载：sudo apt remove
 ~~~
-	
+
 ~~~
 环境变量 
 环境变量：export zzp = "123"
 输出：echo 用$输出的是123,用&输出的是地址  
 
 ~~~
-	
+
 ~~~
 进程
 jobs命令用于显示当前进程
@@ -67,7 +67,7 @@ ps 查看进程
 mount 挂载
 
 ~~~
-	
+
 ~~~
 软链接
 ln命令的用法有两种形式：
@@ -106,7 +106,7 @@ ln -s /path/to/source_directory /home/user/another_directory/link_to_source_dire
 -v：显示详细信息，在创建链接时显示操作信息。
 
 ~~~
-	
+
 ~~~
 常用其他命令
 grep 查找特定关键词
@@ -117,7 +117,7 @@ alias 别名
 alias ll = 'ls - l'
 
 ~~~
-	
+
 ## 笔记  
 1. 挂载:插个U盘就叫挂载  
 2. shell:外壳，用于人机交互 在命令之间用分号，可一次性执行多个命令  
@@ -274,7 +274,10 @@ PUT 命令
 替换命令  
 键入 rx 以替换光标处字符(键入r+要更正的字符）  
 变更操作码  
-ce (变更光标到词尾）键入ce 加正确的单词  
+ce (变更光标到词尾）键入ce 加正确的单词 \
+翻页
+下一页 ctrl + f
+上一页 ctrl + b
 ~~~
 ***
 
