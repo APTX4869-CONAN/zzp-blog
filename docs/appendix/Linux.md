@@ -43,7 +43,81 @@ wc [-c -m -l -w] 文件路径
 比如:cat 1.txt | grep "1"   
 左边的1.txt自动补到右边的文件路径中  
 ***
+### 重要命令  
+~~~
+安装软件
+apt换元，安装，更新，升级，卸载  
+安装：sudo apt install
+更新：sudo apt update
+升级：sudo apt upgrade 
+卸载：sudo apt remove
+~~~
+	
+~~~
+环境变量 
+环境变量：export zzp = "123"
+输出：echo 用$输出的是123,用&输出的是地址  
 
+~~~
+	
+~~~
+进程
+jobs命令用于显示当前进程
+ps 查看进程
+mount 挂载
+
+~~~
+	
+~~~
+软链接
+ln命令的用法有两种形式：
+创建硬链接：
+ln [options] <target> <link_name>
+target：要链接的目标文件或目录。
+link_name：链接文件或目录的名称。
+示例：
+ln file1.txt link_to_file1.txt
+这会在当前目录下创建一个名为link_to_file1.txt的硬链接，指向file1.txt文件。
+
+硬链接是指多个文件名指向相同的物理数据块，它们共享相同的inode号，因此无论哪个文件名被使用，文件数据都是相同的。
+
+
+创建符号链接（软链接）：
+ln -s <target> <link_name>
+target：要链接的目标文件或目录。
+link_name：链接文件或目录的名称。
+示例：
+
+bash
+Copy code
+ln -s /path/to/directory link_to_directory
+这会创建一个名为link_to_directory的符号链接，指向指定目录。
+
+在其他目录创建软链接
+ln -s /path/to/source_directory /home/user/another_directory/link_to_source_directory
+
+这会在 /home/user/another_directory 中创建一个名为 link_to_source_directory 的软链接，指向 source_directory 目录。
+
+
+符号链接（软链接）是一个特殊的文件，它包含对目标文件的路径引用。软链接类似于Windows系统中的快捷方式。
+一些常用的选项：
+-s：用于创建符号链接，如果不使用这个选项，则默认创建硬链接。
+-f：如果目标文件已经存在，则强制执行创建链接，覆盖原有链接文件。
+-v：显示详细信息，在创建链接时显示操作信息。
+
+~~~
+	
+~~~
+常用其他命令
+grep 查找特定关键词
+grep “pattern” 1.txt
+sort 归类
+sort 1.txt
+alias 别名
+alias ll = 'ls - l'
+
+~~~
+	
 ## 笔记  
 1. 挂载:插个U盘就叫挂载  
 2. shell:外壳，用于人机交互 在命令之间用分号，可一次性执行多个命令  
@@ -116,8 +190,8 @@ q!强制退出
 set nu显示行号 重要  
 set paste设置粘贴模式  
 ~~~
-	
-	
+
+
 ### 基本命令   
 ~~~
 cd 进入子目录 
@@ -144,8 +218,8 @@ rm 删除文件 mv移动文件
 
 : !强制 
 ~~~
-	
-	
+
+
 正式使用vim  
 首先进入终端  
 	
