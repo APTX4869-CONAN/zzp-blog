@@ -57,7 +57,8 @@ apt换元，安装，更新，升级，卸载
 环境变量 
 环境变量：export zzp = "123"
 输出：echo 用$输出的是123,用&输出的是地址  
-
+全局变量，写到vim ~/.zshrc里面
+zshrc（Z shell run commands）
 ~~~
 
 ~~~
