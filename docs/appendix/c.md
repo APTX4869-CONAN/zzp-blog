@@ -282,3 +282,12 @@ int (*compare_cb)(int a, int b)
 ## ex24 输入输出和文件  
 用到了fscanf 和 fgets   
 -[输入输出和文件](https://aptx4869-conan.github.io/zzp-blog/sundries/22/)  
+		
+	
+***
+##  ex25 参变函数  
+-[参变函数](https://aptx4869-conan.github.io/zzp-blog/sundries/23/)  
+	
+	
+## ex26 实现一个真正的程序  
+-[参变函数](https://aptx4869-conan.github.io/zzp-blog/sundries/23/)  

@@ -4,7 +4,7 @@
 #include <string.h>
 #include<errno.h>
 #include "dbg.h"
-
+#include <stdarg.h>
 
 struct Student {
     int id;
@@ -308,6 +308,136 @@ enum Weekday {
 };
 //上面是枚举相关代码
 
+
+//下面是fscanf相关代码
+#define MAX_DATA_2 100
+
+// 定义枚举表示不同的眼睛颜色
+typedef enum EyeColor {
+    BLUE_EYES, GREEN_EYES, BROWN_EYES,
+    BLACK_EYES, OTHER_EYES
+} EyeColor;
+
+// 用于表示眼睛颜色的字符串数组
+const char *EYE_COLOR_NAMES[] = {
+    "Blue", "Green", "Brown", "Black", "Other"
+};
+
+// 定义一个结构体表示一个人
+typedef struct Person_2 {
+    int age;
+    char first_name[MAX_DATA_2];
+    char last_name[MAX_DATA_2];
+    EyeColor eyes;
+    float income;
+} Person_2;
+//上面是fscanf相关代码
+
+
+//下面是变参函数相关代码
+#define MAX_DATA_3 100
+
+int read_string(char **out_string, int max_buffer)
+{
+    *out_string = calloc(1, max_buffer + 1);
+    check_mem(*out_string);
+
+    char *result = fgets(*out_string, max_buffer, stdin);
+    check(result != NULL, "Input error.");
+
+    return 0;
+
+error:
+    if(*out_string) free(*out_string);
+    *out_string = NULL;
+    return -1;
+}
+
+int read_int(int *out_int)
+{
+    char *input = NULL;
+    int rc_2 = read_string(&input, MAX_DATA);
+    check(rc_2 == 0, "Failed to read number.");
+
+    *out_int = atoi(input);
+
+    free(input);
+    return 0;
+
+error:
+    if(input) free(input);
+    return -1;
+}
+
+int read_scan(const char *fmt, ...)
+{
+    int i = 0;
+    int rc_2 = 0;
+    int *out_int = NULL;
+    char *out_char = NULL;
+    char **out_string = NULL;
+    int max_buffer = 0;
+
+    va_list argp;
+    va_start(argp, fmt);
+
+    for(i = 0; fmt[i] != '\0'; i++) {
+        if(fmt[i] == '%') {
+            i++;
+            switch(fmt[i]) {
+                case '\0':
+                    sentinel("Invalid format, you ended with %%.");
+                    break;
+
+                case 'd':
+                    out_int = va_arg(argp, int *);
+                    rc_2 = read_int(out_int);
+                    check(rc_2 == 0, "Failed to read int.");
+                    break;
+
+                case 'c':
+                    out_char = va_arg(argp, char *);
+                    *out_char = fgetc(stdin);
+                    break;
+
+                case 's':
+                    max_buffer = va_arg(argp, int);
+                    out_string = va_arg(argp, char **);
+                    rc_2 = read_string(out_string, max_buffer);
+                    check(rc_2 == 0, "Failed to read string.");
+                    break;
+
+                default:
+                    sentinel("Invalid format.");
+            }
+        } else {
+            fgetc(stdin);
+        }
+
+        check(!feof(stdin) && !ferror(stdin), "Input error.");
+    }
+
+    va_end(argp);
+    return 0;
+
+error:
+    va_end(argp);
+    return -1;
+}
+
+//上面是变参函数相关代码
+
+
+
+
+
+
+
+
+
+
+
+
 int main(int argc, char *argv[])
 {
 	FILE *file1;
@@ -572,6 +702,88 @@ int main(int argc, char *argv[])
             break;
     }
 
+	
+    	printf("输入输出和文件相关代码：\n");
+	Person_2 you = {.age = 0}; // 初始化一个 Person 结构体实例 'you'，将年龄设置为 0
+    int i6 = 0;
+    char *in = NULL;
+    in = fgets(you.first_name, MAX_DATA_2-1, stdin);
+    check(in != NULL, "Failed to read first name.");
+    // 询问用户的姓氏
+    printf("你的名字? \n");
+    in = fgets(you.last_name, MAX_DATA_2-1, stdin); // 读取用户输入的姓氏
+    check(in != NULL, "Failed to read last name."); // 检查是否成功读取输入
+
+    // 询问用户的年龄
+    printf("你的年龄? \n");
+    int rc = fscanf(stdin, "%d", &you.age); // 读取用户输入的年龄
+    check(rc > 0, "You have to enter a number."); // 检查是否成功读取输入
+
+    // 询问用户的眼睛颜色选择
+    printf("你眼睛的颜色是哪种：\n");
+    for(i6 = 0; i6 <= OTHER_EYES; i6++) {
+        printf("%d) %s\n", i6+1, EYE_COLOR_NAMES[i6]); // 显示眼睛颜色选项
+    }
+    printf("> ");
+
+    int eyes = -1;
+    rc = fscanf(stdin, "%d", &eyes); // 读取用户输入的眼睛颜色选择
+    check(rc > 0, "You have to enter a number."); // 检查是否成功读取输入
+
+    you.eyes = eyes - 1; // 在 'you' 的 Person 结构中设置用户选择的眼睛颜色
+    check(you.eyes <= OTHER_EYES && you.eyes >= 0, "Do it right, that's not an option."); // 检查是否为有效的眼睛颜色选项
+
+    // 询问用户的时薪
+    printf("你的时薪？ ");
+    rc = fscanf(stdin, "%f", &you.income); // 读取用户输入的时薪
+
+	check(rc > 0, "Enter a floating point number.");
+
+    printf("----- RESULTS -----\n");
+
+    // 显示关于用户的收集信息
+    printf("Name: %s", you.last_name);
+    printf("Age: %d\n", you.age);
+    printf("Eyes: %s\n", EYE_COLOR_NAMES[you.eyes]);
+    printf("Income: %f\n", you.income);
+
+
+
+
+
+
+
+
+	printf("变参函数相关代码：");
+	    char *first_name_2 = NULL;
+    char initial = ' ';
+    char *last_name_2 = NULL;
+    int age_2 = 0;
+
+    
+    printf("\n");
+    int rc_2 = read_scan("%s", MAX_DATA_3, &first_name_2);
+    check(rc_2 == 0, "Failed first name.");
+
+    printf("你的名字? ");
+    rc_2 = read_scan("%s", MAX_DATA_3, &last_name_2);
+    check(rc_2 == 0, "Failed last name.");
+
+    printf("你几岁? ");
+    rc_2 = read_scan("%d", &age_2);
+
+    printf("---- RESULTS ----\n");
+    printf("\n");
+    printf("Name: %s", last_name_2);
+    printf("Age: %d\n", age_2);
+
+    free(first_name_2);
+    free(last_name_2);
+
+
+	
     	return 0;
 	
+	error:
+    return -1;	
 }

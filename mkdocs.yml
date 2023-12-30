@@ -96,6 +96,8 @@ nav:
       - 具体调试: sundries/20.md
       - 达夫设备: sundries/21.md
       - 输入输出和文件: sundries/22.md
+      - 参变函数: sundries/23.md
+      - 实现程序: sundries/24.md
 plugins:
   - mermaid2:
       arguments:
