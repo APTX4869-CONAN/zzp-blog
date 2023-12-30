@@ -122,6 +122,8 @@ alias ll = 'ls - l'
 ~~~
 unzip file.zip
 解压压缩包
+复制别的目录里的文件到本目录
+cp /path/to/other_directory/* .
 ~~~
 
 

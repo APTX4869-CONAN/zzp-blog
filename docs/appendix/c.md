@@ -300,7 +300,7 @@ int (*compare_cb)(int a, int b)
 	
 	
 ***
-## ex28 Makefile 进阶   
+## ex28 Makefile进阶   
 -[Makefile](https://aptx4869-conan.github.io/zzp-blog/sundries/26/)  
 	
 	
@@ -308,3 +308,9 @@ int (*compare_cb)(int a, int b)
 ***
 ## ex29 库和链接  
 -[库和链接](https://aptx4869-conan.github.io/zzp-blog/sundries/27/)  
+	
+	
+***
+## ex30 自动化测试  
+![](./14.jpg)  
+	
