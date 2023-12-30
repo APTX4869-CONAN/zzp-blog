@@ -290,4 +290,10 @@ int (*compare_cb)(int a, int b)
 	
 	
 ## ex26 实现一个真正的程序  
--[参变函数](https://aptx4869-conan.github.io/zzp-blog/sundries/23/)  
+-[参变函数](https://aptx4869-conan.github.io/zzp-blog/sundries/24/)  
+	
+	
+	
+***
+## ex27 创造性和防御性编程  
+-[创造性和防御性编程](https://aptx4869-conan.github.io/zzp-blog/sundries/25/)  
