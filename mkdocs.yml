@@ -98,6 +98,8 @@ nav:
       - 输入输出和文件: sundries/22.md
       - 参变函数: sundries/23.md
       - 实现程序: sundries/24.md
+      - Makefile: sundries/25.md
+      - 库和链接: sundries/26.md
 plugins:
   - mermaid2:
       arguments:
