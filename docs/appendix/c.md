@@ -297,3 +297,14 @@ int (*compare_cb)(int a, int b)
 ***
 ## ex27 创造性和防御性编程  
 -[创造性和防御性编程](https://aptx4869-conan.github.io/zzp-blog/sundries/25/)  
+	
+	
+***
+## ex28 Makefile 进阶   
+-[Makefile](https://aptx4869-conan.github.io/zzp-blog/sundries/26/)  
+	
+	
+	
+***
+## ex29 库和链接  
+-[库和链接](https://aptx4869-conan.github.io/zzp-blog/sundries/27/)  
