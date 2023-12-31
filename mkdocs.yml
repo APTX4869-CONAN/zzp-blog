@@ -87,7 +87,7 @@ nav:
             - 字符串指针数组: sundries/8.md
       	    - ex15: sundries/9.md
             - 结构体: sundries/10.md
-            - ex16: sundries/11.md
+            - ex16: sundri es/11.md
             - ex17: sundries/12.md
             - 堆和栈的内存分配: sundries/13.md
             - 回调函数: sundries/14.md
@@ -104,7 +104,7 @@ nav:
             - 创造性和防御性编程: sundries/25.md
             - Makefile: sundries/26.md
             - 库和链接: sundries/27.md
-      - 附页: index.md
+  - 附页: index.md
 plugins:
   - mermaid2:
       arguments:
