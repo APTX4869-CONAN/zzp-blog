@@ -6,12 +6,23 @@
 #include "dbg.h"
 #include <stdarg.h>
 
+
+
+
+
+
 struct Student {
     int id;
     char name_1[50];
     float GPA;
 };
 //定义了一个学生的结构体
+
+
+
+
+
+
 
 
 
@@ -26,6 +37,13 @@ int jiecheng(int n)//计算阶乘的函数
 //计算阶乘的函数
 
 
+
+
+
+
+
+
+//结构体
 //一个人的结构体，
 struct Person {
     char *name;
@@ -66,150 +84,16 @@ void Person_print(struct Person *who)
     printf("\tHeight: %d\n", who->height);
     printf("\tWeight: %d\n", who->weight);
 }
-//下面是数据库相关代码
-#define MAX_DATA 512// 定义了最大数据长度为 512
-#define MAX_ROWS 100// 定义了最大行数为 100
 
-struct Address {//用于表示一个地址，包括 id、set（标记记录是否已设置）、name 和 email。
-    int id;
-    int set;
-    char name[MAX_DATA];
-    char email[MAX_DATA];
-};
 
-struct Database {//包含了一个 Address 结构体数组，用于表示整个数据库。
-    struct Address rows[MAX_ROWS];
-};
 
-struct Connection {// 包含一个文件指针和指向数据库的指针。
-    FILE *file;
-    struct Database *db;
-};
 
-void die(const char *message)// 一个辅助函数，用于打印错误信息并退出程序。
-{
-    if(errno) {
-        perror(message);
-    } else {
-        printf("ERROR: %s\n", message);
-    }
 
-    exit(1);
-}
 
-void Address_print(struct Address *addr)//打印地址信息。
-{
-    printf("%d %s %s\n",
-            addr->id, addr->name, addr->email);
-}
 
-void Database_load(struct Connection *conn)//加载数据库。
-{
-    int rc = fread(conn->db, sizeof(struct Database), 1, conn->file);
-    if(rc != 1) die("Failed to load database.");
-}
 
-struct Connection *Database_open(const char *filename, char mode)
-{//打开数据库连接。
-    struct Connection *conn = malloc(sizeof(struct Connection));
-    if(!conn) die("Memory error");
 
-    conn->db = malloc(sizeof(struct Database));
-    if(!conn->db) die("Memory error");
 
-    if(mode == 'c') {
-        conn->file = fopen(filename, "w");
-    } else {
-        conn->file = fopen(filename, "r+");
-
-        if(conn->file) {
-            Database_load(conn);
-        }
-    }
-
-    if(!conn->file) die("Failed to open the file");
-
-    return conn;
-}
-
-void Database_close(struct Connection *conn)
-{//关闭数据库连接
-    if(conn) {
-        if(conn->file) fclose(conn->file);
-        if(conn->db) free(conn->db);
-        free(conn);
-    }
-}
-
-void Database_write(struct Connection *conn)
-{//将数据库写入文件。
-    rewind(conn->file);
-
-    int rc = fwrite(conn->db, sizeof(struct Database), 1, conn->file);
-    if(rc != 1) die("Failed to write database.");
-
-    rc = fflush(conn->file);
-    if(rc == -1) die("Cannot flush database.");
-}
-
-void Database_create(struct Connection *conn)
-{//创建数据库。
-    int i = 0;
-
-    for(i = 0; i < MAX_ROWS; i++) {
-        // make a prototype to initialize it
-        struct Address addr = {.id = i, .set = 0};
-        // then just assign it
-        conn->db->rows[i] = addr;
-    }
-}
-
-void Database_set(struct Connection *conn, int id, const char *name, const char *email)
-{// 设置数据库记录。
-    struct Address *addr = &conn->db->rows[id];
-    if(addr->set) die("Already set, delete it first");
-
-    addr->set = 1;
-    // WARNING: bug, read the "How To Break It" and fix this
-    char *res = strncpy(addr->name, name, MAX_DATA);
-    // demonstrate the strncpy bug
-    if(!res) die("Name copy failed");
-
-    res = strncpy(addr->email, email, MAX_DATA);
-    if(!res) die("Email copy failed");
-}
-
-void Database_get(struct Connection *conn, int id)
-{//获取数据库记录。
-    struct Address *addr = &conn->db->rows[id];
-
-    if(addr->set) {
-        Address_print(addr);
-    } else {
-        die("ID is not set");
-    }
-}
-
-void Database_delete(struct Connection *conn, int id)
-{//删除数据库记录。
-    struct Address addr = {.id = id, .set = 0};
-    conn->db->rows[id] = addr;
-}
-
-void Database_list(struct Connection *conn)
-{//列出数据库记录
-    int i = 0;
-    struct Database *db = conn->db;
-
-    for(i = 0; i < MAX_ROWS; i++) {
-        struct Address *cur = &db->rows[i];
-
-        if(cur->set) {
-            Address_print(cur);
-        }
-    }
-}
-//上面是数据库相关代码
 
 //下面函数指针相关代码
 // 定义一个错误处理函数 die，用于输出错误信息并退出程序
@@ -236,7 +120,7 @@ int *bubble_sort(int *numbers, int count, compare_cb cmp)
     int *target = malloc(count * sizeof(int)); // 分配内存来存放排序后的数组
 
     // 如果分配内存失败，调用 die 函数并打印错误信息
-    if (!target) die("Memory error.");
+    if (!target) die1("Memory error.");
 
     // 将 numbers 数组中的数据复制到 target 数组中
     memcpy(target, numbers, count * sizeof(int));
@@ -284,7 +168,7 @@ void test_sorting(int *numbers, int count1, compare_cb cmp)
     int *sorted = bubble_sort(numbers, count1, cmp); // 使用指定的比较函数排序数组
 
     // 如果排序失败，调用 die 函数并打印错误信息
-    if (!sorted) die("Failed to sort as requested.");
+    if (!sorted) die1("Failed to sort as requested.");
 
     // 打印排序后的数组
     for (i = 0; i < count1; i++) {
@@ -295,6 +179,15 @@ void test_sorting(int *numbers, int count1, compare_cb cmp)
     free(sorted); // 释放排序后的数组内存
 }
 //上面函数指针相关代码
+
+
+
+
+
+
+
+
+
 
 //下面是枚举相关代码
 enum Weekday {
@@ -307,6 +200,21 @@ enum Weekday {
     SATURDAY    // 默认为 6
 };
 //上面是枚举相关代码
+
+
+//下面是测试宏相关代码
+void test_log_info()
+{
+    log_info("Hello world!");
+    log_info("我有 %f 元.", 1.3f);
+}
+//上面是测试宏相关代码
+
+
+
+
+
+
 
 
 //下面是fscanf相关代码
@@ -334,6 +242,15 @@ typedef struct Person_2 {
 //上面是fscanf相关代码
 
 
+
+
+
+
+
+
+
+
+
 //下面是变参函数相关代码
 #define MAX_DATA_3 100
 
@@ -356,7 +273,7 @@ error:
 int read_int(int *out_int)
 {
     char *input = NULL;
-    int rc_2 = read_string(&input, MAX_DATA);
+    int rc_2 = read_string(&input, MAX_DATA_2);
     check(rc_2 == 0, "Failed to read number.");
 
     *out_int = atoi(input);
@@ -473,10 +390,18 @@ int main(int argc, char *argv[])
     fclose(file1);
 
 
+
+
+
+
     	printf("printf相关代码:\n");
     	printf("Hello World from printf\n");
     	//用了printf格式化输出hello world
     
+
+
+
+
 
 
     	printf("变量类型相关代码:\n");
@@ -489,6 +414,13 @@ int main(int argc, char *argv[])
 	//变量类型
 	
 	
+
+
+
+
+
+
+
 
 	//类型的简单运算
 	printf("int %d\n",zzp_grade);
@@ -516,10 +448,17 @@ int main(int argc, char *argv[])
 	printf("无字符乘以一个数结果%d\n",percentage);
 
 
+
+
+
 	printf("sizeof相关代码:\n");
 	printf("The size of int is %ld\n",sizeof(int));
 	//sizeof的应用
 	
+
+
+
+
 
 	int numbers[5];//声明一个数组
 	
@@ -528,7 +467,6 @@ int main(int argc, char *argv[])
 	numbers[2] = 30;
 	numbers[3] = 40;
 	numbers[4] = 50;
-
 	
 	printf("数组相关代码:\n");
 	printf("数组1第个数为：%d\n",numbers[0]);
@@ -565,6 +503,15 @@ int main(int argc, char *argv[])
 
 	printf("While循环：\n");
 	printf("用While循环输出1-5\n");
+	
+	
+	
+	
+	
+	
+	
+
+
 	int i2 = 1;
 	while (i2 <= 5){
 	printf("%d\n",i2);
@@ -599,6 +546,13 @@ int main(int argc, char *argv[])
         default:
             printf("你的输入不合法\n");
     }
+	
+	
+	
+	
+	
+	
+	
 	printf("自定义函数相关代码:\n");	
 	int i4 = 0;
 	printf("一个自定义阶乘函数的演示\n");
@@ -608,6 +562,14 @@ int main(int argc, char *argv[])
 	printf("%d的阶乘是：%d\n",i4 ,result);
 
 
+	
+	
+	
+	
+	
+	
+	
+	
 	printf("指针相关代码：\n");
 	printf("通过指针遍历数组\n");
 	int agess[] = {22, 100, 23, 31, 1000};
@@ -626,6 +588,14 @@ int main(int argc, char *argv[])
                 *(cur_name+i), *(cur_age+i));
     }
 
+	
+	
+	
+	
+	
+	
+	
+	
 	printf("结构体相关代码：\n");
 	struct Student student1;
 	printf("设置了一个学生的结构体\n");
@@ -650,6 +620,15 @@ int main(int argc, char *argv[])
     	Person_destroy(Garen);//销毁，防止内存泄漏
 
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	printf("函数指针相关代码：\n");
 	printf("使用回调函数和函数指针实现数字排序\n");
 	printf("输入5个数字，便会按顺序，逆序，奇偶排序\n");
@@ -668,6 +647,14 @@ int main(int argc, char *argv[])
     	test_sorting(numbers_2, count_2, reverse_order);
     	test_sorting(numbers_2, count_2, strange_order);
 
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	//枚举相关代码
 	printf("枚举相关代码：\n");
@@ -703,7 +690,16 @@ int main(int argc, char *argv[])
     }
 
 	
-    	printf("输入输出和文件相关代码：\n");
+    	printf("测试宏相关代码：\n");
+	test_log_info(); 
+	
+ 	   
+        
+    
+    
+    
+    
+    printf("输入输出和文件相关代码：\n");
 	Person_2 you = {.age = 0}; // 初始化一个 Person 结构体实例 'you'，将年龄设置为 0
     int i6 = 0;
     char *in = NULL;
@@ -754,9 +750,11 @@ int main(int argc, char *argv[])
 
 
 
-	printf("变参函数相关代码：");
+
+
+
+    printf("变参函数相关代码：");
 	    char *first_name_2 = NULL;
-    char initial = ' ';
     char *last_name_2 = NULL;
     int age_2 = 0;
 
@@ -780,7 +778,7 @@ int main(int argc, char *argv[])
     free(first_name_2);
     free(last_name_2);
 
-
+	
 	
     	return 0;
 	

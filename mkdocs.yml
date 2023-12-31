@@ -54,53 +54,57 @@ theme:
   language: zh
 
 nav:
-  - 主页: index.md
-  - 附页: 
-      - Learn c: appendix/c.md
-      - 计算机系统基础: appendix/cs.md
-      - Makefile: appendix/Makefile.md
-      - Linux: appendix/Linux.md
-      - 精通工具: appendix/tools.md
-      - Tmux: appendix/tmux.md
-      - markdown: appendix/markdown.md
-      - 《编码》: appendix/code.md
-      - git: appendix/git.md
+  - 主页: 
+      - Linux:
+            - Linux: appendix/Linux.md
+            - 计算机系统基础: appendix/cs.md
+            - Makefile: appendix/Makefile.md
+            - 精通工具: appendix/tools.md
+            - Tmux: appendix/tmux.md
+            - git: appendix/git.md
+      - c:
+            - Learn c: appendix/c.md
+            - markdown: appendix/markdown.md
+      - 书籍:
+            - 《编码》: appendix/code.md
       - 快捷键: appendix/key.md
-      - 代码记录: appendix/Ccode.md
-      - 想法: appendix/idea.md
-      - 代码用法: appendix/use.md
-      - 提问的智慧: appendix/question.md
-  - 解决的问题: bugs.md
-  - 其他:
-      - makefile: sundries/makefile.md
-      - placeholder: sundries/placeholder.md
-      - 进制: sundries/1.md
-      - char: sundries/2.md
-      - 整数大小: sundries/3.md
-      - 联合体: sundries/4.md
-      - for循环: sundries/5.md提问的
-      - 布尔代数式: sundries/6.md
-      - 指针: sundries/7.md
-      - 字符串指针数组: sundries/8.md
-      - ex15: sundries/9.md
-      - 结构体: sundries/10.md
-      - ex16: sundries/11.md
-      - ex17: sundries/12.md
-      - 堆和栈的内存分配: sundries/13.md
-      - 回调函数: sundries/14.md
-      - 预处理: sundries/15.md
-      - OOP: sundries/16.md
-      - 调试宏: sundries/17.md
-      - ex21: sundries/18.md
-      - ex22: sundries/19.md
-      - 具体调试: sundries/20.md
-      - 达夫设备: sundries/21.md
-      - 输入输出和文件: sundries/22.md
-      - 参变函数: sundries/23.md
-      - 实现程序: sundries/24.md
-      - 创造性和防御性编程: sundries/25.md
-      - Makefile: sundries/26.md
-      - 库和链接: sundries/27.md
+      - 记录:
+            - 代码记录: appendix/Ccode.md
+            - 想法: appendix/idea.md
+            - 代码用法: appendix/use.md
+            - 提问的智慧: appendix/question.md
+            - 解决的问题: bugs.md
+      - 其他:
+            - makefile: sundries/makefile.md
+            - placeholder: sundries/placeholder.md
+            - 进制: sundries/1.md
+            - char: sundries/2.md
+            - 整数大小: sundries/3.md
+            - 联合体: sundries/4.md
+            - for循环: sundries/5.md提问的
+            - 布尔代数式: sundries/6.md
+            - 指针: sundries/7.md
+            - 字符串指针数组: sundries/8.md
+      	    - ex15: sundries/9.md
+            - 结构体: sundries/10.md
+            - ex16: sundries/11.md
+            - ex17: sundries/12.md
+            - 堆和栈的内存分配: sundries/13.md
+            - 回调函数: sundries/14.md
+            - 预处理: sundries/15.md
+            - OOP: sundries/16.md
+            - 调试宏: sundries/17.md
+            - ex21: sundries/18.md
+            - ex22: sundries/19.md
+            - 具体调试: sundries/20.md
+            - 达夫设备: sundries/21.md
+            - 输入输出和文件: sundries/22.md
+            - 参变函数: sundries/23.md
+            - 实现程序: sundries/24.md
+            - 创造性和防御性编程: sundries/25.md
+            - Makefile: sundries/26.md
+            - 库和链接: sundries/27.md
+      - 附页: index.md
 plugins:
   - mermaid2:
       arguments:
