@@ -3,8 +3,6 @@ theme:
   name: material
   icon:
     logo: material/library
-    admonition:
-      <type>: <icon>
   palette:
     - scheme: default # 日间模式
       primary: indigo # 上方的
@@ -19,32 +17,7 @@ theme:
         icon: material/weather-sunny
         name: 切换至日间模式
 
-  markdown_extensions: 
-  - admonition # 折叠彩条图标插件
-  - pymdownx.details # 折叠彩条图标插件
-  - pymdownx.superfences # 折叠彩条图标插件
-  - def_list # 任务列表
-  - pymdownx.tasklist: # 任务列表
-      custom_checkbox: true #  任务列表
-  - mdx_truly_sane_lists
-  - abbr # 工具提示
-  - attr_list # 工具提示、按钮
-  - pymdownx.snippets # 工具提示
-  - pymdownx.snippets: # 术语拓展
-      auto_append: # 术语拓展
-        - includes/abbreviations.md # 术语拓展
-  - pymdownx.emoji: # 表情图标拓展
-      emoji_index: !!python/name:material.extensions.emoji.twemoji # 表情图标拓展
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg # 表情图标拓展
-  - pymdownx.critic # 格式Formatting
-  - pymdownx.caret # 格式Formatting
-  - pymdownx.keys # 格式Formatting
-  - pymdownx.mark # 格式Formatting
-  - pymdownx.tilde # 格式Formatting
-  - md_in_html # 注释Annotations
-  - pymdownx.superfences # 注释Annotations
-  - tables # 表格
-  edit_uri: edit/main/docs
+
   
   features:
     - navigation.tabs
@@ -108,6 +81,31 @@ nav:
             - Makefile: sundries/26.md
             - 库和链接: sundries/27.md
   - 附页: index.md
+  
+  markdown_extensions:
+    # Admonitions
+    - admonition
+    - pymdownx.details
+    - pymdownx.superfences
+    # Icons, Emojis
+    - attr_list
+    - pymdownx.emoji:
+        emoji_index: !!python/name:material.extensions.emoji.twemoji
+        emoji_generator: !!python/name:material.extensions.emoji.to_svg
+    # Formatting
+    - pymdownx.critic
+    - pymdownx.caret
+    - pymdownx.keys
+    - pymdownx.mark
+    - pymdownx.tilde
+    # Diagrams
+    - pymdownx.superfences:
+        custom_fences:
+          - name: mermaid
+            class: mermaid
+            format: !!python/name:pymdownx.superfences.fence_code_format
+            
+  
 plugins:
   - mermaid2:
       arguments:
