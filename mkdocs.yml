@@ -81,7 +81,7 @@ nav:
             - 创造性和防御性编程: sundries/25.md
             - Makefile: sundries/26.md
             - 库和链接: sundries/27.md
-  -休闲: play.md
+  - 休闲: play.md
 
   
 markdown_extensions:
