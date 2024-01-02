@@ -82,7 +82,7 @@ nav:
             - 库和链接: sundries/27.md
   - 附页: index.md
   
-  markdown_extensions:
+markdown_extensions:
     # Admonitions
     - admonition
     - pymdownx.details
