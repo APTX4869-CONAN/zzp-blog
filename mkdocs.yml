@@ -3,6 +3,8 @@ theme:
   name: material
   icon:
     logo: material/library
+    admonition:
+      <type>: <icon>
   palette:
     - scheme: default # 日间模式
       primary: indigo # 上方的
