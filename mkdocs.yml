@@ -45,7 +45,7 @@ nav:
             - 《编码》: appendix/code.md
       - 快捷键: appendix/key.md
       - 记录:
-            - 代码记录: appendix/Ccode.md
+            - 题目积累: appendix/Ccode.md
             - 想法: appendix/idea.md
             - 代码用法: appendix/use.md
             - 提问的智慧: appendix/question.md
