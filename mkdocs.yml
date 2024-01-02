@@ -40,7 +40,6 @@ nav:
             - git: appendix/git.md
       - c:
             - Learn c: appendix/c.md
-            - markdown: appendix/markdown.md
             - 术语的表达: appendix/expression.md
       - 书籍:
             - 《编码》: appendix/code.md
@@ -51,6 +50,7 @@ nav:
             - 代码用法: appendix/use.md
             - 提问的智慧: appendix/question.md
             - 解决的问题: bugs.md
+            - markdown: appendix/markdown.md
       - 其他:
             - makefile: sundries/makefile.md
             - placeholder: sundries/placeholder.md
