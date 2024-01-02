@@ -65,6 +65,7 @@ nav:
       - c:
             - Learn c: appendix/c.md
             - markdown: appendix/markdown.md
+            - 术语的表达: appendix/expression.md
       - 书籍:
             - 《编码》: appendix/code.md
       - 快捷键: appendix/key.md
