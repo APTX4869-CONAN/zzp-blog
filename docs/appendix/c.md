@@ -572,7 +572,7 @@
 ??? abstract "结构体和指针"
 
     在C语言中，结构体（Structures）是一种用户自定义的数据类型，允许你将__不同类型__的变量组合在一起，以表示一个相关联的__数据集合__。结构体可以包含各种不同类型的数据成员（也称为字段或属性），这些成员可以是整数、字符、指针、其他结构体等等。  
-	
+    
     结构体的定义使用关键字 struct，并指定结构体的名称以及包含在结构体内部的成员变量。  
     strcut和int一样，也是种类型  
     比如：  
@@ -630,48 +630,49 @@
     ~~~
     Person_destroy 函数：用于释放通过 Person_create 创建的 Person 结构体实例的内存。  
     使用 free 函数释放姓名字符串的内存，然后释放整个结构体实例的内存。  
-    	
-    	
-    	
-    ~~~
-    void Person_print(struct Person *who)
-    {
-        printf("Name: %s\n", who->name);
-        printf("\tAge: %d\n", who->age);
-        printf("\tHeight: %d\n", who->height);
-        printf("\tWeight: %d\n", who->weight);
-    }
-    
-    ~~~
-    Person_print 函数：用于打印 Person 结构体实例的信息  
-    ~~~
-    int main(int argc, char *argv[])
-    {
-        // make two people structures
-        struct Person *joe = Person_create("Joe Alex", 32, 64, 140);
-    struct Person *frank = Person_create("Frank Blank", 20, 72, 180);
-    
-        // print them out and where they are in memory
-        printf("Joe is at memory location %p:\n", joe);
-        Person_print(joe);
-    
-        printf("Frank is at memory location %p:\n", frank);
-        Person_print(frank);
-    
-        // make everyone age 20 years and print them again
-        joe->age += 20;
-        joe->height -= 2;
-        joe->weight += 40;
-        Person_print(joe);
-    
-        frank->age += 20;
-        frank->weight += 20;
-        Person_print(frank);
-    
-        // destroy them both so we clean up
-        Person_destroy(joe);
-        Person_destroy(frank);
-    
+
+
+​    	
+​    	
+​    ~~~
+​    void Person_print(struct Person *who)
+​    {
+​        printf("Name: %s\n", who->name);
+​        printf("\tAge: %d\n", who->age);
+​        printf("\tHeight: %d\n", who->height);
+​        printf("\tWeight: %d\n", who->weight);
+​    }
+​    
+​    ~~~
+​    Person_print 函数：用于打印 Person 结构体实例的信息  
+​    ~~~
+​    int main(int argc, char *argv[])
+​    {
+​        // make two people structures
+​        struct Person *joe = Person_create("Joe Alex", 32, 64, 140);
+​    struct Person *frank = Person_create("Frank Blank", 20, 72, 180);
+​    
+​        // print them out and where they are in memory
+​        printf("Joe is at memory location %p:\n", joe);
+​        Person_print(joe);
+​    
+​        printf("Frank is at memory location %p:\n", frank);
+​        Person_print(frank);
+​    
+​        // make everyone age 20 years and print them again
+​        joe->age += 20;
+​        joe->height -= 2;
+​        joe->weight += 40;
+​        Person_print(joe);
+​    
+​        frank->age += 20;
+​        frank->weight += 20;
+​        Person_print(frank);
+​    
+​        // destroy them both so we clean up
+​        Person_destroy(joe);
+​        Person_destroy(frank);
+​    
         return 0;
     }
     
@@ -681,13 +682,14 @@
     修改了实例的属性值，然后再次打印了它们的信息。   
     最后，调用 Person_destroy 函数释放了 joe 和 frank 实例所占用的内存，完成了清理工作。  
     整个程序的主要功能是创建、操作和销毁 Person 结构体实例，并且通过函数对其进行了封装，以方便管理和使用。   
-    
-    
-    	
-	
-	
-	
-	
+
+
+​    
+​    	
+​	
+​	
+​	
+​	
 ***
 ## ex17 堆和栈的内存分配  
 ??? abstract "堆和栈的内存分配"
@@ -720,7 +722,7 @@
     大小和生命周期：栈的大小和生命周期在编译时确定，通常较小；堆的大小不固定，并且可以在程序运行时动态分配和释放。  
     存储内容：栈用于存储函数调用、局部变量等；堆用于存储动态分配的数据，通常用于大量、持久或需要在不同函数间共享的数据。  
     在实际编程中，了解栈和堆的特点和用途对于正确、高效地管理内存是非常重要的。对于需要使用动态内存分配的情况，正确地申请、使用和释放堆内存是至关重要的，以避免内存泄漏和内存溢出等问题。  
-    
+
 ??? abstract "作业与附加题"
 
     ~~~
@@ -737,102 +739,105 @@
     
     ~~~
     这里使用 #define 定义了两个常量 MAX_DATA 和 MAX_ROWS，分别表示存储数据的最大长度和数据库中的最大行数。  
-    
-    
-    ~~~
-    struct Address {
-        int id;
-        int set;
-        char name[MAX_DATA];
-        char email[MAX_DATA];
-    };
-    
-    struct Database {
-        struct Address rows[MAX_ROWS];
-    };
-    
-    struct Connection {
-        FILE *file;
-        struct Database *db;
-    };
-    
-    ~~~
-    接下来定义了三个结构体：Address、Database 和 Connection。  
-    Address 结构体表示数据库中的一条记录，包含一个 ID、一个标志位 set 以及姓名和邮箱等信息。  
-    Database 结构体是由多个 Address 结构体组成的数组，表示整个数据库。  
-    Connection 结构体包含一个文件指针和一个指向数据库的指针，用于连接数据库。  
-    ~~~ 
-    void die(const char *message)
-    {
-        if(errno) {
-            perror(message);
-        } else {
-            printf("ERROR: %s\n", message);
-        }
-    
-        exit(1);
-    }
-    
-    ~~~
-    然后定义了一系列函数用来操作数据库：  
-    die 函数用于报告错误并退出程序。  
-    	
-    	
-    ~~~
-    int main(int argc, char *argv[])
-    {
-        // ... (命令行参数解析和数据库操作)
-        return 0;
-    }
-    ~~~
-    最后，在 main 函数中：  
-    解析命令行参数来确定要执行的操作，比如创建、获取、设置、删除或列出条目。  
-    根据操作执行相应的数据库操作，并在必要时输出错误信息。  
-    最后关闭数据库连接并退出程序。  
-    整个程序实现了一个简单的命令行数据库管理系统，可以通过命令行对数据进行增删改查等操作。  
-    	
-    	
-    
-    ***
-    ## 附加题  
-    搜索“栈数据结构”，并且在你最喜欢的语言中实现它，然后尝试在C中实现。  
-    ~~~
-    #include <stdio.h>
-    #include <stdlib.h>
-    
-    #define MAX_SIZE 100
-    
-    // 定义栈结构
-    typedef struct {
-        int items[MAX_SIZE];
-        int top; // 栈顶指针
-    } Stack;
-    
-    // 初始化栈
-    void initStack(Stack *stack) {
-        stack->top = -1; // 初始化栈顶指针为-1
-    }
-    
-    // 检查栈是否为空
-    int isEmpty(Stack *stack) {
-        return (stack->top == -1);
-    }
-    
-    // 检查栈是否已满
-    int isFull(Stack *stack) {
-        return (stack->top == MAX_SIZE - 1);
-    }
-    
-    // 压栈操作
-    void push(Stack *stack, int value) {
-        if (isFull(stack)) {
-            printf("栈已满，无法压栈\n");
-        } else {
-            stack->top++;
-            stack->items[stack->top] = value;
-        }
-    }
-    
+
+
+​    
+​    ~~~
+​    struct Address {
+​        int id;
+​        int set;
+​        char name[MAX_DATA];
+​        char email[MAX_DATA];
+​    };
+​    
+​    struct Database {
+​        struct Address rows[MAX_ROWS];
+​    };
+​    
+​    struct Connection {
+​        FILE *file;
+​        struct Database *db;
+​    };
+​    
+​    ~~~
+​    接下来定义了三个结构体：Address、Database 和 Connection。  
+​    Address 结构体表示数据库中的一条记录，包含一个 ID、一个标志位 set 以及姓名和邮箱等信息。  
+​    Database 结构体是由多个 Address 结构体组成的数组，表示整个数据库。  
+​    Connection 结构体包含一个文件指针和一个指向数据库的指针，用于连接数据库。  
+​    ~~~ 
+​    void die(const char *message)
+​    {
+​        if(errno) {
+​            perror(message);
+​        } else {
+​            printf("ERROR: %s\n", message);
+​        }
+​    
+​        exit(1);
+​    }
+​    
+​    ~~~
+​    然后定义了一系列函数用来操作数据库：  
+​    die 函数用于报告错误并退出程序。  
+
+
+​    	
+​    ~~~
+​    int main(int argc, char *argv[])
+​    {
+​        // ... (命令行参数解析和数据库操作)
+​        return 0;
+​    }
+​    ~~~
+​    最后，在 main 函数中：  
+​    解析命令行参数来确定要执行的操作，比如创建、获取、设置、删除或列出条目。  
+​    根据操作执行相应的数据库操作，并在必要时输出错误信息。  
+​    最后关闭数据库连接并退出程序。  
+​    整个程序实现了一个简单的命令行数据库管理系统，可以通过命令行对数据进行增删改查等操作。  
+
+
+​    	
+​    
+​    ***
+​    ## 附加题  
+​    搜索“栈数据结构”，并且在你最喜欢的语言中实现它，然后尝试在C中实现。  
+​    ~~~
+​    #include <stdio.h>
+​    #include <stdlib.h>
+​    
+​    #define MAX_SIZE 100
+​    
+​    // 定义栈结构
+​    typedef struct {
+​        int items[MAX_SIZE];
+​        int top; // 栈顶指针
+​    } Stack;
+​    
+​    // 初始化栈
+​    void initStack(Stack *stack) {
+​        stack->top = -1; // 初始化栈顶指针为-1
+​    }
+​    
+​    // 检查栈是否为空
+​    int isEmpty(Stack *stack) {
+​        return (stack->top == -1);
+​    }
+​    
+​    // 检查栈是否已满
+​    int isFull(Stack *stack) {
+​        return (stack->top == MAX_SIZE - 1);
+​    }
+​    
+​    // 压栈操作
+​    void push(Stack *stack, int value) {
+​        if (isFull(stack)) {
+​            printf("栈已满，无法压栈\n");
+​        } else {
+​            stack->top++;
+​            stack->items[stack->top] = value;
+​        }
+​    }
+​    
     // 出栈操作
     int pop(Stack *stack) {
         if (isEmpty(stack)) {
@@ -872,8 +877,9 @@
         return 0;
     }
     ~~~
-	
-	
+
+
+​	
 ***
 ## ex18函数指针 
 ??? abstract "函数指针" 
@@ -957,8 +963,9 @@
     ~~~
     这个函数就是回调函数  
     performOperation把数据整理并调用给了它  
-	
-	
+
+
+​	
 ## ex19 一个简单的对象系统  
 ??? abstract "一个简单的对象系统" 
 
@@ -1087,36 +1094,37 @@
     对象就是你的女朋友，你自己也是一个对象  
     对象就是实物，一种实物的一个个体  
     比如我是人类的一个个体  
-    	
-    	
-    	
-    	
-    ***
-    ## 定义  
-    面向对象系统（Object-Oriented System）是一种程序设计范式，它使用对象和类的概念来组织和构建程序。这种方法的核心思想是_将数据和操作封装在一起，通过对象来表示现实世界中的实体，并允许这些对象相互交互。_  
-    	
-    面向对象的四大特征  
-    1.抽象  
-    抽象行为，抽象属性  
-    属性： 一类事物的共同特征，比如人类的年龄，性别，编号  
-    行为：吃饭，睡觉，跑步  
-    2.封装  
-    把抽象出来的属性和行为封装成一个类(结构体)  
-    3.继承  
-    把父类的属性和行为继承给子类，子类就拥有了父类的属性和行为  
-    4.多态  
-    	
-    主要概念：  
-    类（Class）：类是对象的模板或蓝图，描述了对象的属性（数据成员）和行为（成员函数）。比如，汽车类可能有属性如速度、颜色等，并且可能有方法如启动、加速等。  
-    	
-    对象（Object）：对象是类的实例，具有特定的属性和行为。例如，一辆特定的汽车可以看作是汽车类的一个对象实例。  
-    	
-    封装（Encapsulation）：封装是指将数据和操作封装在一个对象内部，_并对外部隐藏其内部实现细节。_只有通过对象提供的接口（公共方法）才能访问对象的状态。  
-    	
-    继承（Inheritance）：继承允许一个类（子类）继承另一个类（父类）的属性和行为。子类可以重用父类的功能，并且可以增加新的功能或修改已有功能。  
-    	
-    多态（Polymorphism）：多态性允许不同类的对象对同一消息做出不同的响应。即使这些对象所接收的消息相同，但由于不同类实现了相同的方法，它们可能会有不同的行为。  
-    	
+
+
+​    	
+​    	
+​    	
+​    ***
+​    ## 定义  
+​    面向对象系统（Object-Oriented System）是一种程序设计范式，它使用对象和类的概念来组织和构建程序。这种方法的核心思想是_将数据和操作封装在一起，通过对象来表示现实世界中的实体，并允许这些对象相互交互。_  
+​    	
+​    面向对象的四大特征  
+​    1.抽象  
+​    抽象行为，抽象属性  
+​    属性： 一类事物的共同特征，比如人类的年龄，性别，编号  
+​    行为：吃饭，睡觉，跑步  
+​    2.封装  
+​    把抽象出来的属性和行为封装成一个类(结构体)  
+​    3.继承  
+​    把父类的属性和行为继承给子类，子类就拥有了父类的属性和行为  
+​    4.多态  
+​    	
+​    主要概念：  
+​    类（Class）：类是对象的模板或蓝图，描述了对象的属性（数据成员）和行为（成员函数）。比如，汽车类可能有属性如速度、颜色等，并且可能有方法如启动、加速等。  
+​    	
+​    对象（Object）：对象是类的实例，具有特定的属性和行为。例如，一辆特定的汽车可以看作是汽车类的一个对象实例。  
+​    	
+​    封装（Encapsulation）：封装是指将数据和操作封装在一个对象内部，_并对外部隐藏其内部实现细节。_只有通过对象提供的接口（公共方法）才能访问对象的状态。  
+​    	
+​    继承（Inheritance）：继承允许一个类（子类）继承另一个类（父类）的属性和行为。子类可以重用父类的功能，并且可以增加新的功能或修改已有功能。  
+​    	
+​    多态（Polymorphism）：多态性允许不同类的对象对同一消息做出不同的响应。即使这些对象所接收的消息相同，但由于不同类实现了相同的方法，它们可能会有不同的行为。  
+​    	
     为什么重要？  
     面向对象编程的优点在于它可以提高代码的可维护性、可扩展性和重用性。  
     通过封装数据和功能，对象可以隐藏其内部细节，使得代码更易于理解和修改。  
@@ -1189,10 +1197,11 @@
     其中pthis 是一个指针，指向Girl这个结构体  
     在 C 语言中，箭头操作符 -> 用于通过指向结构体或联合体的指针访问其成员。它的作用类似于使用点操作符 . 来访问结构体或联合体的成员，但是针对指针而不是实际的结构体或联合体本身。  
     最下面的操作里calloc和malloc一样都是分配空间的操作    
-    	
-    	
-	
-	
+
+
+​    	
+​	
+​	
 ## ex20 调试宏  
 ??? abstract "测试宏"
 
@@ -1206,143 +1215,1136 @@
     定位问题： 一旦问题被重现，程序员会使用调试工具或技术来定位问题所在。这可能涉及查看程序的代码、检查变量的值、跟踪代码执行路径等。  
     	
      识别错误： 确定问题的具体原因，这可能是由于逻辑错误、语法错误、内存问题、数据处理错误等。  	   
-	
-修复错误： 一旦问题被定位并识别，程序员会修改代码以解决问题，并进行进一步测试，以确保修改不会引入新的错误。  
-	
-验证和测试： 修改后的程序需要经过验证和测试，以确保问题已经解决，程序运行正常。  
-	
-调试是程序开发过程中不可或缺的一部分，因为即使经验丰富的开发人员也难以编写完全没有错误的程序。使用调试工具和技术可以帮助程序员更快速地定位和解决问题，提高代码质量和稳定性。调试也有助于开发人员更深入地理解程序的运行方式和行为。  
-## 如何调试  
-1.编译   
-make ex10  
-2.调试  
-lldb ex10  
-3.打断点  
-break set--name:main
-就会在main处打一个断点  
-	
-## 设计出来用于调试的宏  
-C通过返回错误码或设置全局的errno值来解决这些问题，并且你需要检查这些值。这种机制可以检查现存的复杂代码中，你执行的东西是否发生错误。当你编写更多的C代码时，你应该按照下列模式：  
-	
-调用函数。  
-如果返回值出现错误（每次都必须检查）。  
-清理创建的所有资源。  
-打印出所有可能有帮助的错误信息。  
-这意味着对于每一个函数调用（是的，每个函数）你都可能需要多编写3~4行代码来确保它正常功能。这些还不包括清理你到目前创建的所有垃圾。如果你有10个不同的结构体，3个方式。和一个数据库链接，当你发现错误时你应该写额外的14行。  
-***
-~~~
-#ifndef __dbg_h__
-#define __dbg_h__
+    	
+    修复错误： 一旦问题被定位并识别，程序员会修改代码以解决问题，并进行进一步测试，以确保修改不会引入新的错误。  
+    	
+    验证和测试： 修改后的程序需要经过验证和测试，以确保问题已经解决，程序运行正常。  
+    	
+    调试是程序开发过程中不可或缺的一部分，因为即使经验丰富的开发人员也难以编写完全没有错误的程序。使用调试工具和技术可以帮助程序员更快速地定位和解决问题，提高代码质量和稳定性。调试也有助于开发人员更深入地理解程序的运行方式和行为。  
+    ## 如何调试  
+    1.编译   
+    make ex10  
+    2.调试  
+    lldb ex10  
+    3.打断点  
+    break set--name:main
+    就会在main处打一个断点  
+    	
+    ## 设计出来用于调试的宏  
+    C通过返回错误码或设置全局的errno值来解决这些问题，并且你需要检查这些值。这种机制可以检查现存的复杂代码中，你执行的东西是否发生错误。当你编写更多的C代码时，你应该按照下列模式：  
+    	
+    调用函数。  
+    如果返回值出现错误（每次都必须检查）。  
+    清理创建的所有资源。  
+    打印出所有可能有帮助的错误信息。  
+    这意味着对于每一个函数调用（是的，每个函数）你都可能需要多编写3~4行代码来确保它正常功能。这些还不包括清理你到目前创建的所有垃圾。如果你有10个不同的结构体，3个方式。和一个数据库链接，当你发现错误时你应该写额外的14行。  
+    ***
+    ~~~
+    #ifndef __dbg_h__
+    #define __dbg_h__
+    
+    #include <stdio.h>
+    #include <errno.h>
+    #include <string.h>
+    
+    #ifdef NDEBUG
+    #define debug(M, ...)
+    #else
+    #define debug(M, ...) fprintf(stderr, "DEBUG %s:%d: " M "\n", __FILE__, __LINE__, ##__VA_ARGS__)
+    #endif
+    
+    #define clean_errno() (errno == 0 ? "None" : strerror(errno))
+    
+    #define log_err(M, ...) fprintf(stderr, "[ERROR] (%s:%d: errno: %s) " M "\n", __FILE__, __LINE__, clean_errno(), ##__VA_ARGS__)
+    
+    #define log_warn(M, ...) fprintf(stderr, "[WARN] (%s:%d: errno: %s) " M "\n", __FILE__, __LINE__, clean_errno(), ##__VA_ARGS__)
+    
+    #define log_info(M, ...) fprintf(stderr, "[INFO] (%s:%d) " M "\n", __FILE__, __LINE__, ##__VA_ARGS__)
+    
+    #define check(A, M, ...) if(!(A)) { log_err(M, ##__VA_ARGS__); errno=0; goto error; }
+    
+    #define sentinel(M, ...)  { log_err(M, ##__VA_ARGS__); errno=0; goto error; }
+    
+    #define check_mem(A) check((A), "Out of memory.")
+    
+    #define check_debug(A, M, ...) if(!(A)) { debug(M, ##__VA_ARGS__); errno=0; goto error; }
+    
+    #endif
+    ~~~
+    大佬写出来的宏，用于处理错误问题  
+    用的时候直接include dbg.h就行了  
+    这段代码是一个简单的调试宏和错误处理宏集合，它定义了一些宏来辅助程序员进行调试和错误处理。让我逐行解释这些代码：  
+    ~~~
+    #ifndef __dbg_h__
+    #define __dbg_h__
+    ~~~
+    #ifndef 检查是否定义了名为 __dbg_h__ 的宏。  
+    #define 定义了 __dbg_h__ 宏，以防止多次包含同一个头文件。  
+    	
+    #ifdef 检查是否定义了 NDEBUG 宏，如果定义了，则定义 debug(M, ...) 为空宏。  
+    如果未定义 NDEBUG，则定义 debug(M, ...) 宏为一个输出调试信息的函数。它使用 fprintf 函数将调试信息输出到标准错误流中（stderr），包括文件名、行号和格式化的消息内容。  
+    	
+    #define clean_errno() (errno == 0 ? "None" : strerror(errno))  
+    定义了一个 clean_errno() 宏，用于返回当前错误号的字符串描述。如果错误号为0（即没有错误），则返回字符串 "None"；否则，返回通过 strerror(errno) 得到的描述错误的字符串。  
+    接下来的一系列宏 log_err, log_warn, log_info, check, sentinel, check_mem, check_debug 使用了类似的模式，它们都是用来打印错误信息、检查条件、处理错误的宏。这些宏会在发生错误或者满足条件时，输出相应的信息，并跳转到错误处理代码段（通常是 goto error;）。  
+    	
+    这是一个使用调试宏的例子：  
+    ~~~
+    #include "dbg.h"  // 引入包含调试宏的头文件
+    
+    int main() {
+        int x = 10;
+        debug("x is: %d", x);  // 在程序中使用 debug 宏输出调试信息
+    
+        // ... 其他代码 ...
+    
+        return 0;
+    }
+    ~~~
+    上面的代码中，#include "dbg.h" 将包含了定义了调试宏的头文件，使得 debug() 宏在代码中可用。在 main() 函数中，调用 debug() 宏并传入了一个格式化的调试信息字符串和相应的参数。在这个例子中，debug() 宏会在调试模式下输出带有文件名、行号和调试信息的内容。  
+??? abstract "具体内容" 
 
-#include <stdio.h>
-#include <errno.h>
-#include <string.h>
+    ~~~
+    #ifndef __dbg_h__
+    #define __dbg_h__
+    
+    #include <stdio.h>
+    #include <errno.h>
+    #include <string.h>
+    
+    #ifdef NDEBUG
+    #define debug(M, ...)
+    #else
+    #define debug(M, ...) fprintf(stderr, "DEBUG %s:%d: " M "\n",     __FILE__, __LINE__, ##__VA_ARGS__)
+    #endif
+    
+    #define clean_errno() (errno == 0 ? "None" : strerror(errno))
+    
+    #define log_err(M, ...) fprintf(stderr, "[ERROR] (%s:%d: errno: %s) " M "\n", __FILE__, __LINE__, clean_errno(), ##__VA_ARGS__)
+    
+    #define log_warn(M, ...) fprintf(stderr, "[WARN] (%s:%d: errno: %s) " M "\n", __FILE__, __LINE__, clean_errno(), ##__VA_ARGS__)
+    
+    #define log_info(M, ...) fprintf(stderr, "[INFO] (%s:%d) " M "\n", __FILE__, __LINE__, ##__VA_ARGS__)
+    
+    #define check(A, M, ...) if(!(A)) { log_err(M, ##__VA_ARGS__); errno=0; goto error; }
+    
+    #define sentinel(M, ...)  { log_err(M, ##__VA_ARGS__); errno=0; goto error; }
+    
+    #define check_mem(A) check((A), "Out of memory.")
+    
+    #define check_debug(A, M, ...) if(!(A)) { debug(M, ##__VA_ARGS__); errno=0; goto error; }
+    
+    #endif
+    ~~~
+    ### 注：errno  
+    errno 是 C 和 C++ 标准库中的一个全局变量，用于表示最近发生的函数调用产生的错误代码。它通常用于诊断系统级错误，例如文件操作错误、内存分配错误、网络通信错误等。当发生函数调用失败时，相应的错误码会被设置到 errno 中。  
 
-#ifdef NDEBUG
-#define debug(M, ...)
-#else
-#define debug(M, ...) fprintf(stderr, "DEBUG %s:%d: " M "\n", __FILE__, __LINE__, ##__VA_ARGS__)
-#endif
 
-#define clean_errno() (errno == 0 ? "None" : strerror(errno))
+​    	
+​    ## debug宏  
+​    ~~~
+​    void test_debug()
+​    {
+​        // notice you don't need the \n
+​        debug("I have Brown Hair.");
+​    
+​       // passing in arguments like printf
+​        debug("I am %d years old.", 37);
+​    }
+​    ~~~
+​    debug 宏用于输出调试信息，类似于 printf，但无需在末尾添加换行符。  
+​    	
+​    ## clean_errno宏  
+​    clean_errno宏用于获取errno的安全可读的版本。中间奇怪的语法是“三元运算符”，你会在后面学到它。  
 
-#define log_err(M, ...) fprintf(stderr, "[ERROR] (%s:%d: errno: %s) " M "\n", __FILE__, __LINE__, clean_errno(), ##__VA_ARGS__)
 
-#define log_warn(M, ...) fprintf(stderr, "[WARN] (%s:%d: errno: %s) " M "\n", __FILE__, __LINE__, clean_errno(), ##__VA_ARGS__)
+​    	
+​    ##  log_err 宏  
+​    ~~~
+​    void test_log_err()
+​    {
+​        log_err("I believe everything is broken.");
+​        log_err("There are %d problems in %s.", 0, "space");
+​    }
+​    ~~~
+​    log_err 宏用于记录错误信息。  
 
-#define log_info(M, ...) fprintf(stderr, "[INFO] (%s:%d) " M "\n", __FILE__, __LINE__, ##__VA_ARGS__)
 
-#define check(A, M, ...) if(!(A)) { log_err(M, ##__VA_ARGS__); errno=0; goto error; }
+​    	
+​    ## log_warn 宏  
+​    log_warn 宏用于记录警告信息。  
 
-#define sentinel(M, ...)  { log_err(M, ##__VA_ARGS__); errno=0; goto error; }
 
-#define check_mem(A) check((A), "Out of memory.")
+​    	
+​    ## log_info宏  
+​    log_info 宏用于记录一般信息   
+​    用法：
 
-#define check_debug(A, M, ...) if(!(A)) { debug(M, ##__VA_ARGS__); errno=0; goto error; }
 
-#endif
-~~~
-大佬写出来的宏，用于处理错误问题  
-用的时候直接include dbg.h就行了  
-这段代码是一个简单的调试宏和错误处理宏集合，它定义了一些宏来辅助程序员进行调试和错误处理。让我逐行解释这些代码：  
-~~~
-#ifndef __dbg_h__
-#define __dbg_h__
-~~~
-#ifndef 检查是否定义了名为 __dbg_h__ 的宏。  
-#define 定义了 __dbg_h__ 宏，以防止多次包含同一个头文件。  
-	
-#ifdef 检查是否定义了 NDEBUG 宏，如果定义了，则定义 debug(M, ...) 为空宏。  
-如果未定义 NDEBUG，则定义 debug(M, ...) 宏为一个输出调试信息的函数。它使用 fprintf 函数将调试信息输出到标准错误流中（stderr），包括文件名、行号和格式化的消息内容。  
-	
-#define clean_errno() (errno == 0 ? "None" : strerror(errno))  
-定义了一个 clean_errno() 宏，用于返回当前错误号的字符串描述。如果错误号为0（即没有错误），则返回字符串 "None"；否则，返回通过 strerror(errno) 得到的描述错误的字符串。  
-接下来的一系列宏 log_err, log_warn, log_info, check, sentinel, check_mem, check_debug 使用了类似的模式，它们都是用来打印错误信息、检查条件、处理错误的宏。这些宏会在发生错误或者满足条件时，输出相应的信息，并跳转到错误处理代码段（通常是 goto error;）。  
-	
-这是一个使用调试宏的例子：  
-~~~
-#include "dbg.h"  // 引入包含调试宏的头文件
+​    	
+​    	
+​    ## check 宏  
+​    check会保证条件A为真，否则会记录错误M（带着log_err的可变参数），之后跳到函数的error:区域来执行清理。  
 
-int main() {
-    int x = 10;
-    debug("x is: %d", x);  // 在程序中使用 debug 宏输出调试信息
 
-    // ... 其他代码 ...
+​    	
+​    ## sentinel宏  
+​    sentinel可以放在函数的任何不应该执行的地方，它会打印错误信息并且跳到error:标签。你可以将它放到if-statements或者switch-statements的不该被执行的分支中，比如default。  
 
-    return 0;
-}
-~~~
-上面的代码中，#include "dbg.h" 将包含了定义了调试宏的头文件，使得 debug() 宏在代码中可用。在 main() 函数中，调用 debug() 宏并传入了一个格式化的调试信息字符串和相应的参数。在这个例子中，debug() 宏会在调试模式下输出带有文件名、行号和调试信息的内容。  
--[具体内容](https://aptx4869-conan.github.io/zzp-blog/sundries/20/)  
-	
-	
+
+​    	
+​    ## check_mem宏  
+​    简写的check_mem宏，用于确保指针有效，否则会报告“内存耗尽”的错误。    
+
+
+​    	
+​    ## check_debug宏  
+​    check_debug宏，它仍然会检查并处理错误，尤其是你并不想报告的普遍错误。它里面使用了debug代替log_err来报告错误，所以当你定义了NDEBUG，它仍然会检查并且发生错误时跳出，但是不会打印消息了。  
+
+
+​	
 ***
 ## ex21 高级数据类型和控制结构  
--[数据类型和控制结构](https://aptx4869-conan.github.io/zzp-blog/sundries/18/)  
-	
-	
-	
-***
+??? abstract "数据类型和控制结构"
+
+    ## 可用的数据类型  
+    int  
+    	
+    储存普通的整数，默认为32位大小。  
+    	
+    译者注：int在32或64位环境下为32位，但它不应该被看作平台无关的。如果需要用到平台无关的定长整数，请使用int(n)_t。  
+    	
+    double  
+    	
+    储存稍大的浮点数。  
+    	
+    float  
+    	
+    储存稍小的浮点数。  
+    	
+    char  
+    	
+    储存单字节字符。  
+    	
+    void  
+    	
+    表示“无类型”，用于声明不返回任何东西的函数，或者所指类型不明的指针，例如void *thing。  
+    	
+    enum  
+    	
+    枚举类型，类似于整数，也可转换为整数，但是通过符号化的名称访问或设置。当switch语句中没有覆盖到所有枚举的元素时，一些编译器会发出警告。  
+    
+    ***
+    ## 类型修饰符  
+    unsigned  
+    	
+    修改类型，使它不包含任何负数，同时上界变高。  
+    	
+    signed  
+    	
+    可以储存正数和负数，但是上界会变为（大约）一半，下界变为和上界（大约）等长。  
+    	
+    译者注：符号修饰符只对char和*** int有效。*** int默认为signed，而char根据具体实现，可以默认为signed，也可以为unsigned。  
+    	
+    long  
+    	
+    对该类型使用较大的空间，使它能存下更大的数，通常使当前大小加倍。  
+    	
+    short  
+    	
+    对该类型使用较小的空间，使它储存能力变小，但是占据空间也变成一半。  
+    	
+    类型限定符  
+    const  
+    	
+    表示变量在初始化后不能改变。  
+    	
+    volatile  
+    	
+    表示会做最坏的打算，编译器不会对它做任何优化。通常仅在对变量做一些奇怪的事情时，才会用到它。  
+    	
+    register  
+    	
+    强制让编译器将这个变量保存在寄存器中，并且也可以无视它。目前的编译器更善于处理在哪里存放变量，所以应该只在确定这样会提升性能时使用它。  
+
+
+​    	
+​    	
+​    	
+​    	
+​    ***
+​    ## 类型转换  
+​    C使用了一种“阶梯形类型提升”的机制，它会观察运算符两边的变量，并且在运算之前将小边的变量转换为较大边。这个过程按照如下顺序：  
+​    	
+​    long double  
+​    double  
+​    float  
+​    long long  
+​    long  
+​    int (short, char)  
+​    译者注：short和char会在运算之前转换成int。同种类型的unsigned和signed运算，signed保持字节不变转换成unsigned。  
+​    	
+​    ***
+​    ## 类型大小  
+​    stdint.h为定长的整数类型定义了一些typedef，同时也有一些用于这些类型的宏。这比老的limits.h更加易于使用，因为它是不变的。这些类型如下：  
+​    	
+​    int8_t  
+​    	
+​    8位符号整数。  
+​    	
+​    uint8_t  
+​    	
+​    8位无符号整数。  
+​    	
+    int16_t  
+    	
+    16位符号整数。  
+    	
+    uint16_t  
+    	
+    16位无符号整数。  
+    	
+    int32_t  
+    	
+    32位符号整数。  
+    	
+    uint32_t  
+    	
+    32位无符号整数。  
+    	
+    int64_t  
+    	
+    64位符号整数。  
+    	
+    uint64_t  
+    	
+    64位无符号整数。  
+    	
+    译者注：当用于对类型大小有要求的特定平台时，可以使用这些类型。如果你怕麻烦，不想处理平台相关类型的今后潜在的扩展的话，也可以使用这些类型。  
+    	
+    下面的模式串为(u)int(BITS)_t，其中前面的u代表unsigned，BITS是所占位数的大小。这些模式串返回了这些类型的最大（或最小）值。  
+    	
+    INT(N)_MAX  
+    	
+    N位符号整数的最大正值，例如INT16_MAX。  
+    	
+    INT(N)_MIN  
+    	
+    N位符号整数的最小负值。  
+    	
+    UINT(N)_MAX  
+    	
+    N位无符号整数的最大正值。为什么不定义其最小值，是因为最小值是0，不可能出现负值。  
+    	
+    警告  
+    	
+    要注意，不要从字面上在任何头文件中去找INT(N)_MAX的定义。这里的N应该为特定整数，比如8、16、32、64，甚至可能是128。我在这个练习中使用了这个记法，就不需要显式写出每一个不同的组合了。  
+    	
+    在stdint.h中，对于size_t类型和足够存放指针的整数也有一些宏定义，以及其它便捷类型的宏定义。编译器至少要保证它们为某一大小，并允许它们为更大的大小。  
+    	
+    int_least(N)_t  
+    	
+    至少N位的整数。  
+    	
+    uint_least(N)_t  
+    	
+    至少N位的无符号整数。  
+    	
+    INT_LEAST(N)_MAX  
+    	
+    int_least(N)_t类型的最大值。  
+    	
+    INT_LEAST(N)_MIN  
+    	
+    int_least(N)_t类型的最小值。  
+    	
+    UINT_LEAST(N)_MAX  
+    	
+    uint_least(N)_t的最大值。  
+    	
+    int_fast(N)_t  
+    	
+    与int_least(N)_t相似，但是是至少N位的“最快”整数。  
+    	
+    uint_fast(N)_t  
+    	
+    至少N位的“最快”无符号整数。  
+    	
+    INT_FAST(N)_MAX  
+    	
+    int_fast(N)_t的最大值。  
+    	
+    INT_FAST(N)_MIN  
+    	
+    int_fast(N)_t的最小值。  
+    	
+    UINT_FAST(N)_MAX  
+    	
+    uint_fast(N)_t的最大值。  
+    	
+    intptr_t  
+    	
+    足够存放指针的符号整数。  
+    	
+    uintptr_t  
+    	
+    足够存放指针的无符号整数。  
+    	
+    INTPTR_MAX  
+        	
+    intptr_t的最大值。  
+    	
+    INTPTR_MIN  
+    	
+    intptr_t的最小值。  
+    	
+    UINTPTR_MAX  
+    	
+    uintptr_t的最大值。  
+    	
+    intmax_t  
+    	
+    系统中可能的最大尺寸的整数类型。  
+        	
+    uintmax_t  
+    	
+    系统中可能的最大尺寸的无符号整数类型。  
+    	
+    INTMAX_MAX  
+    	
+    intmax_t的最大值。   
+    	
+    INTMAX_MIN  
+    	
+    intmax_t的最小值。  
+    	
+    UINTMAX_MAX  
+        	
+    uintmax_t的最大值。  
+    	
+    PTRDIFF_MIN  
+    	
+    ptrdiff_t的最小值。  
+    	
+    PTRDIFF_MAX  
+    	
+    ptrdiff_t的最大值。  
+    	
+    SIZE_MAX  
+    	
+    size_t的最大值。  
+    	
+    可用的运算符  
+    这是一个全面的列表，关于你可以在C中使用的全部运算符。这个列表中我会标明一些东西：  
+    	
+    二元  
+    	
+    该运算符有左右两个操作数：X + Y。  
+    	
+    一元  
+    	
+    该运算符作用于操作数本身-X。  
+        	
+    前缀  
+    	
+    该运算符出现在操作数之前：++X。  
+    	
+    后缀  
+    	
+    通常和前缀版本相似，但是出现在操作数之后，并且意义不同：X++。  
+    	
+    三元  
+    	
+    只有一个三元运算符，意思是“三个操作数”：X ? Y : Z。  
+    
+    ***
+    ## 算数运算符  
+    下面是基本的算数运算符，我将函数调用()放入其中因为它更接近“算数”运算。  
+    	
+    ()  
+    	
+    函数调用。  
+    	
+    二元 *  
+    
+    乘法。  
+    	
+    /  
+    	
+    除法。  
+    	
+    二元 +  
+    	
+    加法。  
+    	
+    一元 +  
+    	
+    无变化。  
+    	
+    后缀 ++  	
+    	
+    读取变量然后自增。  
+    	
+    前缀 ++   
+    	
+    自增变量然后读取。  
+        	
+    后缀 --  
+    	
+    读取变量然后自减。  
+    	
+    前缀 --  
+    	
+    自减变量然后读取。  
+    	
+    二元 -  
+    	
+    减法。  
+    	
+    一元 -  
+    	
+    取反，可用于表示负数。  
+
+
+​    
+​    ***
+​    ## 数据运算  
+​    它们用于以不同方式和形式访问数据。  
+​    	
+​    ->  
+​    	
+​    结构体指针的成员访问。一元*和.运算符的复合。  
+​    	
+​    .  
+​    	
+​    结构体值的成员访问。  
+​    	
+​    []  
+​    	
+​    取数组下标。二元+和一元*运算符的复合。  
+​        	
+    sizeof  
+    	
+    取类型或变量大小。  
+    	
+    一元 &  
+    	
+    取地址。  
+    	
+    一元 *  
+    	
+    取值（提领地址）。  
+    
+    ***
+    ## 逻辑运算符  
+    它们用于测试变量的等性和不等性。  
+    	
+    !=  
+        	
+    不等于。  
+    	
+    <  
+    	
+    小于。  
+    	
+    <=  
+    	
+    小于等于。  
+    	
+    ==  
+    	
+    等于（并不是赋值）。  
+    	
+    >  
+    
+        大于。  
+    	
+    >=  
+    
+    大于等于。  
+    	
+    位运算符  
+    它们更加高级，用于修改整数的原始位。  
+    	
+    二元 &  
+    	
+        位与。  
+    	
+    <<   
+    	
+    左移。  
+    	
+    >>  
+    
+    右移。  
+    	
+    ^  
+    	
+    位异或。  
+        	
+    |  
+    	
+    位或。  
+    	
+    ~  
+    	
+    取补（翻转所有位）。  
+
+
+​    	
+​    	
+​    ***
+​    ## 布尔运算符。  
+​        用于真值测试，仔细学习三元运算符，它非常有用。  
+​    	
+​    !  
+​    	
+​    取非。  
+​    	
+​        &&  
+​    	
+​    与。  
+​    	
+​    ||  
+​    	
+​    或。  
+​    	
+    ?:  
+    	
+    三元真值测试，X ? Y : Z读作“若X则Y否则Z”。  
+
+
+​    	
+​    	
+​    ***
+​    ## 赋值运算符  
+​    复合赋值运算符在赋值同时执行运算。大多数上面的运算符都可以组成复合赋值运算符。  
+​    	
+​    =  
+​    	
+​    赋值。  
+​    	
+​    %=  
+​    	
+​    取余赋值。  
+​    	
+​    &=  
+​    	
+​    位与赋值。  
+​    	
+    *=  
+    	
+    乘法赋值。  
+    	
+    +=  
+    	
+    加法赋值。  
+    	
+    -=  
+    	
+    减法赋值。  
+    	
+    /=  
+    	
+    除法赋值。  
+    	
+    <<=  
+        	
+    左移赋值。  
+    	
+    >>=  
+    
+    右移赋值。  
+    	
+    ^=  
+    	
+    位异或赋值。  
+    	
+    |=  
+    	
+    位或赋值。  	
+
+
+​    	
+​    ***
+​    ## 可用的控制结构  
+​    下面是一些你没有接触过的控制结构：  
+​    	
+​    do-while  
+​    	
+​    do { ... } while(X);首先执行花括号中的代码，之后再跳出前测试X表达式。  
+​    	
+​    break  
+​    	
+​    放在循环中用于跳出循环。  
+​    	
+​    continue  
+​    	
+​    跳到循环尾。  
+​    	
+    goto  
+    	
+    跳到你已经放置label的位置，你已经在dbg.h中看到它了，用于跳到error标签。  
+
+
+​    
+​    ***
 
 ## ex22 栈、作用域和全局  
--[栈、作用域和全局](https://aptx4869-conan.github.io/zzp-blog/sundries/19/)
+??? abstract "栈、作用域和全局"
 
+    在编程中，栈（Stack）、作用域（Scope）和全局（Global）是三个与变量和内存管理相关的重要概念。  
+    	
+    1. 栈（Stack）：  
+    	栈是一种数据结构，通常用于存储函数调用期间的局部变量、函数参数和返回地址等信息。在程序执行期间，每当一个函数被调用时，系统都会为该函数创建一个称为“栈帧”的区域，用于存储函数中的局部变量以及执行过程中的其他信息。栈是一种“后进先出”（Last-In, First-Out，LIFO）的数据结构，最后进入栈的数据首先被取出。当函数执行完毕返回时，相应的栈帧会被销毁，释放栈空间。   
+    	栈只有一个口子，所以只有两个操作 压栈和出栈  
+    	![](./5.jpg)  
+    
+    ![](./6.png)  
+    	
+    2. 作用域（Scope）：  
+    	作用域是指在程序中可以访问变量的区域。在 C、C++、Java 等编程语言中，通常存在全局作用域和局部作用域。局部作用域是指变量只能在其声明的区域内访问，例如在函数内部声明的变量只能在该函数内部使用，这些变量具有局部作用域。全局作用域中的变量可以在整个程序中被访问，其生命周期持续整个程序的执行过程。  
+    	
+    3. 全局（Global）：  
+    	全局是指在整个程序中都可以访问的变量、函数或其他实体。全局变量是在整个程序的执行过程中都存在的，其作用域是整个程序。全局变量通常在程序的顶层位置声明，并且在程序的任何地方都可以被引用。  
+
+
+​    
+​    总结：  
+​    	
+​    栈是用于存储函数调用期间的局部数据的数据结构，遵循后进先出的原则。  
+​    作用域指定了变量的可见性和访问范围，局部作用域和全局作用域是常见的作用域类型。  
+​        全局表示在整个程序中可访问的变量或实体，在程序的任何地方都可以使用。  
+​    这些概念在程序设计中非常重要，了解它们有助于正确地管理变量的生命周期、作用域和内存分配。  
+
+
+​    	
+​    <mark>extern</mark>  
+​    	
+​    这个关键词告诉编译器“这个变量已存在，但是他在别的‘外部区域’里”。通常它的意思是一个.c文件要用到另一个.c文件中定义的变量。这种情况下，我们可以说ex22.c中的THE_SIZE变量能被ex22_main.c访问到。  
+​    	
+​    <mark>static</mark>（文件）
+​    	
+​    这个关键词某种意义上是`extern`的反义词，意思是这个变量只能在当前的.c文件中使用，程序的其它部分不可访问。要记住文件级别的`static`（比如这里的THE_AGE）和其它位置不同。  
+​    	
+​    <mark>static</mark>（函数）   
+​    	
+​    如果你使用`static`在函数中声明变量，它和文件中的`static`定义类似，但是只能够在该函数中访问。它是一种创建某个函数的持续状态的方法，但事实上它很少用于现代的C语言，因为它们很难和线程一起使用。  
+
+
+​	
 ## ex23 认识达夫设备  
--[达夫设备](https://aptx4869-conan.github.io/zzp-blog/sundries/21/)  
-	
-	
-	
+??? abstract "达夫设备"
+
+    Duff's Device 通常用于需要大量重复的数据传输或拷贝操作，通过将数据分块，实现并行处理以提高效率。然而，由于其复杂的写法和对代码可读性的影响，现代编译器和优化技术已经在很大程度上减少了对此类技巧的需求  
+
+
+​	
+​	
 ## ex24 输入输出和文件  
 用到了fscanf 和 fgets   
--[输入输出和文件](https://aptx4869-conan.github.io/zzp-blog/sundries/22/)  
-		
-	
+??? abstract "输入输出和文件"
+
+    1.printf： 格式化输出函数，用于将格式化的数据打印到标准输出（通常是终端）。  
+    	
+    int printf(const char *format, ...);  
+    2.scanf： 格式化输入函数，用于从标准输入（通常是键盘）读取格式化的数据。  
+    	
+    int scanf(const char *format, ...);  
+    3.fprintf： 格式化输出函数，用于将格式化的数据打印到指定的文件。  
+    	
+    int fprintf(FILE *stream, const char *format, ...);  
+    4.fscanf： 格式化输入函数，用于从指定的文件读取格式化的数据。  
+    	
+    int fscanf(FILE *stream, const char *format, ...);  
+    5.sprintf： 格式化输出函数，将格式化的数据写入字符串。  
+    	
+    int sprintf(char *str, const char *format, ...);  
+    6.snprintf： 安全的格式化输出函数，将格式化的数据写入字符串并限制写入的字符数，避免缓冲区溢出。  
+    	
+    int snprintf(char *str, size_t size, const char *format, ...);  
+    7.getchar： 从标准输入获取一个字符。  
+    	
+    int getchar(void);  
+    8.putchar： 将一个字符输出到标准输出。  
+    	
+    int putchar(int character);  
+    9.fgets： 从文件流读取一行数据。  
+    	
+    char *fgets(char *str, int size, FILE *stream);  
+    10.fputs： 将字符串写入文件流。  
+    	
+    int fputs(const char *str, FILE *stream);  
+    这些函数提供了基本的输入和输出功能，允许你从键盘读取数据、将数据打印到屏幕或写入文件。  请注意，I/O 函数涉及文件流（FILE 类型），并且需要正确处理文件的打开和关闭。  
+    	
+    我感觉这段代码还好理解，毕竟就是与平常稍有语法差别的标准输入输出罢了，比较有意思的是 OTHER_EYES的值在代码中并未直接定义，你也能猜到它应该为4，可是为什么呢？  
+    	
+    在给定的代码中，OTHER_EYES的值没有被明确地定义。在 C 语言中，枚举的值是从 0 开始递增的，每个成员的值比前一个成员的值增加 1。  
+    	
+    由于 EyeColor枚举的成员顺序是从 BLUE_EYES 开始的，因此 OTHER_EYES 的值应该是 4。因此，你可以为 OTHER_EYES 明确指定值，也可以不指定，由编译器自动分配。  
+    	
+    ~~~
+    typedef enum EyeColor {
+        BLUE_EYES, GREEN_EYES, BROWN_EYES,
+        BLACK_EYES, OTHER_EYES = 4
+    } EyeColor;
+    与
+    
+    typedef enum EyeColor {
+        BLUE_EYES, GREEN_EYES, BROWN_EYES,
+        BLACK_EYES, OTHER_EYES
+    } EyeColor;
+    ~~~
+    ~~~
+    是等价的，你可以你行修改代码，也可以让编译器自动为OTHER_EYES赋值。  
+    fopen：
+    
+    用于打开文件，创建或者打开一个文件，返回文件指针供后续操作使用。
+    freopen：
+    
+    用于重新指定一个已经打开的文件流到一个新的文件。
+        fdopen：
+    
+    将一个已经存在的文件描述符转换为文件指针。
+    fclose：
+    
+    用于关闭打开的文件。
+    fcloseall：
+    
+    关闭所有打开的文件流。
+    文件位置操作函数：
+    fgetpos：
+    
+    获取文件位置指示器的位置。
+    fseek：
+    
+    移动文件位置指示器到指定位置。
+    ftell：
+    
+    获取当前文件位置指示器的位置。
+    rewind：
+    
+    将文件位置指示器设置到文件的开头。
+    输出函数：
+    fprintf：
+    
+    将格式化数据写入文件。
+    fwrite：
+    
+    将数据块写入文件。
+    输入函数：
+    fread：
+    从文件中读取数据块。
+    这些函数提供了对文件进行读写操作的基本功能，通过它们可以进行文件的打开、读取、写入和关闭等操作。在使用这些函数时，需要注意文件指针、文件位置指示器以及文件操作的错误处理，以确保文件操作的正确性和安全性。
+    ~~~
+
+
+​	
 ***
 ##  ex25 参变函数  
--[参变函数](https://aptx4869-conan.github.io/zzp-blog/sundries/23/)  
-	
-	
+??? abstract "变参函数" 
+
+    这里的变参函数叫做read_scan，它使用了va_list数据结构执行和scanf相同的工作，并支持宏和函数。  
+    ~~~
+    va_list 是 C 语言标准库 <stdarg.h> 中定义的一个数据类型，它用于处理可变参数函数。可变参数函数是指能够接受不定数量的参数的函数，例如 printf() 和 scanf()。
+    
+    va_list 数据结构实际上是一个用于存储可变参数的信息的类型。它是一个指向可变参数列表的指针，在函数中，它用于迭代访问函数的参数。
+    
+    <stdarg.h> 头文件中包含了一组宏，这些宏能够让程序员以一种便携式的方式处理不定数量的参数。以下是一些常用的 <stdarg.h> 中的宏：
+    
+    va_start(ap, param)：初始化 va_list，将 ap 指向函数参数列表的起始位置，param 是最后一个确定的参数。这个宏必须在使用 va_arg 之前调用。
+    va_arg(ap, type)：从 va_list 中获取下一个参数的值，type 是你期望的参数类型。这个宏返回 va_list 中当前参数的值，并将 va_list 向后移动到下一个参数。
+    va_end(ap)：结束对 va_list 的使用，清理 va_list。
+下面是一个简单的示例，演示了 va_list 的使用方式：
+    ~~~
+    
+    ~~~
+    比如：
+    #include <stdio.h>
+    #include <stdarg.h>
+        
+    void example_va_func(int num, ...) {
+            va_list arg_ptr;
+        va_start(arg_ptr, num);
+    
+        for (int i = 0; i < num; i++) {
+            int val = va_arg(arg_ptr, int);
+            printf("%d ", val);
+        }
+    
+        va_end(arg_ptr);
+    }
+    
+    int main() {
+        example_va_func(5, 1, 2, 3, 4, 5);
+        return 0;
+    }
+    ~~~
+    在这个例子中，example_va_func() 函数使用 va_list 来访问不定数量的参数。它首先使用 va_start() 宏来初始化 va_list，然后使用 va_arg() 宏来逐个访问参数，最后使用 va_end() 来结束对 va_list 的使用。  
+    calloc() 是 C 标准库 <stdlib.h> 中定义的一个函数，用于动态分配内存并初始化为零。它与 malloc() 类似，但 calloc() 在分配内存后会将分配的内存空间全部初始化为零。  
+
+
+​	
 ## ex26 实现一个真正的程序  
--[参变函数](https://aptx4869-conan.github.io/zzp-blog/sundries/24/)  
-	
-	
-	
+??? abstract "实现一个真正的程序" 
+
+    1. 首先需要项目布局  
+    创建`Makefile` 和 `README`	  
+    2. 然后需要测试宏dbg.h，和从`http://bstring.sourceforge.net/`下载的bstrlib.h和bstrlib.c。下载.zip文件，解压并且将这个两个文件拷贝到项目中。  
+    3. 然后构建Makefile  
+    4. 创建并构建db.h 和db.c  
+    5. 创建并构建shell.h 和 shell.c  
+    6. 编写commands.h文件，commands.c文件  
+    7. 构建mevpkg.c  
+    ![](./c7.jpg)  
+    ![](./c8.jpg)  
+
+
+
 ***
 ## ex27 创造性和防御性编程  
--[创造性和防御性编程](https://aptx4869-conan.github.io/zzp-blog/sundries/25/)  
-	
-	
+??? abstract "创造性和防御性编程"
+
+    创造性编程思维：  
+    	
+    暂时接受一种可以不会惧怕风险的思维方式->  
+    	
+    - 我不会犯错误。  
+    - 人们所想的并不重要。  
+    - 我脑子里面诞生的想法才是最好的。  
+    - 创造性思维的阴暗面->  
+    	
+    - 编写完美的软件是可行的。  
+    - 我的大脑告诉我了真相，它不会发现任何错误，所以我写了完美的软件。  
+    - 我的代码就是我自己，批判它的人也在批判我。  
+    	强调：  
+    	
+    - 恐惧会快速地扼杀创造力  
+    你经常会碰到一些程序员，它们对自己创造的软件具有强烈的荣誉感。这很正常，但是这种荣誉感会成为客观上改进作品的阻力。  
+    	
+    防御性编程思维：  
+    	
+    - 软件中存在错误。  
+    - 你并不是你的软件，但你需要为错误负责。  
+    - 你永远不可能消除所有错误，只能降低它们的可能性。  
+    	这种思维方式让你诚实地对待你的代码，并且为改进批判地分析它。注意上面并没有说你充满了错误，只是说你的代码充满错误。这是一个需要理解的关键，因为它给了你编写下一个实现的客观力量。  
+    就像创造性思维，防御性编程思维也有阴暗面。防御性程序员是一个惧怕任何事情的偏执狂，这种恐惧使他们远离可能的错误或避免犯错误。当你尝试做到严格一致或正确时这很好，但是它是创造力和专注的杀手。  
+    	
+    八个防御性编程策略（核心）：  
+    	
+    1. 永远不要信任输入->永远不要提供的输入，并总是校验它。  
+    	
+    2. 避免错误->如果错误可能发生，不管可能性多低都要避免它。  
+    	
+    3. 过早暴露错误->过早暴露错误，并且评估发生了什么、在哪里发生以及如何修复。  
+    	
+    4. 记录假设->清楚地记录所有先决条件，后置条件以及不变量。  
+    	
+    5. 防止过多的文档->不要在实现阶段就编写文档，它们可以在代码完成时编写。  
+    	
+    6. 使一切自动化->使一切自动化，尤其是测试。  
+    	
+    7. 简单化和清晰化->永远简化你的代码，在没有牺牲安全性的同时变得最小和最整洁。  
+    	
+    8. 质疑权威->不要盲目遵循或拒绝规则。  
+
+
 ***
 ## ex28 Makefile进阶   
--[Makefile](https://aptx4869-conan.github.io/zzp-blog/sundries/26/)  
-	
-	
-	
+??? abstract "Makefile进阶" 
+
+    首先要做的事情是创建一个C的目录框架，并且放置一些多续项目都拥有的，基本的文件和目录。  
+    ~~~
+    $ mkdir c-skeleton
+    $ cd c-skeleton/
+    $ touch LICENSE README.md Makefile
+    $ mkdir bin src tests
+    $ cp dbg.h src/   # this is from Ex20
+    $ ls -l
+    total 8
+    -rw-r--r--  1 zedshaw  staff     0 Mar 31 16:38 LICENSE
+        -rw-r--r--  1 zedshaw  staff  1168 Apr  1 17:00 Makefile
+    -rw-r--r--  1 zedshaw  staff     0 Mar 31 16:38 README.md
+    drwxr-xr-x  2 zedshaw  staff    68 Mar 31 16:38 bin
+    drwxr-xr-x  2 zedshaw  staff    68 Apr  1 10:07 build
+    drwxr-xr-x  3 zedshaw  staff   102 Apr  3 16:28 src
+    drwxr-xr-x  2 zedshaw  staff    68 Mar 31 16:38 tests
+        $ ls -l src
+    total 8
+    -rw-r--r--  1 zedshaw  staff  982 Apr  3 16:28 dbg.h
+        $
+    ~~~
+    下面是每个文件所做的事情：  
+    	
+    `LICENSE`  
+    	
+    如果你在项目中发布源码，你会希望包含一份协议。如果你不这么多，虽然你有代码的版权，但是通常没有人有权使用。  
+    	
+    `README.md`  
+    	
+    对你项目的简要说明。它以.md结尾，所以应该作为Markdown来解析。  
+    	
+    `Makefile`  
+    	
+    这个项目的主要构建文件。  
+    	
+    `bin/`  
+    	
+    放置可运行程序的地方。这里通常是空的，Makefile会在这里生成程序。  
+    	
+    `build/`  
+    	
+    当值库和其它构建组件的地方。通常也是空的，Makefile会在这里生成这些东西。  
+    	
+    `src/`  
+    	
+    放置源码的地方，通常是.c和.h文件。  
+    	
+    `tests/`  
+    	
+    放置自动化测试的地方。  
+    
+     这个Makefile设计用于构建一个库，我们之后会用到它，并且通过使用GNU make的特殊特性使它在任何平台上都可用。我会在这一节拆分它的每一部分，先从头部开始。  
+       这个 Makefile 是一个用于构建 C 语言项目的典型 Makefile。下面是它的主要部分及其作用：  
+      ~~~
+      变量定义：
+     CFLAGS：编译器选项，包含调试信息 -g、优化等级 -O2、警告选项 -Wall -Wextra、指定源文件目录 -Isrc、-rdynamic 以及 NDEBUG 宏定义。$(OPTFLAGS) 是一个用户自定义的变量，用于设置其他编译选项。
+    LIBS：链接时使用的库，这里包含 -ldl 和 $(OPTLIBS)，后者同样是用户自定义的变量。
+     PREFIX：安装路径，默认为 /usr/local。
+     文件和目录定义：
+    SOURCES：通过 wildcard 查找源文件，包括 src 目录下的所有 .c 文件。
+    OBJECTS：通过 patsubst 将源文件的 .c 文件替换成相应的 .o 目标文件。
+    TEST_SRC 和 TESTS：查找测试文件并生成相应的测试目标。
+    TARGET 和 SO_TARGET：静态库和动态库的目标文件名。
+    目标规则：
+    all：默认目标，构建静态库、动态库以及运行测试。
+    dev：用于开发环境，使用调试选首先要做的事情是创建一个C的目录框架，并且放置一些多续项目都拥有的，基本的文件和目录。  
+    ~~~
+    $ mkdir c-skeleton
+    $ cd c-skeleton/
+    $ touch LICENSE README.md Makefile
+    $ mkdir bin src tests
+    $ cp dbg.h src/   # this is from Ex20
+    $ ls -l
+    total 8
+    -rw-r--r--  1 zedshaw  staff     0 Mar 31 16:38 LICENSE
+    -rw-r--r--  1 zedshaw  staff  1168 Apr  1 17:00 Makefile
+    -rw-r--r--  1 zedshaw  staff     0 Mar 31 16:38 README.md
+    drwxr-xr-x  2 zedshaw  staff    68 Mar 31 16:38 bin
+    drwxr-xr-x  2 zedshaw  staff    68 Apr  1 10:07 build
+    drwxr-xr-x  3 zedshaw  staff   102 Apr  3 16:28 src
+     drwxr-xr-x  2 zedshaw  staff    68 Mar 31 16:38 tests
+    $ ls -l src
+    total 8
+    -rw-r--r--  1 zedshaw  staff  982 Apr  3 16:28 dbg.h
+        $
+    ~~~
+    下面是每个文件所做的事情：  
+    	
+    `LICENSE`  
+    	
+    如果你在项目中发布源码，你会希望包含一份协议。如果你不这么多，虽然你有代码的版权，但是通常没有人有权使用。  
+    	
+    `README.md`  
+    	
+    对你项目的简要说明。它以.md结尾，所以应该作为Markdown来解析。  
+    	
+    `Makefile`  
+    	
+    这个项目的主要构建文件。  
+    	
+    `bin/`  
+    	
+    放置可运行程序的地方。这里通常是空的，Makefile会在这里生成程序。  
+    	
+    `build/`  
+    	
+    当值库和其它构建组件的地方。通常也是空的，Makefile会在这里生成这些东西。  
+    	
+    `src/`  
+    	
+    放置源码的地方，通常是.c和.h文件。  
+    	
+    `tests/`  
+        	    
+    放置自动化测试的地方。  
+    
+    ##  Makefile  
+    这个Makefile设计用于构建一个库，我们之后会用到它，并且通过使用GNU make的特殊特性使它在任何平台上都可用。我会在这一节拆分它的每一部分，先从头部开始。  
+这个 Makefile 是一个用于构建 C 语言项目的典型 Makefile。下面是它的主要部分及其作    用：  
+~~~
+    变量定义：
+    CFLAGS：编译器选项，包含调试信息 -g、优化等级 -O2、警告选项 -Wall -Wextra、指定源文件目录 -Isrc、-rdynamic 以及 NDEBUG 宏定义。$(OPTFLAGS) 是一个用户自定义的变量，用于设置其他编译选项。
+    LIBS：链接时使用的库，这里包含 -ldl 和 $(OPTLIBS)，后者同样是用户自定义的变量。
+    PREFIX：安装路径，默认为 /usr/local。
+    文件和目录定义：
+    SOURCES：通过 wildcard 查找源文件，包括 src 目录下的所有 .c 文件。
+    OBJECTS：通过 patsubst 将源文件的 .c 文件替换成相应的 .o 目标文件。
+    TEST_SRC 和 TESTS：查找测试文件并生成相应的测试目标。
+    TARGET 和 SO_TARGET：静态库和动态库的目标文件名。
+    目标规则：
+    all：默认目标，构建静态库、动态库以及运行测试。
+    dev：用于开发环境，使用调试选项重新构建。
+    $(TARGET) 和 $(SO_TARGET)：构建静态库和动态库的规则。ar rcs 用于生成静态        库，$(CC) -shared 用于生成动态库。
+    build：创建构建目录和输出目录。
+    tests：构建并运行单元测试，使用 sh ./tests/runtests.sh 运行测试脚本。
+    valgrind：使用 Valgrind 运行代码以检测内存泄漏。
+    clean：清理生成的文件，包括构建目录、目标文件、测试文件以及编译器生成的文件。
+    install：安装生成的静态库到指定路径。
+    其他规则：
+    check：用于查找代码中潜在危险的函数（如不安全的字符串操作函数），通过正则表达式匹配搜索源文件中的潜在问题函数调用。
+    这个 Makefile 的主要目的是管理 C 语言项目的构建、测试、清理和安装，同时提供一些便捷的功能，如开发模式、内存泄漏检测等。
+    ~~~项重新构建。
+    $(TARGET) 和 $(SO_TARGET)：构建静态库和动态库的规则。ar rcs 用于生成静态库，$(CC) -shared 用于生成动态库。
+    build：创建构建目录和输出目录。
+    tests：构建并运行单元测试，使用 sh ./tests/runtests.sh 运行测试脚本。
+    valgrind：使用 Valgrind 运行代码以检测内存泄漏。
+    clean：清理生成的文件，包括构建目录、目标文件、测试文件以及编译器生成的文件。
+    install：安装生成的静态库到指定路径。
+    其他规则：
+            check：用于查找代码中潜在危险的函数（如不安全的字符串操作函数），通过正则表达式匹配搜索源文件中的潜在问题函数调用。
+    这个 Makefile 的主要目的是管理 C 语言项目的构建、测试、清理和安装，同时提供一些便捷的功能，如开发模式、内存泄漏检测等。
+~~~
+
+
+​	
+​	
 ***
 ## ex29 库和链接  
--[库和链接](https://aptx4869-conan.github.io/zzp-blog/sundries/27/)  
-	
-	
+??? abstract "库和链接"
+
+    计算机编程中，"库（Library）"和"链接（Linking）"是两个重要的概念。
+    	
+    ## 库（Library）：  
+    库是预先编译好的可重用代码的集合，用于解决特定的问题或提供特定功能。库包含了一组函数、例程、类或其他可执行代码的集合，它们经过编译和组织，供程序员在开发软件时调用和使用。  
+    类型：  
+    静态库（Static Library）：也称为静态链接库，是编译时与程序静态链接的库。它在编译期间被拷贝到可执行文件中，程序运行时不再需要原始库文件。文件后缀通常是 .a（对于Unix/Linux系统）或 .lib（对于Windows系统）。  
+    动态库（Dynamic Library）：也称为共享库，它在运行时被动态加载到内存中。它与静态库相比，占用更少的内存空间，并且多个程序可以共享同一个动态库。文件后缀通常是 .so（对于Unix/Linux系统）或 .dll（对于Windows系统）。  
+    ## 链接（Linking）：  
+    链接是将程序的不同部分合并在一起形成最终可执行文件的过程。它涉及将编译后的目标文件、库文件以及其他必要的文件整合成一个可执行文件。链接可以分为两种：  
+    编译时链接（Compile-time Linking）：将代码文件（源代码或目标文件）与静态库一起链接，生成可执行文件。  
+    运行时链接（Runtime Linking）：在程序运行时动态加载和链接动态库文件，这种链接是动态的，程序在运行过程中可以根据需要加载或卸载库文件。  
+    在编程中，库和链接是为了帮助开发人员提高代码重用性、降低开发成本、简化程序结构、提高代码的可维护性而存在的重要概念。通过使用库文件和链接过程，开发人员可以避免重复编写相同的代码，提高开发效率并确保程序运行所需的功能和资源得到有效利用。  
+    	
+    ## 讲人话  
+    c程序的核心是跟操作系统（os）提供的库进行链接  
+    通过链接，你可以从他人创建并打包在操作系C 统中的库中获取你所需的功能，并把它们加入到你自己的程序中。  
+    	
+    ●静态(static): 你在之前的习题中使用 ar 和 ranlib 创建的 libYOUR_LIBRARY. a文件就是一个静态库。这种类型的库只是一个包含了一系列. o目标文件及其功能的容器，当你构建自己的程序时，只需要把它当作一个大一点儿的. o文件就行了。　　  
+    ● 动态(dynamic): 动态库的典型后缀名有. so、. dll以及OS X中千奇百怪的各种命名(这些命名完全取决于操作系统和写程序的人)。不过严格来讲，OSX中的常用后缀名有 3 种,即. dylib、. bundle 和. framework,而这三者之间其实也并没有多大区别。这些文件构建后存放在一个公共目录下。当你运行程序时，操作系统会动态地加载这些文件，并且将它们随时链接到你的程序上。  
+    ## 在何时选择什么库？  
+    中小型项目选择静态库  
+    大型项目选择动态库  
+    	
+    ## 构建动态库  
+    写好libex29.c (用来构建libex29.so 库)，和ex29.c的程序后，用下面三个命令编译  
+    $ cc -c libex29.c -o libex29.o  
+    $ cc -shared -o libex29.so libex29.o  
+    $ cc -Wall -g -DNDEBUG ex29.c -ldl -o ex29  
+
+
+​	
+
 ***
 ## ex30 自动化测试  
 ![](./14.jpg)  
