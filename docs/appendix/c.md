@@ -628,41 +628,38 @@
     ~~~
     Person_destroy 函数：用于释放通过 Person_create 创建的 Person 结构体实例的内存。  
     使用 free 函数释放姓名字符串的内存，然后释放整个结构体实例的内存。  
-
-
-​    	
-​    	
-​    ~~~
-​    void Person_print(struct Person *who)
-​    {
-​        printf("Name: %s\n", who->name);
-​        printf("\tAge: %d\n", who->age);
-​        printf("\tHeight: %d\n", who->height);
-​        printf("\tWeight: %d\n", who->weight);
-​    }
-​    
-​    ~~~
-​    Person_print 函数：用于打印 Person 结构体实例的信息  
-​    ~~~
-​    int main(int argc, char *argv[])
-​    {
-​        // make two people structures
-​        struct Person *joe = Person_create("Joe Alex", 32, 64, 140);
-​    struct Person *frank = Person_create("Frank Blank", 20, 72, 180);
-​    
-​        // print them out and where they are in memory
-​        printf("Joe is at memory location %p:\n", joe);
-​        Person_print(joe);
-​    
-​        printf("Frank is at memory location %p:\n", frank);
-​        Person_print(frank);
-​    
-​        // make everyone age 20 years and print them again
-​        joe->age += 20;
-​        joe->height -= 2;
-​                joe->weight += 40;
-​        Person_print(joe);
-​    
+    
+    ~~~
+    void Person_print(struct Person *who)
+    {
+        printf("Name: %s\n", who->name);
+        printf("\tAge: %d\n", who->age);
+        printf("\tHeight: %d\n", who->height);
+        printf("\tWeight: %d\n", who->weight);
+    }
+    
+    ~~~
+    Person_print 函数：用于打印 Person 结构体实例的信息  
+    ~~~
+    int main(int argc, char *argv[])
+    {
+        // make two people structures
+        struct Person *joe = Person_create("Joe Alex", 32, 64, 140);
+    struct Person *frank = Person_create("Frank Blank", 20, 72, 180);
+    
+        // print them out and where they are in memory
+        printf("Joe is at memory location %p:\n", joe);
+        Person_print(joe);
+    
+        printf("Frank is at memory location %p:\n", frank);
+        Person_print(frank);
+    
+        // make everyone age 20 years and print them again
+        joe->age += 20;
+        joe->height -= 2;
+                joe->weight += 40;
+        Person_print(joe);
+    
         frank->age += 20;
         frank->weight += 20;
         Person_print(frank);
@@ -680,10 +677,9 @@
     修改了实例的属性值，然后再次打印了它们的信息。   
     最后，调用 Person_destroy 函数释放了 joe 和 frank 实例所占用的内存，完成了清理工作。  
     整个程序的主要功能是创建、操作和销毁 Person 结构体实例，并且通过函数对其进行了封装，以方便管理和使用。   
-
-
-​	
-​	
+	
+	
+	
 ***
 ## ex17 堆和栈的内存分配  
 ??? abstract "堆和栈的内存分配"
@@ -732,91 +728,83 @@
     #define MAX_ROWS 100
     
     ~~~
-    这里使用 #define 定义了两个常量 MAX_DATA 和 MAX_ROWS，分别表示存储数据的最大长度和数据库中的最大行数。  
-
-
-​    
-​    ~~~
-​    struct Address {
-​        int id;
-​        int set;
-​        char name[MAX_DATA];
-​        char email[MAX_DATA];
-​    };
-​    
-​    struct Database {
-​        struct Address rows[MAX_ROWS];
-​    };
-​    
-​    struct Connection {
-​        FILE *file;
-​        struct Database *db;
-​    };
-​    
-​    ~~~
-​    接下来定义了三个结构体：Address、Database 和 Connection。  
-​    Address 结构体表示数据库中的一条记录，包含一个 ID、一个标志位 set 以及姓名和邮箱等信息。  
-​    Database 结构体是由多个 Address 结构体组成的数组，表示整个数据库。  
-​    Connection 结构体包含一个文件指针和一个指向数据库的指针，用于连接数据库。  
-​    ~~~ 
-​    void die(const char *message)
-​    {
-​        if(errno) {
-​            perror(message);
-​        } else {
-​            printf("ERROR: %s\n", message);
-​        }
-​    
-​    exit(1);
-​    }
-​    
+    这里使用 #define 定义了两个常量 MAX_DATA 和 MAX_ROWS，分别表示存储数据的最大长度和数据库中的最大行数。   
+    ~~~
+    struct Address {
+        int id;
+        int set;
+        char name[MAX_DATA];
+        char email[MAX_DATA];
+    };
+    
+    struct Database {
+        struct Address rows[MAX_ROWS];
+    };
+    
+    struct Connection {
+        FILE *file;
+        struct Database *db;
+    };
+    
+    ~~~
+    接下来定义了三个结构体：Address、Database 和 Connection。  
+    Address 结构体表示数据库中的一条记录，包含一个 ID、一个标志位 set 以及姓名和邮箱等信息。  
+    Database 结构体是由多个 Address 结构体组成的数组，表示整个数据库。  
+    Connection 结构体包含一个文件指针和一个指向数据库的指针，用于连接数据库。  
+    ~~~ 
+    void die(const char *message)
+    {
+        if(errno) {
+            perror(message);
+        } else {
+            printf("ERROR: %s\n", message);
+            }
+    
+    exit(1);
+    }
+    
     ~~~
     然后定义了一系列函数用来操作数据库：  
     die 函数用于报告错误并退出程序。  
-
-
-​    
-​    	
-​    ~~~
-​    int main(int argc, char *argv[])
-​    {
-​        // ... (命令行参数解析和数据库操作)
-​        return 0;
-​    }
-​    ~~~
-​    最后，在 main 函数中：  
-​    解析命令行参数来确定要执行的操作，比如创建、获取、设置、删除或列出条目。  
-​    根据操作执行相应的数据库操作，并在必要时输出错误信息。  
-​    最后关闭数据库连接并退出程序。  
-​    整个程序实现了一个简单的命令行数据库管理系统，可以通过命令行对数据进行增删改查等操作。  
-
-
-​    
-​    ***
-​    ## 附加题  
-​    搜索“栈数据结构”，并且在你最喜欢的语言中实现它，然后尝试在C中实现。  
-​    ~~~
-​    #include <stdio.h>
-​    #include <stdlib.h>
-​    
-​    #define MAX_SIZE 100
-​    
-​    // 定义栈结构
-​    typedef struct {
-​        int items[MAX_SIZE];
-​        int top; // 栈顶指针
-​    } Stack;
-​    
-​    // 初始化栈
-​    void initStack(Stack *stack) {
-​        stack->top = -1; // 初始化栈顶指针为-1
-​    }
-​    
-​    // 检查栈是否为空
-​    int isEmpty(Stack *stack) {
-​        return (stack->top == -1);
-​    }
-​    
+   	
+    ~~~
+    int main(int argc, char *argv[])
+    {
+        // ... (命令行参数解析和数据库操作)
+        return 0;
+    }
+    ~~~
+    最后，在 main 函数中：  
+    解析命令行参数来确定要执行的操作，比如创建、获取、设置、删除或列出条目。  
+    根据操作执行相应的数据库操作，并在必要时输出错误信息。  
+    最后关闭数据库连接并退出程序。  
+        整个程序实现了一个简单的命令行数据库管理系统，可以通过命令行对数据进行增删改查等操作。  
+    
+    ***
+    ## 附加题  
+    搜索“栈数据结构”，并且在你最喜欢的语言中实现它，然后尝试在C中实现。  
+    ~~~
+    #include <stdio.h>
+    #include <stdlib.h>
+    
+    #define MAX_SIZE 100
+    
+    // 定义栈结构
+    typedef struct {
+        int items[MAX_SIZE];
+        int top; // 栈顶指针
+    } Stack;
+    
+    // 初始化栈
+    void initStack(Stack *stack) {
+        stack->top = -1; // 初始化栈顶指针为-1
+    }
+    
+    // 检查栈是否为空
+    int isEmpty(Stack *stack) {
+        return (stack->top == -1);
+    }
+    
     // 检查栈是否已满
     int isFull(Stack *stack) {
         return (stack->top == MAX_SIZE - 1);
@@ -871,10 +859,9 @@
         return 0;
     }
     ~~~
-
-
-​	
-​	
+	
+	
+	
 ***
 ## ex18函数指针 
 ??? abstract "函数指针" 
