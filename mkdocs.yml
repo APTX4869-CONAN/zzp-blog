@@ -47,10 +47,11 @@ nav:
       - 记录:
             - 题目积累: appendix/Ccode.md
             - 想法: appendix/idea.md
-            - 代码用法: appendix/use.md
+            - 理解与用法: appendix/use.md
             - 提问的智慧: appendix/question.md
             - 解决的问题: bugs.md
             - markdown: appendix/markdown.md
+            - 英文缩写: appendix/acronym.md
       - 其他:
             - makefile: sundries/makefile.md
             - placeholder: sundries/placeholder.md
