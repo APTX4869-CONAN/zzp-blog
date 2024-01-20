@@ -183,3 +183,45 @@
     }
     ~~~
     我的理解：callback(result);这个操作实际上是将这个结果通知给外部，让外部的代码能够处理这个结果。
+    
+***
+## 冒泡函数  
+??? example "冒泡函数"、
+
+    就是把所有的顺序弄成顺序排列，比较前后两个数，如果顺序不对，就调换一下顺序
+    ~~~
+    #include <stdio.h>
+
+void bubbleSort(int arr[], int n) {
+    int i, j;
+    for (i = 0; i < n-1; i++) {
+        // 内层循环用于相邻元素比较和交换
+        for (j = 0; j < n-i-1; j++) {
+            // 如果相邻元素顺序不对，则交换它们
+            if (arr[j] > arr[j+1]) {
+                int temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+        }
+    }
+}
+
+// 示例
+int main() {
+    // 待排序的数组
+    int myArray[] = {64, 34, 25, 12, 22, 11, 90};
+    int n = sizeof(myArray) / sizeof(myArray[0]);
+
+    // 调用冒泡排序函数
+    bubbleSort(myArray, n);
+
+    // 打印排序后的数组
+    printf("排序后的数组: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", myArray[i]);
+    }
+
+    return 0;
+}
+    ~~~
