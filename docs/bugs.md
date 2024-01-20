@@ -18,15 +18,15 @@ sudo service NetworkManager start
 ![](./5.jpg)
 ## github 上传的问题  
 ### 问题  ![](./4.jpg)
-	
+
 ### 解决方法  
 [原文链接](https://blog.csdn.net/fine_Y/article/details/131828604)  
 	
 ## 虚拟机与 windows 无法复制粘贴  
 ### 解决方法：重启虚拟机 .  
-	
-	
-	
+
+
+​	
 ***
 ## makefile:10: **\* missing separator.  Stop.(错误)  
 ~~~
@@ -37,3 +37,14 @@ ChatGPT
 
 要解决这个问题，你可以检查 Makefile 中第 10 行附近的代码，确保命令行以Tab键开头而不是空格。确保所有命令都正确缩进，没有混用空格和制表符。此外，也可以尝试在文本编辑器中查看隐藏字符，确认使用了正确的缩进方式。
 ~~~
+***
+## 新错误
+~~~
+$ git pull
+ssh: connect to host github.com port 22: Connection refused
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+~~~
+参见[链接](https://zhuanlan.zhihu.com/p/521340971?utm_psn=1732083327291592704)   
