@@ -130,8 +130,10 @@ cp /path/to/other_directory/* .
 
     strace yourElf -o outputFileName 
     分析一个二进制程序系统调用
+    
     taskset -c 0,1 yourProgram
     在指定的逻辑CPU上运行你的程序
+    
     ps -eo
     
     sar：分析内存page换入换出数量，内存使用情况
