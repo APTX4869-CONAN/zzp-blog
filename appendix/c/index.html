@@ -1,0 +1,3918 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../git/">
+      
+      
+        <link rel="next" href="../expression/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
+    
+    
+      
+        <title>Learn c - APTX4869-CONAN</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../mkdocs/css/no-footer.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#c" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="http://aptx4869-conan.github.io/zzp-blog" title="APTX4869-CONAN" class="md-header__button md-logo" aria-label="APTX4869-CONAN" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            APTX4869-CONAN
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Learn c
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="orange"  aria-label="切换至日间模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至日间模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  主页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Linux/" class="md-tabs__link">
+          
+  
+    
+  
+  学习
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../daily/" class="md-tabs__link">
+        
+  
+    
+  
+  每日日记
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../play/" class="md-tabs__link">
+        
+  
+    
+  
+  休闲
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="http://aptx4869-conan.github.io/zzp-blog" title="APTX4869-CONAN" class="md-nav__button md-logo" aria-label="APTX4869-CONAN" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    APTX4869-CONAN
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    主页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    学习
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            学习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Linux
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    计算机系统基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Makefile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Makefile
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    精通工具
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tmux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tmux
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    c
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            c
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Learn c
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Learn c
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ex2-makefile" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex2 makefile
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ex2 makefile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      一个实例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex3" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex3 格式化打印
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex5-ex6" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex5 运算符，ex6语法
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex7" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex7 变量和类型
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex8-ifelse" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex8 if,else
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex9-while" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex9 while循环和布尔表达式
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex10-switch" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex10 switch 循环
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex11" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex11 数组
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ex11 数组">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      命令
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex12-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex12 For
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex12while" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex12while语句
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex13-switch" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex13 Switch 语句
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex14" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex14 编写并使用函数
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex15" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex15 指针
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ex15 指针">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      指针数组和数组指针
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#char-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      char names[] 的优势：
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      何时选择哪种方式？
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="何时选择哪种方式？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ex15_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex15 题目与附加题
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      附加题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex16" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex16 结构体和指向它们的指针
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex17" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex17 堆和栈的内存分配
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      栈 (Stack)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="栈 (Stack)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      特点：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      用途：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#heap" class="md-nav__link">
+    <span class="md-ellipsis">
+      堆 (Heap)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="堆 (Heap)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      特点：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      用途：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      区别
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      附加题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex18" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex18函数指针
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ex18函数指针">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      回调函数
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex19" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex19 一个简单的对象系统
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../expression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    术语的表达
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    书籍
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            书籍
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    《编码》
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linuxbook/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    《Linux是怎样工作的》
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../key/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    快捷键
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    记录
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            记录
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ccode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    题目积累
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../idea/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    想法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../use/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    理解与用法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../question/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    提问的智慧
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bugs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    解决的问题
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../markdown/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    markdown
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../acronym/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    英文缩写
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C语言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    其他
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            其他
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sundries/7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    指针
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sundries/8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    字符串指针数组
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sundries/14/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    回调函数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sundries/27/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    库和链接
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../daily/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    每日日记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../play/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    休闲
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ex2-makefile" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex2 makefile
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ex2 makefile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      一个实例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex3" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex3 格式化打印
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex5-ex6" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex5 运算符，ex6语法
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex7" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex7 变量和类型
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex8-ifelse" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex8 if,else
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex9-while" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex9 while循环和布尔表达式
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex10-switch" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex10 switch 循环
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex11" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex11 数组
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ex11 数组">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      命令
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex12-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex12 For
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex12while" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex12while语句
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex13-switch" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex13 Switch 语句
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex14" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex14 编写并使用函数
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex15" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex15 指针
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ex15 指针">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      指针数组和数组指针
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#char-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      char names[] 的优势：
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      何时选择哪种方式？
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="何时选择哪种方式？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ex15_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex15 题目与附加题
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      附加题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex16" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex16 结构体和指向它们的指针
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex17" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex17 堆和栈的内存分配
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      栈 (Stack)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="栈 (Stack)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      特点：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      用途：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#heap" class="md-nav__link">
+    <span class="md-ellipsis">
+      堆 (Heap)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="堆 (Heap)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      特点：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      用途：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      区别
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      附加题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex18" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex18函数指针
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ex18函数指针">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      回调函数
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex19" class="md-nav__link">
+    <span class="md-ellipsis">
+      ex19 一个简单的对象系统
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="c">C语言</h1>
+<div class="admonition note">
+<p class="admonition-title">目的</p>
+<p>这本书的目的是让我足够熟悉C语言，并能够使用它编写自己的软件，或者修改其他人的代  码。这本书中我会让你立即开始编程，之后我会解释你做了什么。这样更有效果，因为你已经经历过事情解释起来更加容易。      </p>
+</div>
+<p>​ <br />
+​     <br />
+​       </p>
+<hr />
+<h2 id="ex2-makefile">ex2 makefile</h2>
+<details class="example">
+<summary>Example</summary>
+<p><img alt="" src="../10.png" /></p>
+</details>
+<details class="abstract">
+<summary>附加题</summary>
+<p>1.man make   </p>
+<p><img alt="" src="../10.png" /></p>
+<p>2.man cc</p>
+<div class="highlight"><pre><span></span><code>cc -o hello hello.c   
+</code></pre></div>
+<p>这个命令将hello.c编译成一个可执行文件，并将其命名为hello（使用-o选项指定输出文件名）。然后，你可以运行./hello来执行编译后的程序 -wall’这个命令后缀用于在编译过程中开启额外的警告信息，帮助程序员发现代码中潜在的问题或错误</p>
+<p>3.在另一个C语言项目中找到Makefile文件，并且尝试理解它做了什么。 </p>
+</details>
+<p>​ <br />
+​   </p>
+<details class="tip">
+<summary>Makefile工作原理</summary>
+<p>Makefile是一个包含一系列规则的文件，用于告诉make工具如何编译和构建软件项目。它描述了项目中源代码文件之间的依赖关系以及如何将它们编译成最终的可执行文件、库文件或其他目标文件。  </p>
+<p>当你运行make命令时，它会检查Makefile文件并执行其中定义的规则，这些规则指定了如何生成目标文件，以及哪些文件需要重新生成。  </p>
+<p>通常，Makefile包含以下内容：  </p>
+<p>目标(Targets)：指定要构建的最终输出文件的名称。例如，可执行文件的名称或库文件的名称等。  </p>
+<p>依赖关系(Dependencies)：指定了每个目标文件所依赖的源文件、头文件或其他目标文件。  </p>
+<p>规则(Rules)：规定了如何根据依赖关系生成目标文件的命令。这些规则由目标、依赖项和命令组成。  </p>
+<p>变量(Variables)：定义了在整个Makefile中使用的变量，这些变量可以包含编译器选项、文件路径等。  </p>
+<h3 id="_1">一个实例</h3>
+<div class="highlight"><pre><span></span><code>CC = gcc
+CFLAGS = -Wall -O2
+TARGET = my_program
+SRCS = main.c utils.c
+OBJS = $(SRCS:.c=.o)
+
+$(TARGET): $(OBJS)
+    $(CC) $(CFLAGS) -o $@ $^
+
+%.o: %.c
+    $(CC) $(CFLAGS) -c $<span class="p">&lt;</span> <span class="nt">-o</span> <span class="err">$@</span>
+
+<span class="na">clean:</span>
+    <span class="na">rm</span> <span class="na">-f</span> <span class="err">$(</span><span class="na">OBJS</span><span class="err">)</span> <span class="err">$(</span><span class="na">TARGET</span><span class="err">)</span>
+</code></pre></div>
+<p>在这个例子中：   </p>
+<p>CC 是C编译器的变量，CFLAGS 是编译器选项的变量。  </p>
+<p>TARGET 是最终要生成的可执行文件的名称，SRCS 是源文件的列表，OBJS 是编译后的目标文件列表。  </p>
+<p>第一个规则定义了如何生成最终的可执行文件。它告诉make如果$(OBJS)中的文件发生变化，应该使用$(CC)编译器和$(CFLAGS)选项将它们链接在一起形成$(TARGET)可执行文件。      </p>
+<p>第二个规则告诉make如何将.c源文件编译成.o目标文件。  </p>
+<p>clean规则是一个特殊的目标，用于删除生成的目标文件和可执行文件，以便重新构建整个项目。<br />
+通过make命令执行该Makefile，它将会根据规则编译源文件并生成最终的可执行文件。    Makefile使得构建复杂项目变得更加自动化和可靠。  </p>
+</details>
+<p>​     <br />
+​       </p>
+<hr />
+<h2 id="ex3">ex3 格式化打印</h2>
+<details class="example">
+<summary>Example</summary>
+<p><img alt="" src="../4.png" />  </p>
+</details>
+<hr />
+<h2 id="ex5-ex6">ex5 运算符，ex6语法</h2>
+<details class="abstract">
+<summary>附加题1</summary>
+<p>1.搜索“printf格式化”，试着使用一些高级的占位符。<br />
+ %d: 用于输出十进制整数。<br />
+%f: 用于输出浮点数。<br />
+%c: 用于输出字符。<br />
+%s: 用于输出字符串。<br />
+%x 或 %X: 用于输出十六进制整数，分别表示小写字母和大写字母。<br />
+%o: 用于输出八进制整数。<br />
+%u: 用于输出无符号整数。<br />
+%e 或 %E: 用于以指数形式输出浮点数，分别表示小写字母和大写字母。<br />
+%p: 用于输出指针地址。<br />
+这些占位符通常用于格式化输出函数，比如 printf()、scanf() 等。   </p>
+</details>
+<details class="abstract">
+<summary>附加题2</summary>
+<p>2.研究可以用几种方法打印数字。尝试以八进制或十六进制打印，或者其它你找到的方法。 
+<div class="highlight"><pre><span></span><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int number = 42;
+
+    // 打印十进制数
+    printf(&quot;Decimal: %d\n&quot;, number);
+
+    // 打印八进制数
+    printf(&quot;Octal: %o\n&quot;, number);
+
+    // 打印十六进制数（小写字母）
+    printf(&quot;Lowercase Hexadecimal: %x\n&quot;, number);
+
+    // 打印十六进制数（大写字母）
+    printf(&quot;Uppercase Hexadecimal: %X\n&quot;, number);
+
+    return 0;
+}
+</code></pre></div></p>
+</details>
+<details class="abstract">
+<summary>附加题3</summary>
+<p>3.试着打印空字符串，即""。<br />
+/0  </p>
+</details>
+<details class="abstract">
+<summary>附加题4</summary>
+<p>4..上网搜索unsigned做了什么。<br />
+unsigned long 是无符号长整型数据类型，只能表示非负整数。  </p>
+</details>
+<details class="abstract">
+<summary>附加题5</summary>
+<p>5.试着自己解释（在下个练习之前）为什么char可以和int相乘。<br />
+在C语言中，char 类型和 int 类型都是整数类型，尽管它们的大小（占用的内存空间）可能不同。虽然 char 通常用来表示字符，但它本质上也是一个整数类型。  </p>
+<p>C语言中的类型转换规则允许将较小的整数类型（如 char）在表达式中自动转换为更大的整数类型（如 int）进行运算。这种转换称为 隐式类型转换 （implicit type conversion）或 自动类型提升 （automatic type promotion）。  </p>
+<p>当 char 类型参与乘法运算时，它可能会被自动提升为 int 类型，然后进行乘法运算。这是因为在表达式中，C语言倾向于将较小的整数类型提升为较大的整数类型，以避免精度丢失或截断。  </p>
+</details>
+<hr />
+<h2 id="ex7">ex7 变量和类型</h2>
+<details class="example">
+<summary>Example</summary>
+<p><img alt="" src="../5.png" /><br />
+<img alt="" src="../6.png" />  </p>
+<p>有很多类型，整数型，浮点型，字符型<br />
+int对应%d<br />
+long 对应%ld  abcdefgabcdefg
+short对应%u<br />
+float 对应%f<br />
+double 对应%lf 
+char对应%c（单个字符）和%s（字符串）<br />
+字符串即多个字符  </p>
+</details>
+<p>​   </p>
+<hr />
+<h2 id="ex8-ifelse">ex8 if,else</h2>
+<details class="example">
+<summary>Example</summary>
+<p><img alt="" src="../7.jpg" /></p>
+</details>
+<p>​ <br />
+​   </p>
+<hr />
+<h2 id="ex9-while">ex9 while循环和布尔表达式</h2>
+<details class="example">
+<summary>Example</summary>
+<p><img alt="" src="../8.png" /></p>
+</details>
+<hr />
+<h2 id="ex10-switch">ex10 switch 循环</h2>
+<details class="example">
+<summary>Example</summary>
+<p><img alt="" src="../9.png" /></p>
+</details>
+<p>​   </p>
+<hr />
+<h2 id="ex11">ex11 数组</h2>
+<details class="abstract">
+<summary>数组</summary>
+<p>int arr[10]={1，2，3}<br />
+其中int 处填类型<br />
+arr处填数组名<br />
+int arr[10]表示的是生成__10__个位置<br />
+<strong>但是</strong>:数组中的每个元素都可以使用 arr[0] 到 arr[9] 的索引来访问，此时srr[9]才是指的第十个位置，因为在 C 中，数组索引从 0 开始。  </p>
+</details>
+<p>​    </p>
+<details class="abstract">
+<summary>附加题1</summary>
+<p>1.尝试将areas的一个元素赋值为name中的字符。<br />
+会报错  </p>
+</details>
+<details class="abstract">
+<summary>附加题2</summary>
+<p>2.上网搜索在不同的CPU上整数所占的不同大小。<br />
+在不同的CPU架构或计算机体系结构中，整数所占用的大小可能会有所不同。C语言标准规定了整数类型的最小范围，但并未规定确切的大小，这使得不同的平台可以根据需求选择合适的整数表示方式。  </p>
+<p>一些常见的整数类型及其在不同平台上的典型大小（以字节为单位）如下：  </p>
+<p>char: 通常占 1 字节，至少能表示 -128 到 127 或者 0 到 255的范围，具体取决于是带符号还是无符号的 char。<br />
+short: 通常占 2 字节，在一些特殊的系统上可能占用更多或更少的空间。<br />
+int: 在大多数系统上通常占 4 字节，但也有一些系统上可能占用 2 或 8 字节。<br />
+long: 在32位系统上通常占 4 字节，在64位系统上通常占 8 字节。但这也取决于编译器和操作系统的具体实现。<br />
+long long: 通常占 8 字节，可以表示更大范围的整数值。<br />
+这些大小可能因为编译器、操作系统和硬件架构的不同而变化。例如，32位和64位系统上的整数大小可能不同，因为64位系统能够处理更大范围的内存地址和数据。  </p>
+<p>为了获取特定平台上整数类型的确切大小，可以使用 sizeof 运算符。例如，sizeof(int) 可以告诉你在当前平台上 int 类型的字节数  </p>
+</details>
+<details class="abstract">
+<summary>附加题3</summary>
+<p>3.如果一个字符数组占四个字节，一个整数也占4个字节，你可以像整数一样使用整个name吗？你如何用黑魔法实现它？<br />
+在理论上，可以将字符数组视为整数数组，并且通过某些技巧来操作它，使其表现得像一个整数数组。这涉及到对内存的低级别操作，需要考虑计算机的字节序（即大端序和小端序）等因素。  </p>
+<p>黑魔法或许可以利用联合体（union）的概念，这是C语言中一个特殊的数据结构，允许在同一内存空间存储不同的数据类型。这样可以在相同的内存位置上同时存储字符数组和整数，并可以通过一些操作在它们之间进行转换。  </p>
+<p>以下是一个示例，展示了如何使用联合体将字符数组和整数绑定在一起：<br />
+<div class="highlight"><pre><span></span><code>#include &lt;stdio.h&gt;
+
+union 1 {
+    char chars[4]; // 字符数组
+    int number;    // 整数
+};
+
+int main() {
+    union Magic data;
+
+    // 赋值字符数组
+    data.chars[0] = &#39;A&#39;;
+    data.chars[1] = &#39;B&#39;;
+    data.chars[2] = &#39;C&#39;;
+    data.chars[3] = &#39;D&#39;;
+
+    // 将字符数组转换为整数并输出
+    printf(&quot;字符数组转换为整数: %d\n&quot;, data.number);
+
+    // 修改整数值
+    data.number = 123456789;
+
+        // 将整数转换为字符数组并输出
+    printf(&quot;整数转换为字符数组: %c %c %c %c\n&quot;, data.chars[0],             data.chars[1], data.chars[2], data.chars[3]);
+
+    return 0;
+}
+</code></pre></div>
+union 1 { ... };：这定义了一个联合体（union）类型 1。联合体允许在相同的内存位置存储不同类型的数据。在这里，Magic联合体包含了两个成员：一个名为 chars 的长度为4的字符数组和一个名为 number 的整数。  </p>
+<p>输出结果将是<br />
+<div class="highlight"><pre><span></span><code>字符数组转换为整数: 1145258561
+整数转换为字符数组: ݓ ƒ % @
+</code></pre></div>
+这些输出是根据具体的字符集和字符编码而变化的，因此输出的字符可能因系统和编译器而异。由于字符数组和整数共享相同的内存空间，在转换过程中，整数被当作字符来解释，而字符也被当作整数来解释。这种类型的转换在实际中可能导致不可预测的结果。  </p>
+</details>
+<details class="abstract">
+<summary>附加题4</summary>
+<p>4..弄清楚在for循环的每一部分你都可以放置什么样的代码。<br />
+在C语言的 for 循环中，有三个部分，它们分别是初始化部分、循环条件部分和迭代部分。每个部分都有自己特定的语法，但几乎可以放置任何有效的语句或表达式。下面是每个部分可以放置的内容：  </p>
+<p>初始化部分： 在循环开始之前只执行一次，通常用于初始化变量。<br />
+可以放置变量声明和赋值语句。例如：int i = 0; 或 float x = 1.5;<br />
+也可以放置函数调用，但这些函数必须返回一个值，如 someFunction();<br />
+循环条件部分： 在每次迭代开始前都会被检查，如果条件为真，则执行循环体内的代码，如果为  假，则退出循环。<br />
+ 可以放置条件表达式，比如 i &lt; 10 或 x != 0。这些条件表达式必须返回一个布尔值     （真或假）。<br />
+也可以放置函数调用，但同样需要返回布尔值。例如：checkCondition();   </p>
+<p>迭代部分： 在每次循环结束后执行，通常用于更新循环控制变量。<br />
+可以放置增加或减少循环控制变量的语句，例如 i++、j -= 2。  </p>
+</details>
+<details class="abstract">
+<summary>附加题5</summary>
+<p>5.查询NULL是什么东西<br />
+NULL 是C语言中的一个常见标识符，用于表示空指针，可以帮助在程序中更加清晰地表达和处理空指针相关的情况。</p>
+</details>
+<details class="abstract">
+<summary>附加题6</summary>
+<p>6.argc argv 是什么<br />
+在程序执行时，操作系统会将命令行输入的参数传递给 main 函数。argc 表示参数的数量，而argv 是一个指针数组，每个指针指向一个以 null 结尾的字符串，这些字符串存储了实际传递给程序的命令行参数。argv[0] 存储的是程序的名称。</p>
+</details>
+<p>​    </p>
+<details class="abstract">
+<summary>附加题7</summary>
+<p>7.我已经向你简短地介绍了&amp;&amp;，它执行“与”操作。上网搜索与之不同的“布尔运算符”。<br />
+布尔运算符是用于执行逻辑运算的运算符。它们通常用于布尔类型的操作数（只有两个可能值：真和假），在计算机编程中经常使用。   </p>
+<p>在大多数编程语言中，布尔运算符包括以下几种：  </p>
+<p>逻辑与（AND）：表示为 &amp;&amp;，当且仅当两个操作数都为真时，结果才为真。例如：A &amp;&amp; B，当 A 和 B 同时为真时，结果为真，否则为假。  </p>
+<p>逻辑或（OR）：表示为 ||，只要两个操作数中有一个为真，结果就为真。例如：A || B，当 A 或 B 其中一个为真时，结果为真，只有当两个都为假时，结果为假。  </p>
+<p>逻辑非（NOT）：表示为 !，用于取反操作，将真变为假，将假变为真。例如：!A，当 A 为真时，结果为假；当 A 为假时，结果为真。  </p>
+<p>这些布尔运算符在控制流语句、条件语句和循环结构等编程结构中扮演重要角色。它们使程序能够根据条件执行不同的代码路径，或根据给定的条件重复执行特定代码块。  </p>
+</details>
+<details class="abstract">
+<summary>附加题8</summary>
+<p>8.使用if语句使循环提前退出。你需要break语句来实现它，搜索它的有关资料。<br />
+    在(for、while、do-while)循环中，break 语句可以立即终止当前的循环，将控制转移到循环后的下一个语句。<br />
+在 switch 语句中，break 用于结束当前 case 分支的执行，使程序控制流跳出 switch 语句。  </p>
+<h3 id="_2">命令</h3>
+<p>sizeof（name）<br />
+问c语言name这个量占多少字节  </p>
+</details>
+<p>​   </p>
+<hr />
+<h2 id="ex12-for">ex12 For</h2>
+<details class="abstract">
+<summary>For循环</summary>
+<p>for(i = 1; i &lt; argc; i++) {<br />
+printf("arg %d: %s\n", i, argv[i]);   <br />
+}  <br />
+其中i=1:初始化的变量/.<br />
+i &lt; argc : 判断条件（不满足时会执行大括号里面的，满足则继续循环）<br />
+i++ : 自增恒量变量，就是循环的内容<br />
+其实不只是可以++，还可以+=2，就是自增2，可以在循环中用</p>
+</details>
+<p>​ <br />
+​ <br />
+​   </p>
+<hr />
+<h2 id="ex12while">ex12while语句</h2>
+<details class="abstract">
+<summary>while循环</summary>
+<p>语法:<br />
+while(i＜arge)<br />
+{<br />
+printf"xxx";<br />
+i++;<br />
+} <br />
+其中（）中的__条件__，如果是true则执行大括号里面的，如果是false则跳出括号。<br />
+布尔表达式:只有true和false</p>
+</details>
+<p>​   </p>
+<hr />
+<h2 id="ex13-switch">ex13 Switch 语句</h2>
+<details class="abstract">
+<summary>Switch语句</summary>
+<p>语法：<br />
+switch(表达式){<br />
+case <br />
+case<br />
+default  </p>
+</details>
+<p>​   </p>
+<hr />
+<h2 id="ex14">ex14 编写并使用函数</h2>
+<details class="abstract">
+<summary>编写函数</summary>
+<p>自己声明函数就跟脚本一样<br />
+比如以下<br />
+<div class="highlight"><pre><span></span><code>void print_arguments(int argc, char *argv[])
+{
+    int i = 0;
+
+    for(i = 0; i &lt; argc; i++) {
+        print_letters(argv[i]);
+    }
+</code></pre></div></p>
+</details>
+<p>​   </p>
+<hr />
+<h2 id="ex15">ex15 指针</h2>
+<details class="astract">
+<summary>指针</summary>
+<p><img alt="" src="./c1.png" />
+比如 int a =1 就是为a申请一个地方，名字为a，但是地址不会变。<br />
+int 类型储存的东西是整数  </p>
+<p>了解内存空间之后，指针就好理解了<br />
+指针和 int一样，也是一种类型，不过它储存的是一个地址
+比如int*p = &amp;a<br />
+<img alt="" src="./c2.png" /></p>
+<p>指针名字叫p，int*p指的是p是一个指针  &amp;a是一个地址<br />
+int*p = &amp;a 代表的是把a的地址保存到p中<br />
+Int d = p 的话会直接报错，要int d =*p<br />
+就把1这个数给了d <br />
+上面用到了两个*，但此星非彼星<br />
+上面的*是int* ，是一种指针类型，同理有char*,short*,等<br />
+下面的星是间接运算符，是间接引用a的值。  </p>
+</details>
+<details class="abstract">
+<summary>指针+-整数</summary>
+<p><img alt="这是指针加数组的一串代码" src="../11.png" /><br />
+数组是什么，默认是首元素的地址  指针取数组的地址实际是取的首元素的地址，也就是索引为0的地址  比如int*p = arr<br />
+但是如果int* p = &amp;arr ，取出的是数组本身的地址<br />
+这张图片中的指针加整数的意思是让它往后索引几个  </p>
+</details>
+<h3 id="_3">指针数组和数组指针</h3>
+<details class="abstract">
+<summary>指针数组和数组指针</summary>
+<p>指针数组 - 数组 -存放指针的数组<br />
+数组指针 - 指针<br />
+字符串指针数组：char *names[ ]<br />
+这种声明方式创建了一个数组，数组的每个元素都是一个指向字符串的指针。<br />
+相比于char  names[ ] 的优点：<br />
+char *names[] 的优势：<br />
+1. 动态长度的字符串存储：<br />
+    char *names[] 声明的是一个字符串指针数组。这种声明方式允许存储不同  长度的字符串，因为每个元素都是一个指向字符（字符串）的指针。<br />
+    这种声明方法支持动态分配和存储不同长度的字符串。  </p>
+<ol>
+<li>方便指向其他字符串：<br />
+    使用字符串指针数组，可以方便地更改指针指向不同的字符串。例如，可以将指针重新赋值为其他字符串的地址。  </li>
+</ol>
+<hr />
+<h2 id="char-names">char names[] 的优势：</h2>
+<ol>
+<li>
+<p>静态字符串存储：<br />
+    char names[] 声明的是一个字符数组，通常用于存储静态长度的字符串。<br />
+    这种方式不太方便存储和处理不同长度的字符串。   </p>
+</li>
+<li>
+<p>更直接、更简单： <br />
+    对于单个字符串的存储和操作，使用 char names[] 可能更简洁直观，因为它直接存储字符串。  </p>
+</li>
+</ol>
+<hr />
+<h2 id="_4">何时选择哪种方式？</h2>
+<p>如果需要存储和处理多个长度不同的字符串，或者需要在运行时动态地更改指向的字符串，那么 char *names[] 可能更适合。<br />
+如果只需要存储单个固定长度的字符串或者有明确的固定字符串长度限制，那么 char names[] 可能更为方便。<br />
+综合考虑不同场景下的需求，可以选择合适的字符串存储方式。  </p>
+</details>
+<h3 id="ex15_1">ex15 题目与附加题</h3>
+<details class="abstract">
+<summary>ex15</summary>
+<p><div class="highlight"><pre><span></span><code>int ages[] = {23, 43, 12, 89, 2};
+char *names[] = {
+    &quot;Alan&quot;, &quot;Frank&quot;,
+    &quot;Mary&quot;, &quot;John&quot;, &quot;Lisa&quot;
+};
+</code></pre></div>
+这段代码定义了两个数组 ages 和 names。ages 是一个整数类型的数组，包含了一些年龄；<br />
+names 是一个__字符串指针数组__，包含了一些姓名。<br />
+<div class="highlight"><pre><span></span><code>int *cur_age = ages;
+char **cur_name = names;
+
+for(i = 0; i &lt; count; i++) {
+    printf(&quot;%s is %d years old.\n&quot;,
+            *(cur_name+i), *(cur_age+i));
+}
+</code></pre></div>
+其中char **cur_name = names 这一段代码创建了指向names的指针。char *已经是“指向char的指针”了，所以它只是个字符串。你需要两个层级，因为names是二维的，也就是说你需要char **作为“指向‘指向字符的指针’的指针”。把它学会，并且自己解释它。<br />
+<div class="highlight"><pre><span></span><code>int *cur_age = ages;
+char **cur_name = names;
+
+for(i = 0; i &lt; count; i++) {
+    printf(&quot;%s is %d years old.\n&quot;,
+            *(cur_name+i), *(cur_age+i));
+}
+</code></pre></div>
+这段代码再次展示了使用指针和数组下标来访问数组元素。这次直接使用指针变量 cur_name 和 cur_age 作为数组来访问元素。<br />
+为什么可以直接使用指针变量 cur_name 和 cur_age 作为数组来访问元素？<br />
+在 C 语言中，指针变量本质上是数组的首地址。当你声明指针 cur_name 和 cur_age 分别指向数组 names 和 ages 的起始位置时，这些指针变量包含了数组的地址。<br />
+因此，可以通过这些指针变量以及数组下标来访问数组中的元素。<br />
+__cur_name = names__实际上cur_name的值是names数组中的首个元素的值  </p>
+<p><div class="highlight"><pre><span></span><code>for(cur_name = names, cur_age = ages;
+        (cur_age - ages) &lt; count;
+        cur_name++, cur_age++)
+{
+    printf(&quot;%s lived %d years so far.\n&quot;,
+            *cur_name, *cur_age);
+}
+</code></pre></div>
+<strong>让指针动起来</strong>
+这段代码展示了一种复杂的方式，使用指针进行数组遍历。通过同时移动两个指针 cur_name 和 cur_age，通过对它们进行指针算术运算来访问数组元素，直到达到数组的末尾。  </p>
+<h2 id="_5">附加题</h2>
+<p>将for循环改为while循环，并且观察对于每种指针用法哪种循环更方便。<br />
+<div class="highlight"><pre><span></span><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int ages[] = {23, 43, 12, 89, 2};
+    char *names[] = {
+        &quot;Alan&quot;, &quot;Frank&quot;,
+        &quot;Mary&quot;, &quot;John&quot;, &quot;Lisa&quot;
+    };
+
+    int count = sizeof(ages) / sizeof(int);
+    int i = 0;
+
+    // first way using indexing with while loop
+    i = 0;
+    while(i &lt; count) {
+        printf(&quot;%s has %d years alive.\n&quot;,
+                names[i], ages[i]);
+        i++;
+    }
+
+    printf(&quot;---\n&quot;);
+
+    // setup the pointers to the start of the arrays
+    int *cur_age = ages;
+    char **cur_name = names;
+
+    // second way using pointers with while loop
+    i = 0;
+    while(i &lt; count) {
+        printf(&quot;%s is %d years old.\n&quot;,
+                *(cur_name + i), *(cur_age + i));
+        i++;
+    }
+
+    printf(&quot;---\n&quot;);
+
+    // third way, pointers are just arrays, with while loop
+    i = 0;
+    while(i &lt; count) {
+        printf(&quot;%s is %d years old again.\n&quot;,
+                cur_name[i], cur_age[i]);
+        i++;
+    }
+
+    printf(&quot;---\n&quot;);
+
+    // fourth way with pointers in a complex way, with while loop
+    i = 0;
+    while((cur_age - ages) &lt; count) {
+        printf(&quot;%s lived %d years so far.\n&quot;,
+                *cur_name, *cur_age);
+        cur_name++;
+        cur_age++;
+        i++;
+    } 
+    return 0;
+}
+</code></pre></div>
+感觉while和for 对于指针遍历是差不多的  只不过while写的字多了点  </p>
+</details>
+<p>​ <br />
+​   </p>
+<h2 id="ex16">ex16 结构体和指向它们的指针</h2>
+<details class="abstract">
+<summary>结构体和指针</summary>
+<p>在C语言中，结构体（Structures）是一种用户自定义的数据类型，允许你将__不同类型__的变量组合在一起，以表示一个相关联的__数据集合__。结构体可以包含各种不同类型的数据成员（也称为字段或属性），这些成员可以是整数、字符、指针、其他结构体等等。  </p>
+<p>结构体的定义使用关键字 struct，并指定结构体的名称以及包含在结构体内部的成员变量。<br />
+strcut和int一样，也是种类型<br />
+比如：<br />
+<div class="highlight"><pre><span></span><code>struct Person {
+    char *name;
+    int age;
+    float height;
+};
+</code></pre></div>
+附加题
+<div class="highlight"><pre><span></span><code>struct Person *Person_create(char *name, int age, int height, int         weight)
+{
+    struct Person *who = malloc(sizeof(struct Person));
+    assert(who != NULL);
+
+    who-&gt;name = strdup(name);
+    who-&gt;age = age;
+    who-&gt;height = height;
+    who-&gt;weight = weight;
+
+    return who;
+}
+</code></pre></div>
+这段代码是提前声明的自定义函数<br />
+其中struct是结构体的命令  <br />
+    malloc：用于分配内存以存储一个 Person 结构体大小的空间。<br />
+assert：用于断言 malloc 是否成功分配内存，若分配失败，则终止程序执行。<br />
+strdup：复制传入的姓名字符串并分配内存。<br />
+<div class="highlight"><pre><span></span><code> who-&gt;name = strdup(name);
+    who-&gt;age = age;
+    who-&gt;height = height;
+    who-&gt;weight = weight;
+</code></pre></div>
+设置 Person 结构体实例的成员值  </p>
+<p>return who<br />
+返回创建的实例指针。<br />
+*who是实例指针<br />
+*Person_create是函数指针  </p>
+<p><div class="highlight"><pre><span></span><code>void Person_destroy(struct Person *who)
+{
+    assert(who != NULL);
+
+    free(who-&gt;name);
+    free(who);
+}
+</code></pre></div>
+Person_destroy 函数：用于释放通过 Person_create 创建的 Person 结构体实例的内存。<br />
+使用 free 函数释放姓名字符串的内存，然后释放整个结构体实例的内存。  </p>
+<p><div class="highlight"><pre><span></span><code>void Person_print(struct Person *who)
+{
+    printf(&quot;Name: %s\n&quot;, who-&gt;name);
+    printf(&quot;\tAge: %d\n&quot;, who-&gt;age);
+    printf(&quot;\tHeight: %d\n&quot;, who-&gt;height);
+    printf(&quot;\tWeight: %d\n&quot;, who-&gt;weight);
+}
+</code></pre></div>
+Person_print 函数：用于打印 Person 结构体实例的信息<br />
+<div class="highlight"><pre><span></span><code>int main(int argc, char *argv[])
+{
+    // make two people structures
+    struct Person *joe = Person_create(&quot;Joe Alex&quot;, 32, 64, 140);
+struct Person *frank = Person_create(&quot;Frank Blank&quot;, 20, 72, 180);
+
+    // print them out and where they are in memory
+    printf(&quot;Joe is at memory location %p:\n&quot;, joe);
+    Person_print(joe);
+
+    printf(&quot;Frank is at memory location %p:\n&quot;, frank);
+    Person_print(frank);
+
+    // make everyone age 20 years and print them again
+    joe-&gt;age += 20;
+    joe-&gt;height -= 2;
+            joe-&gt;weight += 40;
+    Person_print(joe);
+
+    frank-&gt;age += 20;
+    frank-&gt;weight += 20;
+    Person_print(frank);
+
+    // destroy them both so we clean up
+    Person_destroy(joe);
+    Person_destroy(frank);
+
+    return 0;
+}
+</code></pre></div>
+main 函数：程序的入口点。<br />
+创建了两个 Person 结构体实例 joe 和 frank，并分别传入不同的参数。<br />
+修改了实例的属性值，然后再次打印了它们的信息。 <br />
+最后，调用 Person_destroy 函数释放了 joe 和 frank 实例所占用的内存，完成了清理工作。<br />
+整个程序的主要功能是创建、操作和销毁 Person 结构体实例，并且通过函数对其进行了封装，以方便管理和使用。   </p>
+</details>
+<p>​ <br />
+​   </p>
+<hr />
+<h2 id="ex17">ex17 堆和栈的内存分配</h2>
+<details class="abstract">
+<summary>堆和栈的内存分配</summary>
+<p>在计算机科学中，堆（Heap）和栈（Stack）是两种常见的内存分配方式，用于存储程序运行时所需的数据。  </p>
+<h2 id="stack">栈 (Stack)</h2>
+<h3 id="_6">特点：</h3>
+<p>栈是一种线性数据结构，具有先进后出（FILO）的特性。<br />
+它的大小和生命周期是在编译时确定的，通常是__相对较小的固定大小__。<br />
+在函数调用时，会在栈上分配局部变量、函数参数、函数调用和返回地址等数据。<br />
+栈的分配和释放是__自动__的，由编译器/解释器管理。   </p>
+<h3 id="_7">用途：</h3>
+<p>存储函数的局部变量、函数参数和函数调用信息。<br />
+管理程序的执行上下文，如函数调用和返回。  </p>
+<h2 id="heap">堆 (Heap)</h2>
+<h3 id="_8">特点：</h3>
+<p>堆是在程序运行时动态分配的内存区域，<strong>大小不固定</strong>。<br />
+在堆上分配内存需要__手动__申请和释放，否则可能导致内存泄漏或者内存溢出问题。<br />
+堆的分配和释放由程序员控制，使用像 __malloc()、free()（在C语言中）、new、    delete（在C++中）__等函数或运算符来完成。  </p>
+<h3 id="_9">用途：</h3>
+<p>存储动态分配的数据，如动态数组、对象等。<br />
+需要持久存储并且在不同函数间共享的数据。  </p>
+<h2 id="_10">区别</h2>
+<p>管理方式：栈的分配和释放是自动的，由编译器/解释器管理；而堆的分配和释放由程序员手动控制。<br />
+大小和生命周期：栈的大小和生命周期在编译时确定，通常较小；堆的大小不固定，并且可以在程序运行时动态分配和释放。<br />
+存储内容：栈用于存储函数调用、局部变量等；堆用于存储动态分配的数据，通常用于大量、持久或需要在不同函数间共享的数据。<br />
+在实际编程中，了解栈和堆的特点和用途对于正确、高效地管理内存是非常重要的。对于需要使用动态内存分配的情况，正确地申请、使用和释放堆内存是至关重要的，以避免内存泄漏和内存溢出等问题。  </p>
+</details>
+<details class="abstract">
+<summary>作业与附加题</summary>
+<p><div class="highlight"><pre><span></span><code>#include &lt;stdio.h&gt;
+#include &lt;assert.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;errno.h&gt;
+#include &lt;string.h&gt;
+</code></pre></div>
+这些是预处理指令 (#include)，用于包含标准 C 语言库头文件，提供了输入输出、错误处理、内存分配和字符串处理等功能。<br />
+<div class="highlight"><pre><span></span><code>#define MAX_DATA 512
+#define MAX_ROWS 100
+</code></pre></div>
+这里使用 #define 定义了两个常量 MAX_DATA 和 MAX_ROWS，分别表示存储数据的最大长度和数据库中的最大行数。 <br />
+<div class="highlight"><pre><span></span><code>struct Address {
+    int id;
+    int set;
+    char name[MAX_DATA];
+    char email[MAX_DATA];
+};
+
+struct Database {
+    struct Address rows[MAX_ROWS];
+};
+
+struct Connection {
+    FILE *file;
+    struct Database *db;
+};
+</code></pre></div>
+接下来定义了三个结构体：Address、Database 和 Connection。<br />
+Address 结构体表示数据库中的一条记录，包含一个 ID、一个标志位 set 以及姓名和邮箱等信息。<br />
+Database 结构体是由多个 Address 结构体组成的数组，表示整个数据库。<br />
+Connection 结构体包含一个文件指针和一个指向数据库的指针，用于连接数据库。<br />
+<div class="highlight"><pre><span></span><code>void die(const char *message)
+{
+    if(errno) {
+        perror(message);
+    } else {
+        printf(&quot;ERROR: %s\n&quot;, message);
+        }
+
+exit(1);
+}
+</code></pre></div>
+然后定义了一系列函数用来操作数据库：<br />
+die 函数用于报告错误并退出程序。  </p>
+<p><div class="highlight"><pre><span></span><code>int main(int argc, char *argv[])
+{
+    // ... (命令行参数解析和数据库操作)
+    return 0;
+}
+</code></pre></div>
+最后，在 main 函数中：<br />
+解析命令行参数来确定要执行的操作，比如创建、获取、设置、删除或列出条目。<br />
+根据操作执行相应的数据库操作，并在必要时输出错误信息。<br />
+最后关闭数据库连接并退出程序。<br />
+    整个程序实现了一个简单的命令行数据库管理系统，可以通过命令行对数据进行增删改查等操作。  </p>
+<hr />
+<h2 id="_11">附加题</h2>
+<p>搜索“栈数据结构”，并且在你最喜欢的语言中实现它，然后尝试在C中实现。<br />
+<div class="highlight"><pre><span></span><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+#define MAX_SIZE 100
+
+// 定义栈结构
+typedef struct {
+    int items[MAX_SIZE];
+    int top; // 栈顶指针
+} Stack;
+
+// 初始化栈
+void initStack(Stack *stack) {
+    stack-&gt;top = -1; // 初始化栈顶指针为-1
+}
+
+// 检查栈是否为空
+int isEmpty(Stack *stack) {
+    return (stack-&gt;top == -1);
+}
+
+// 检查栈是否已满
+int isFull(Stack *stack) {
+    return (stack-&gt;top == MAX_SIZE - 1);
+}
+
+// 压栈操作
+void push(Stack *stack, int value) {
+    if (isFull(stack)) {
+        printf(&quot;栈已满，无法压栈\n&quot;);
+    } else {
+        stack-&gt;top++;
+        stack-&gt;items[stack-&gt;top] = value;
+    }
+}
+
+// 出栈操作
+int pop(Stack *stack) {
+    if (isEmpty(stack)) {
+        printf(&quot;栈为空，无法出栈\n&quot;);
+        return -1; // 如果栈为空，返回一个特殊值表示出错
+    } else {
+        int popped = stack-&gt;items[stack-&gt;top];
+        stack-&gt;top--;
+        return popped;
+    }
+}
+
+// 查看栈顶元素
+int peek(Stack *stack) {
+    if (isEmpty(stack)) {
+        printf(&quot;栈为空\n&quot;);
+        return -1; // 如果栈为空，返回一个特殊值表示出错
+    } else {
+        return stack-&gt;items[stack-&gt;top];
+    }
+}
+
+int main() {
+    Stack stack;
+    initStack(&amp;stack);
+
+    push(&amp;stack, 10);
+    push(&amp;stack, 20);
+    push(&amp;stack, 30);
+
+    printf(&quot;栈顶元素为: %d\n&quot;, peek(&amp;stack)); // 输出栈顶元素
+
+    printf(&quot;出栈: %d\n&quot;, pop(&amp;stack)); // 出栈
+
+    printf(&quot;栈顶元素为: %d\n&quot;, peek(&amp;stack)); // 输出栈顶元素
+
+    return 0;
+}
+</code></pre></div></p>
+</details>
+<p>​ <br />
+​   </p>
+<hr />
+<h2 id="ex18">ex18函数指针</h2>
+<details class="abstract">
+<summary>函数指针</summary>
+<p>函数指针的格式类似这样：<br />
+<div class="highlight"><pre><span></span><code>int (指针名)(int a, int b)  
+</code></pre></div>
+记住如何编写它的一个方法是：  </p>
+<p>编写一个普通的函数声明：<br />
+<div class="highlight"><pre><span></span><code>int callme(int a, int b)  
+</code></pre></div>
+将函数用指针语法包装：<br />
+<div class="highlight"><pre><span></span><code>int (*callme)(int a, int b)  
+</code></pre></div>
+将名称改成指针名称： <br />
+<div class="highlight"><pre><span></span><code>int (*compare_cb)(int a, int b)  
+</code></pre></div>
+指针的变量名称为compare_cb，你可以将它用作函数。这类似于指向数组的指针可以表示所指向的数组。指向函数的指针也可以用作表示所指向的函数，只不过是不同的名字。<br />
+<img alt="" src="../12.png" /><br />
+这就是一个函数指针，它储存了show这个函数<br />
+为了和普通指针区别一下，它用了括号括住了<br />
+调用函数可以直接用show()或者 pFun()  </p>
+<h3 id="_12">回调函数</h3>
+<p>有两个函数A,B，函数A有参数，参数是函数B，则B就是回调函数<br />
+被当做参数来使用的函数就是回调函数  </p>
+</details>
+<details class="abstract">
+<summary>回调函数</summary>
+<p><div class="highlight"><pre><span></span><code>#include &lt;stdio.h&gt;
+
+// 声明回调函数的原型，该函数接受一个整数作为参数
+typedef void (*CallbackFunc)(int);
+
+// 主函数，接受回调函数作为参数
+void performOperation(int data, CallbackFunc callback) {
+    // 执行某些操作，然后调用回调函数并将数据传递给它
+    printf(&quot;Performing operation with data: %d\n&quot;, data);
+    callback(data); // 调用回调函数
+}
+
+// 回调函数的具体实现
+void callbackFunction(int result) {
+    printf(&quot;Callback function called with result: %d\n&quot;, result);
+}
+
+int main() {
+    int inputData = 10;
+
+    // 调用 performOperation，并传递回调函数作为参数
+    performOperation(inputData, callbackFunction);
+
+return 0;
+}
+</code></pre></div>
+这段代码表示的是回调函数的基本用法<br />
+其中出现了3个函数，让我们来一起看一看<br />
+<div class="highlight"><pre><span></span><code>typedef void (*CallbackFunc)(int);
+</code></pre></div>
+这个函数是一个声明函数，声明回调函数的原型，该函数接受一个整数作为参数<br />
+<div class="highlight"><pre><span></span><code>void performOperation(int data, CallbackFunc callback) {
+    printf(&quot;Performing operation with data: %d\n&quot;, data);
+    callback(data); 
+</code></pre></div>
+这个函数是一个中间函数，把用户传进来的数据进行一些操作，函数体内部可能包含了一些未给出的具体操作，这些操作会在执行时使用传递进来的 data 数据。<br />
+这个函数的作用是：
+1. 接收参数： 函数 performOperation 接收两个参数：data（整数类型）和 callback（函数指针，指向一个回调函数）。<br />
+2. 执行某些操作： 函数体内部可能包含了一些未给出的具体操作，这些操作会在执行时使用传递进来的 data 数据。<br />
+3. 调用回调函数： 在执行完上述操作之后，通过 callback(data); 这行代码调用了传递进来的回调函数，并将参数 data 传递给它。这就是回调函数的作用之一，它允许你在 performOperation 内部执行完特定的任务后，通过调用传入给回调函数，将数据或结果返回或通知给调用者。  </p>
+<p><div class="highlight"><pre><span></span><code>void callbackFunction(int result) {
+    printf(&quot;Callback function called with result: %d\n&quot;, result);
+</code></pre></div>
+这个函数就是回调函数<br />
+performOperation把数据整理并调用给了它  </p>
+</details>
+<p>​   </p>
+<h2 id="ex19">ex19 一个简单的对象系统</h2>
+<details class="abstract">
+<summary>一个简单的对象系统</summary>
+<h1 id="_13">预处理</h1>
+<p>预处理不是真正编译的一部分 它是编译代码前一个单独的步骤  </p>
+<h2 id="_14">宏</h2>
+<p>宏（Macro）在 C 语言中是一种非常有用的_工具_，它允许你用一个_标识符_来代表一个值或者一段代码，然后在程序中通过这个标识符来_引用_这个值或代码。  </p>
+<h3 id="_15">用途</h3>
+<ol>
+<li>创建常量：可以使用宏来定义常量，例如：
+<div class="highlight"><pre><span></span><code>#define PI 3.14159
+</code></pre></div></li>
+</ol>
+<p>这样就定义了一个名为_ PI _的宏，它代表的值是 3.14159。这样在程序中就可以使用 PI 这个_标识符_来表示 π 的值了  </p>
+<ol>
+<li>
+<p>简化代码：宏也可以用于简化代码。比如，你可以创建一个计算平方的宏：<br />
+<div class="highlight"><pre><span></span><code>#define SQUARE(x) ((x) * (x))
+</code></pre></div>
+然后在程序中使用 SQUARE 这个宏，传入一个参数 x：<br />
+<div class="highlight"><pre><span></span><code>int result = SQUARE(5); // 会被展开为 ((5) * (5))
+</code></pre></div>
+这样就避免了每次都写 x * x，提高了代码的可读性和易用性。  </p>
+</li>
+<li>
+<p>条件编译：宏还可以用于条件编译，例如：<br />
+<div class="highlight"><pre><span></span><code>#define DEBUG 1
+
+#ifdef DEBUG
+        // 调试代码
+    // 这部分代码只有在 DEBUG 被定义的情况下才会被编译
+#endif
+</code></pre></div>
+这种方式可以让你根据宏的定义与否来控制代码的编译。  </p>
+</li>
+</ol>
+<p>虽然宏在某些情况下非常有用，但也要注意宏的一些_潜在问题_，比如宏展开可能导致代码难以调试、宏的作用域难以控制等。因此，在使用宏时需要谨慎并遵循最佳实践，以避免潜在的问题。  </p>
+<h2 id="_16">宏的本质</h2>
+<p>预处理器只不过是做了一个文本替换的工作而已<br />
+所有预处理命令都是以#开头   </p>
+<h3 id="_17">常见的预指令处理</h3>
+<p><img alt="." src="../3.jpg" /><br />
+1. #include  </p>
+<h1 id="include">include 指令用于将<em>其他文件的内容包含到当前文件中</em>。这是用于引入头文件的常见方式，使得程序可以重复利用其他文件中的函数声明、宏定义等信息。</h1>
+<ol>
+<li>
+<h1 id="define">define</h1>
+</li>
+</ol>
+<h1 id="define_1">define <em>用于创建宏定义</em>，将一个标识符或表达式定义为一个特定的代码片段。这种方式可以用于创建常量、简化代码或定义一段代码片段。</h1>
+<ol>
+<li>
+<h1 id="ifdef-ifndef-else-endif">ifdef, #ifndef, #else, #endif</h1>
+条件编译指令用于根据条件来控制代码的编译。比如，#ifdef 用于检查某个宏<em>是否已经被定义</em>，#ifndef 用于检查某个宏<em>是否未被定义</em>，#else 和 #endif 则用于<em>定义条件的分支和结束。</em></li>
+<li>
+<h1 id="undef">undef</h1>
+</li>
+</ol>
+<h1 id="undef_1">undef 用于取消宏的定义，使得该宏可以重新定义或者在之后的代码中不再生效。</h1>
+<ol>
+<li>
+<h1 id="error">error</h1>
+</li>
+</ol>
+<h1 id="error_1">error 用于生成编译时错误信息，当预处理器遇到这个指令时，会停止编译并显示指定的错误消息。</h1>
+<ol>
+<li>
+<h1 id="pragma">pragma## 预处理</h1>
+预处理不是真正编译的一部分 它是编译代码前一个单独的步骤  </li>
+</ol>
+<h2 id="_18">宏</h2>
+<p>宏（Macro）在 C 语言中是一种非常有用的_工具_，它允许你用一个_标识符_来代表一个值或者一段代码，然后在程序中通过这个标识符来_引用_这个值或代码。  </p>
+<h3 id="_19">用途</h3>
+<ol>
+<li>创建常量：可以使用宏来定义常量，例如：
+<div class="highlight"><pre><span></span><code>#define PI 3.14159
+</code></pre></div></li>
+</ol>
+<p>这样就定义了一个名为_ PI _的宏，它代表的值是 3.14159。这样在程序中就可以使用 PI 这个_标识符_来表示 π 的值了  </p>
+<ol>
+<li>
+<p>简化代码：宏也可以用于简化代码。比如，你可以创建一个计算平方的宏：<br />
+<div class="highlight"><pre><span></span><code>#define SQUARE(x) ((x) * (x))
+</code></pre></div>
+然后在程序中使用 SQUARE 这个宏，传入一个参数 x：<br />
+<div class="highlight"><pre><span></span><code>int result = SQUARE(5); // 会被展开为 ((5) * (5))
+</code></pre></div>
+这样就避免了每次都写 x * x，提高了代码的可读性和易用性。  </p>
+</li>
+<li>
+<p>条件编译：宏还可以用于条件编译，例如：<br />
+<div class="highlight"><pre><span></span><code>#define DEBUG 1
+
+#ifdef DEBUG
+    // 调试代码
+    // 这部分代码只有在 DEBUG 被定义的情况下才会被编译
+#endif
+</code></pre></div>
+这种方式可以让你根据宏的定义与否来控制代码的编译。  </p>
+</li>
+</ol>
+<p>虽然宏在某些情况下非常有用，但也要注意宏的一些_潜在问题_，比如宏展开可能导致代码难以调试、宏的作用域难以控制等。因此，在使用宏时需要谨慎并遵循最佳实践，以避免潜在的问题。  </p>
+<h2 id="_20">宏的本质</h2>
+<p>预处理器只不过是做了一个文本替换的工作而已<br />
+所有预处理命令都是以#开头   </p>
+<h3 id="_21">常见的预指令处理</h3>
+<p><img alt="." src="../3.jpg" /><br />
+1. #include<br />
+    #include 指令用于将<em>其他文件的内容包含到当前文件中</em>。这是用于引入头文件的常见方式，使得程序可以重复利用其他文件中的函数声明、宏定义等信息。
+2. #define</p>
+<h1 id="define_2">define <em>用于创建宏定义</em>，将一个标识符或表达式定义为一个特定的代码片段。这种方式可以用于创建常量、简化代码或定义一段代码片段。</h1>
+<ol>
+<li>
+<h1 id="ifdef-ifndef-else-endif_1">ifdef, #ifndef, #else, #endif</h1>
+条件编译指令用于根据条件来控制代码的编译。比如，#ifdef 用于检查某个宏<em>是否已经被定义</em>，#ifndef 用于检查某个宏<em>是否未被定义</em>，#else 和 #endif 则用于<em>定义条件的分支和结束。</em></li>
+<li>
+<h1 id="undef_2">undef</h1>
+</li>
+</ol>
+<h1 id="undef_3">undef 用于取消宏的定义，使得该宏可以重新定义或者在之后的代码中不再生效。</h1>
+<ol>
+<li>
+<h1 id="error_2">error</h1>
+</li>
+</ol>
+<h1 id="error_3">error 用于生成编译时错误信息，当预处理器遇到这个指令时，会停止编译并显示指定的错误消息。</h1>
+<ol>
+<li>
+<h1 id="pragma_1">pragma</h1>
+</li>
+</ol>
+<h1 id="pragma_2">pragma 用于向编译器传递特定的指令。这些指令通常用于控制编译器的行为，如优化选项、警告信息等。</h1>
+<ol>
+<li>文件包含保护指令
+    用于防止头文件被多次包含而导致的重定义错误。常见的方式是使用 #ifndef,         #define, #endif 来创建头文件的包含保护结构。</li>
+</ol>
+<p>宏中的小问题，加括号<br />
+<img alt="." src="../4.png" /></p>
+<h1 id="pragma_3">pragma 用于向编译器传递特定的指令。这些指令通常用于控制编译器的行为，如优化选项、警告信息等。</h1>
+<ol>
+<li>文件包含保护指令
+    用于防止头文件被多次包含而导致的重定义错误。常见的方式是使用 #ifndef, #define, #endif 来创建头文件的包含保护结构。</li>
+</ol>
+</details>
+<h3 id="c_1">C中构建面向对象系统</h3>
+<details class="abstract">
+<summary>C中构建面向对象系统</summary>
+<h2 id="_22">对象是什么</h2>
+<p>对象就是你的女朋友，你自己也是一个对象<br />
+对象就是实物，一种实物的一个个体  </p>
+<hr />
+<h2 id="_23">定义</h2>
+<p>面向对象系统（Object-Oriented System）是一种程序设计范式，它使用对象和类的概念来组织和构建程序。这种方法的核心思想是_将数据和操作封装在一起，通过对象来表示现实世界中的实体，并允许这些对象相互交互。_  </p>
+<p>面向对象的四大特征<br />
+1.抽象<br />
+抽象行为，抽象属性<br />
+属性： 一类事物的共同特征，比如人类的年龄，性别，编号<br />
+行为：吃饭，睡觉，跑步<br />
+2.封装<br />
+把抽象出来的属性和行为封装成一个类(结构体)<br />
+3.继承<br />
+把父类的属性和行为继承给子类，子类就拥有了父类的属性和行为<br />
+4.多态  </p>
+<p>主要概念：<br />
+类（Class）：类是对象的模板或蓝图，描述了对象的属性（数据成员）和行为（成员函数）。比如，汽车类可能有属性如速度、颜色等，并且可能有方法如启动、加速等。  </p>
+<p>对象（Object）：对象是类的实例，具有特定的属性和行为。例如，一辆特定的汽车可以看作是汽车类的一个对象实例。  </p>
+<p>封装（Encapsulation）：封装是指将数据和操作封装在一个对象内部，_并对外部隐藏其内部实现细节。_只有通过对象提供的接口（公共方法）才能访问对象的状态。  </p>
+<p>继承（Inheritance）：继承允许一个类（子类）继承另一个类（父类）的属性和行为。子类可以重用父类的功能，并且可以增加新的功能或修改已有功能。  </p>
+<p>多态（Polymorphism）：多态性允许不同类的对象对同一消息做出不同的响应。即使这些对象所接收的消息相同，但由于不同类实现了相同的方法，它们可能会有不同的行为。  </p>
+<p>为什么重要？<br />
+面向对象编程的优点在于它可以提高代码的可维护性、可扩展性和重用性。<br />
+通过封装数据和功能，对象可以隐藏其内部细节，使得代码更易于理解和修改。<br />
+继承和多态性使得代码更容易扩展和重用，减少了重复编写代码的工作量。  </p>
+<p>在 C 语言中，并没有原生的面向对象特性，但可以使用一些技巧模拟面向对象的部分特性，如结构体和函数指针来模拟类和方法。<br />
+然而，如果你对面向对象的概念感兴趣，建议学习一些支持面向对象编程的语言，如 C++、Java 或 Python，它们提供了更直接和丰富的面向对象特性。  </p>
+<h2 id="c_2">c语言中实现面向对象的系统</h2>
+<p>在 C 语言中实现面向对象（Object-Oriented Programming, OOP）的系统需要使用一些技巧和约定，因为 C 本身并不直接支持_类、对象、继承等面向对象的概念。_然而，可以使用一些模拟方法来实现类似面向对象的设计。  </p>
+<p>例子：
+属性：年龄，姓名<br />
+行为：说话<br />
+其他：输出自己的信息<br />
+<div class="highlight"><pre><span></span><code>include&lt;stdio.h&gt;
+include&lt;malloc.h&gt;
+include&lt;string.h&gt;
+include&lt;
+typedef0 struct Girl{
+int age //年龄
+char name[20];
+
+}Girl;
+//注意：struct 里面不允许定义函数,所以拿到外面来
+Girl* createGirl();
+Girl* createGirlwithargs(int age,char name);
+void girl_print(Girl * pthis)
+{
+printf(&quot;%d %s&quot;,pthis -&gt;age,pthis -&gt;name);
+}
+
+int main()
+{
+Girl* emptyGirl = createGirl();
+Girl* yueyue = createGirlwithargs(int age,char name)(25;“月月”);
+}
+
+Girl* createGirl()
+{
+Girl* girl = calloc(1,sizeof(girl));
+if(！Girl）
+{
+return NULL;
+}
+return girl；
+}
+
+Girl* createGirlwithargs(int age,char name)
+{
+Girl *girl = createGirl();
+if(！Girl）
+{
+return NULL;
+}
+girl -&gt; age =age
+girl -&gt; name = name
+return girl；
+</code></pre></div></p>
+<h3 id="_24">注</h3>
+<p>typedef 是 C 语言中的一个关键字，用于创建新的类型别名。它允许程序员为现有的数据类型（如基本数据类型、结构体、指针等）定义一个新的、更具有描述性的名称。  </p>
+<p>通过 typedef，可以为一个已存在的类型创建一个新的别名。这个别名可以让代码更易读、更易维护，并且提高了代码的可读性。它经常用于简化复杂的类型声明，特别是当你使用复杂的数据类型时。  </p>
+<p>例如，在之前的代码中，我们使用了 typedef 来定义一个结构体类型别名 Object：<br />
+把标签放最后面使它成为一个新的类型  </p>
+<p>其中pthis 是一个指针，指向Girl这个结构体<br />
+在 C 语言中，箭头操作符 -&gt; 用于通过指向结构体或联合体的指针访问其成员。它的作用类似于使用点操作符 . 来访问结构体或联合体的成员，但是针对指针而不是实际的结构体或联合体本身。<br />
+最下面的操作里calloc和malloc一样都是分配空间的操作    </p>
+</details>
+<p>​ <br />
+​ <br />
+​ <br />
+​   </p>
+<h2 id="ex20">ex20 调试宏</h2>
+<details class="abstract">
+<summary>测试宏</summary>
+<h2 id="_25">调试</h2>
+<p>调试（Debugging）是指识别、定位和解决计算机程序或系统中出现的错误、故障或异常的过程。在软件开发中，程序员编写代码并进行测试，但有时代码可能会产生意外的行为，导致程序不按预期运行或出现错误。  </p>
+<p>调试的目的是找出程序中的错误并加以修复，使程序能够按照预期的方式正常运行。这个过程通常涉及以下步骤：  </p>
+<p>重现问题： 程序员首先要能够重现导致程序错误或异常行为的情况。这可能需要重新运行程序或者使用特定的输入数据。  </p>
+<p>定位问题： 一旦问题被重现，程序员会使用调试工具或技术来定位问题所在。这可能涉及查看程序的代码、检查变量的值、跟踪代码执行路径等。  </p>
+<p>识别错误： 确定问题的具体原因，这可能是由于逻辑错误、语法错误、内存问题、数据处理错误等。         </p>
+<p>修复错误： 一旦问题被定位并识别，程序员会修改代码以解决问题，并进行进一步测试，以确保修改不会引入新的错误。  </p>
+<p>验证和测试： 修改后的程序需要经过验证和测试，以确保问题已经解决，程序运行正常。  </p>
+<p>调试是程序开发过程中不可或缺的一部分，因为即使经验丰富的开发人员也难以编写完全没有错误的程序。使用调试工具和技术可以帮助程序员更快速地定位和解决问题，提高代码质量和稳定性。调试也有助于开发人员更深入地理解程序的运行方式和行为。  </p>
+<h2 id="_26">如何调试</h2>
+<p>1.编译 <br />
+make ex10<br />
+2.调试<br />
+lldb ex10<br />
+3.打断点<br />
+break set--name:main
+就会在main处打一个断点  </p>
+<h2 id="_27">设计出来用于调试的宏</h2>
+<p>C通过返回错误码或设置全局的errno值来解决这些问题，并且你需要检查这些值。这种机制可以检查现存的复杂代码中，你执行的东西是否发生错误。当你编写更多的C代码时，你应该按照下列模式：  </p>
+<p>调用函数。<br />
+如果返回值出现错误（每次都必须检查）。<br />
+清理创建的所有资源。<br />
+打印出所有可能有帮助的错误信息。<br />
+这意味着对于每一个函数调用（是的，每个函数）你都可能需要多编写3~4行代码来确保它正常功能。这些还不包括清理你到目前创建的所有垃圾。如果你有10个不同的结构体，3个方式。和一个数据库链接，当你发现错误时你应该写额外的14行。  </p>
+<hr />
+<p><div class="highlight"><pre><span></span><code>#ifndef __dbg_h__
+#define __dbg_h__
+
+#include &lt;stdio.h&gt;
+#include &lt;errno.h&gt;
+#include &lt;string.h&gt;
+
+#ifdef NDEBUG
+#define debug(M, ...)
+#else
+#define debug(M, ...) fprintf(stderr, &quot;DEBUG %s:%d: &quot; M &quot;\n&quot;, __FILE__, __LINE__, ##__VA_ARGS__)
+#endif
+
+#define clean_errno() (errno == 0 ? &quot;None&quot; : strerror(errno))
+
+#define log_err(M, ...) fprintf(stderr, &quot;[ERROR] (%s:%d: errno: %s) &quot; M &quot;\n&quot;, __FILE__, __LINE__, clean_errno(), ##__VA_ARGS__)
+
+#define log_warn(M, ...) fprintf(stderr, &quot;[WARN] (%s:%d: errno: %s) &quot; M &quot;\n&quot;, __FILE__, __LINE__, clean_errno(), ##__VA_ARGS__)
+
+#define log_info(M, ...) fprintf(stderr, &quot;[INFO] (%s:%d) &quot; M &quot;\n&quot;, __FILE__, __LINE__, ##__VA_ARGS__)
+
+#define check(A, M, ...) if(!(A)) { log_err(M, ##__VA_ARGS__); errno=0; goto error; }
+
+#define sentinel(M, ...)  { log_err(M, ##__VA_ARGS__); errno=0; goto error; }
+
+#define check_mem(A) check((A), &quot;Out of memory.&quot;)
+
+#define check_debug(A, M, ...) if(!(A)) { debug(M, ##__VA_ARGS__); errno=0; goto error; }
+
+#endif
+</code></pre></div>
+大佬写出来的宏，用于处理错误问题<br />
+用的时候直接include dbg.h就行了<br />
+这段代码是一个简单的调试宏和错误处理宏集合，它定义了一些宏来辅助程序员进行调试和错误处理。让我逐行解释这些代码：<br />
+<div class="highlight"><pre><span></span><code>#ifndef __dbg_h__
+#define __dbg_h__
+</code></pre></div></p>
+<h1 id="ifndef-dbg_h">ifndef 检查是否定义了名为 <strong>dbg_h</strong> 的宏。</h1>
+<h1 id="define-dbg_h">define 定义了 <strong>dbg_h</strong> 宏，以防止多次包含同一个头文件。</h1>
+<h1 id="ifdef-ndebug-debugm">ifdef 检查是否定义了 NDEBUG 宏，如果定义了，则定义 debug(M, ...) 为空宏。</h1>
+<p>如果未定义 NDEBUG，则定义 debug(M, ...) 宏为一个输出调试信息的函数。它使用 fprintf 函数将调试信息输出到标准错误流中（stderr），包括文件名、行号和格式化的消息内容。  </p>
+<h1 id="define-clean_errno-errno-0-none-strerrorerrno">define clean_errno() (errno == 0 ? "None" : strerror(errno))</h1>
+<p>定义了一个 clean_errno() 宏，用于返回当前错误号的字符串描述。如果错误号为0（即没有错误），则返回字符串 "None"；否则，返回通过 strerror(errno) 得到的描述错误的字符串。<br />
+接下来的一系列宏 log_err, log_warn, log_info, check, sentinel, check_mem, check_debug 使用了类似的模式，它们都是用来打印错误信息、检查条件、处理错误的宏。这些宏会在发生错误或者满足条件时，输出相应的信息，并跳转到错误处理代码段（通常是 goto error;）。  </p>
+<p>这是一个使用调试宏的例子：<br />
+<div class="highlight"><pre><span></span><code>#include &quot;dbg.h&quot;  // 引入包含调试宏的头文件
+
+int main() {
+    int x = 10;
+    debug(&quot;x is: %d&quot;, x);  // 在程序中使用 debug 宏输出调试信息
+
+    // ... 其他代码 ...
+
+    return 0;
+}
+</code></pre></div>
+上面的代码中，#include "dbg.h" 将包含了定义了调试宏的头文件，使得 debug() 宏在代码中可用。在 main() 函数中，调用 debug() 宏并传入了一个格式化的调试信息字符串和相应的参数。在这个例子中，debug() 宏会在调试模式下输出带有文件名、行号和调试信息的内容。  </p>
+</details>
+<details class="abstract">
+<summary>具体内容</summary>
+<div class="highlight"><pre><span></span><code>#ifndef __dbg_h__
+#define __dbg_h__
+
+#include &lt;stdio.h&gt;
+#include &lt;errno.h&gt;
+#include &lt;string.h&gt;
+
+#ifdef NDEBUG
+#define debug(M, ...)
+#else
+#define debug(M, ...) fprintf(stderr, &quot;DEBUG %s:%d: &quot; M &quot;\n&quot;,     __FILE__, __LINE__, ##__VA_ARGS__)
+#endif
+
+#define clean_errno() (errno == 0 ? &quot;None&quot; : strerror(errno))
+
+#define log_err(M, ...) fprintf(stderr, &quot;[ERROR] (%s:%d: errno: %s) &quot; M &quot;\n&quot;, __FILE__, __LINE__, clean_errno(), ##__VA_ARGS__)
+
+#define log_warn(M, ...) fprintf(stderr, &quot;[WARN] (%s:%d: errno: %s) &quot; M &quot;\n&quot;, __FILE__, __LINE__, clean_errno(), ##__VA_ARGS__)
+
+#define log_info(M, ...) fprintf(stderr, &quot;[INFO] (%s:%d) &quot; M &quot;\n&quot;, __FILE__, __LINE__, ##__VA_ARGS__)
+
+#define check(A, M, ...) if(!(A)) { log_err(M, ##__VA_ARGS__); errno=0; goto error; }
+
+#define sentinel(M, ...)  { log_err(M, ##__VA_ARGS__); errno=0; goto error; }
+
+#define check_mem(A) check((A), &quot;Out of memory.&quot;)
+
+#define check_debug(A, M, ...) if(!(A)) { debug(M, ##__VA_ARGS__); errno=0; goto error; }
+
+#endif
+</code></pre></div>
+<h3 id="errno">注：errno</h3>
+<p>errno 是 C 和 C++ 标准库中的一个全局变量，用于表示最近发生的函数调用产生的错误代码。它通常用于诊断系统级错误，例如文件操作错误、内存分配错误、网络通信错误等。当发生函数调用失败时，相应的错误码会被设置到 errno 中。  </p>
+<h2 id="debug">debug宏</h2>
+<p><div class="highlight"><pre><span></span><code>void test_debug()
+{
+    // notice you don&#39;t need the \n
+    debug(&quot;I have Brown Hair.&quot;);
+
+       // passing in arguments like printf
+    debug(&quot;I am %d years old.&quot;, 37);
+}
+</code></pre></div>
+debug 宏用于输出调试信息，类似于 printf，但无需在末尾添加换行符。  </p>
+<h2 id="clean_errno">clean_errno宏</h2>
+<p>clean_errno宏用于获取errno的安全可读的版本。中间奇怪的语法是“三元运算符”，你会在后面学到它。  </p>
+<h2 id="log_err">log_err 宏</h2>
+<p><div class="highlight"><pre><span></span><code>void test_log_err()
+{
+    log_err(&quot;I believe everything is broken.&quot;);
+    log_err(&quot;There are %d problems in %s.&quot;, 0, &quot;space&quot;);
+}
+</code></pre></div>
+log_err 宏用于记录错误信息。  </p>
+<h2 id="log_warn">log_warn 宏</h2>
+<p>log_warn 宏用于记录警告信息。  </p>
+<h2 id="log_info">log_info宏</h2>
+<p>log_info 宏用于记录一般信息 <br />
+用法：</p>
+<h2 id="check">check 宏</h2>
+<p>check会保证条件A为真，否则会记录错误M（带着log_err的可变参数），之后跳到函数的error:区域来执行清理。  </p>
+<h2 id="sentinel">sentinel宏</h2>
+<p>sentinel可以放在函数的任何不应该执行的地方，它会打印错误信息并且跳到error:标签。你可以将它放到if-statements或者switch-statements的不该被执行的分支中，比如default。  </p>
+<h2 id="check_mem">check_mem宏</h2>
+<p>简写的check_mem宏，用于确保指针有效，否则会报告“内存耗尽”的错误。    </p>
+<h2 id="check_debug">check_debug宏</h2>
+<p>check_debug宏，它仍然会检查并处理错误，尤其是你并不想报告的普遍错误。它里面使用了debug代替log_err来报告错误，所以当你定义了NDEBUG，它仍然会检查并且发生错误时跳出，但是不会打印消息了。  </p>
+</details>
+<p>​ <br />
+​   </p>
+<hr />
+<h2 id="ex21">ex21 高级数据类型和控制结构</h2>
+<details class="abstract">
+<summary>数据类型和控制结构</summary>
+<h2 id="_28">可用的数据类型</h2>
+<p>int  </p>
+<p>储存普通的整数，默认为32位大小。  </p>
+<p>译者注：int在32或64位环境下为32位，但它不应该被看作平台无关的。如果需要用到平台无关的定长整数，请使用int(n)_t。  </p>
+<p>double  </p>
+<p>储存稍大的浮点数。  </p>
+<p>float  </p>
+<p>储存稍小的浮点数。  </p>
+<p>char  </p>
+<p>储存单字节字符。  </p>
+<p>void  </p>
+<p>表示“无类型”，用于声明不返回任何东西的函数，或者所指类型不明的指针，例如void *thing。  </p>
+<p>enum  </p>
+<p>枚举类型，类似于整数，也可转换为整数，但是通过符号化的名称访问或设置。当switch语句中没有覆盖到所有枚举的元素时，一些编译器会发出警告。  </p>
+<hr />
+<h2 id="_29">类型修饰符</h2>
+<p>unsigned  </p>
+<p>修改类型，使它不包含任何负数，同时上界变高。  </p>
+<p>signed  </p>
+<p>可以储存正数和负数，但是上界会变为（大约）一半，下界变为和上界（大约）等长。  </p>
+<p>译者注：符号修饰符只对char和<strong><em> int有效。</em></strong> int默认为signed，而char根据具体实现，可以默认为signed，也可以为unsigned。  </p>
+<p>long  </p>
+<p>对该类型使用较大的空间，使它能存下更大的数，通常使当前大小加倍。  </p>
+<p>short  </p>
+<p>对该类型使用较小的空间，使它储存能力变小，但是占据空间也变成一半。  </p>
+<p>类型限定符<br />
+const  </p>
+<p>表示变量在初始化后不能改变。  </p>
+<p>volatile  </p>
+<p>表示会做最坏的打算，编译器不会对它做任何优化。通常仅在对变量做一些奇怪的事情时，才会用到它。  </p>
+<p>register  </p>
+<p>强制让编译器将这个变量保存在寄存器中，并且也可以无视它。目前的编译器更善于处理在哪里存放变量，所以应该只在确定这样会提升性能时使用它。  </p>
+<hr />
+<h2 id="_30">类型转换</h2>
+<p>C使用了一种“阶梯形类型提升”的机制，它会观察运算符两边的变量，并且在运算之前将小边的变量转换为较大边。这个过程按照如下顺序：  </p>
+<p>long double<br />
+double<br />
+float<br />
+long long<br />
+long<br />
+int (short, char)<br />
+译者注：short和char会在运算之前转换成int。同种类型的unsigned和signed运算，signed保持字节不变转换成unsigned。  </p>
+<hr />
+<h2 id="_31">类型大小</h2>
+<p>stdint.h为定长的整数类型定义了一些typedef，同时也有一些用于这些类型的宏。这比老的limits.h更加易于使用，因为它是不变的。这些类型如下：  </p>
+<p>int8_t  </p>
+<p>8位符号整数。  </p>
+<p>uint8_t  </p>
+<p>8位无符号整数。  </p>
+<p>int16_t  </p>
+<p>16位符号整数。  </p>
+<p>uint16_t  </p>
+<p>16位无符号整数。  </p>
+<p>int32_t  </p>
+<p>32位符号整数。  </p>
+<p>uint32_t  </p>
+<p>32位无符号整数。  </p>
+<p>int64_t  </p>
+<p>64位符号整数。  </p>
+<p>uint64_t  </p>
+<p>64位无符号整数。  </p>
+<p>译者注：当用于对类型大小有要求的特定平台时，可以使用这些类型。如果你怕麻烦，不想处理平台相关类型的今后潜在的扩展的话，也可以使用这些类型。  </p>
+<p>下面的模式串为(u)int(BITS)_t，其中前面的u代表unsigned，BITS是所占位数的大小。这些模式串返回了这些类型的最大（或最小）值。  </p>
+<p>INT(N)_MAX  </p>
+<p>N位符号整数的最大正值，例如INT16_MAX。  </p>
+<p>INT(N)_MIN  </p>
+<p>N位符号整数的最小负值。  </p>
+<p>UINT(N)_MAX  </p>
+<p>N位无符号整数的最大正值。为什么不定义其最小值，是因为最小值是0，不可能出现负值。  </p>
+<p>警告  </p>
+<p>要注意，不要从字面上在任何头文件中去找INT(N)_MAX的定义。这里的N应该为特定整数，比如8、16、32、64，甚至可能是128。我在这个练习中使用了这个记法，就不需要显式写出每一个不同的组合了。  </p>
+<p>在stdint.h中，对于size_t类型和足够存放指针的整数也有一些宏定义，以及其它便捷类型的宏定义。编译器至少要保证它们为某一大小，并允许它们为更大的大小。  </p>
+<p>int_least(N)_t  </p>
+<p>至少N位的整数。  </p>
+<p>uint_least(N)_t  </p>
+<p>至少N位的无符号整数。  </p>
+<p>INT_LEAST(N)_MAX  </p>
+<p>int_least(N)_t类型的最大值。  </p>
+<p>INT_LEAST(N)_MIN  </p>
+<p>int_least(N)_t类型的最小值。  </p>
+<p>UINT_LEAST(N)_MAX  </p>
+<p>uint_least(N)_t的最大值。  </p>
+<p>int_fast(N)_t  </p>
+<p>与int_least(N)_t相似，但是是至少N位的“最快”整数。  </p>
+<p>uint_fast(N)_t  </p>
+<p>至少N位的“最快”无符号整数。  </p>
+<p>INT_FAST(N)_MAX  </p>
+<p>int_fast(N)_t的最大值。  </p>
+<p>INT_FAST(N)_MIN  </p>
+<p>int_fast(N)_t的最小值。  </p>
+<p>UINT_FAST(N)_MAX  </p>
+<p>uint_fast(N)_t的最大值。  </p>
+<p>intptr_t  </p>
+<p>足够存放指针的符号整数。  </p>
+<p>uintptr_t  </p>
+<p>足够存放指针的无符号整数。  </p>
+<p>INTPTR_MAX  </p>
+<p>intptr_t的最大值。  </p>
+<p>INTPTR_MIN  </p>
+<p>intptr_t的最小值。  </p>
+<p>UINTPTR_MAX  </p>
+<p>uintptr_t的最大值。  </p>
+<p>intmax_t  </p>
+<p>系统中可能的最大尺寸的整数类型。  </p>
+<p>uintmax_t  </p>
+<p>系统中可能的最大尺寸的无符号整数类型。  </p>
+<p>INTMAX_MAX  </p>
+<p>intmax_t的最大值。   </p>
+<p>INTMAX_MIN  </p>
+<p>intmax_t的最小值。  </p>
+<p>UINTMAX_MAX  </p>
+<p>uintmax_t的最大值。  </p>
+<p>PTRDIFF_MIN  </p>
+<p>ptrdiff_t的最小值。  </p>
+<p>PTRDIFF_MAX  </p>
+<p>ptrdiff_t的最大值。  </p>
+<p>SIZE_MAX  </p>
+<p>size_t的最大值。  </p>
+<p>可用的运算符<br />
+这是一个全面的列表，关于你可以在C中使用的全部运算符。这个列表中我会标明一些东西：  </p>
+<p>二元  </p>
+<p>该运算符有左右两个操作数：X + Y。  </p>
+<p>一元  </p>
+<p>该运算符作用于操作数本身-X。  </p>
+<p>前缀  </p>
+<p>该运算符出现在操作数之前：++X。  </p>
+<p>后缀  </p>
+<p>通常和前缀版本相似，但是出现在操作数之后，并且意义不同：X++。  </p>
+<p>三元  </p>
+<p>只有一个三元运算符，意思是“三个操作数”：X ? Y : Z。  </p>
+<hr />
+<h2 id="_32">算数运算符</h2>
+<p>下面是基本的算数运算符，我将函数调用()放入其中因为它更接近“算数”运算。  </p>
+<p>()  </p>
+<p>函数调用。  </p>
+<p>二元 *  </p>
+<p>乘法。  </p>
+<p>/  </p>
+<p>除法。  </p>
+<p>二元 +  </p>
+<p>加法。  </p>
+<p>一元 +  </p>
+<p>无变化。  </p>
+<p>后缀 ++   </p>
+<p>读取变量然后自增。  </p>
+<p>前缀 ++   </p>
+<p>自增变量然后读取。  </p>
+<p>后缀 --  </p>
+<p>读取变量然后自减。  </p>
+<p>前缀 --  </p>
+<p>自减变量然后读取。  </p>
+<p>二元 -  </p>
+<p>减法。  </p>
+<p>一元 -  </p>
+<p>取反，可用于表示负数。  </p>
+<hr />
+<h2 id="_33">数据运算</h2>
+<p>它们用于以不同方式和形式访问数据。  </p>
+<p>结构体指针的成员访问。一元*和.运算符的复合。  </p>
+<p>.  </p>
+<p>结构体值的成员访问。  </p>
+<p>[]  </p>
+<p>取数组下标。二元+和一元*运算符的复合。  </p>
+<p>sizeof  </p>
+<p>取类型或变量大小。  </p>
+<p>一元 &amp;  </p>
+<p>取地址。  </p>
+<p>一元 *  </p>
+<p>取值（提领地址）。  </p>
+<hr />
+<h2 id="_34">逻辑运算符</h2>
+<p>它们用于测试变量的等性和不等性。  </p>
+<p>!=  </p>
+<p>不等于。  </p>
+<p>&lt;  </p>
+<p>小于。  </p>
+<p>&lt;=  </p>
+<p>小于等于。  </p>
+<p>==  </p>
+<p>等于（并不是赋值）。  </p>
+<blockquote></blockquote>
+<pre><code>大于。
+</code></pre>
+<blockquote>
+<p>=  </p>
+</blockquote>
+<p>大于等于。  </p>
+<p>位运算符<br />
+它们更加高级，用于修改整数的原始位。  </p>
+<p>二元 &amp;  </p>
+<pre><code>位与。
+</code></pre>
+<p>&lt;&lt;   </p>
+<p>左移。  </p>
+<blockquote>
+<blockquote></blockquote>
+</blockquote>
+<p>右移。  </p>
+<p>^  </p>
+<p>位异或。  </p>
+<p>|  </p>
+<p>位或。  </p>
+<p>~  </p>
+<p>取补（翻转所有位）。  </p>
+<hr />
+<h2 id="_35">布尔运算符。</h2>
+<pre><code>用于真值测试，仔细学习三元运算符，它非常有用。
+</code></pre>
+<p>!  </p>
+<p>取非。  </p>
+<pre><code>&amp;&amp;
+</code></pre>
+<p>与。  </p>
+<p>||  </p>
+<p>或。  </p>
+<p>?:  </p>
+<p>三元真值测试，X ? Y : Z读作“若X则Y否则Z”。  </p>
+<hr />
+<h2 id="_36">赋值运算符</h2>
+<p>复合赋值运算符在赋值同时执行运算。大多数上面的运算符都可以组成复合赋值运算符。  </p>
+<p>=  </p>
+<p>赋值。  </p>
+<p>%=  </p>
+<p>取余赋值。  </p>
+<p>&amp;=  </p>
+<p>位与赋值。  </p>
+<p>*=  </p>
+<p>乘法赋值。  </p>
+<p>+=  </p>
+<p>加法赋值。  </p>
+<p>-=  </p>
+<p>减法赋值。  </p>
+<p>/=  </p>
+<p>除法赋值。  </p>
+<p>&lt;&lt;=  </p>
+<p>左移赋值。  </p>
+<blockquote>
+<blockquote>
+<p>=  </p>
+</blockquote>
+</blockquote>
+<p>右移赋值。  </p>
+<p>^=  </p>
+<p>位异或赋值。  </p>
+<p>|=  </p>
+<p>位或赋值。   </p>
+<hr />
+<h2 id="_37">可用的控制结构</h2>
+<p>下面是一些你没有接触过的控制结构：  </p>
+<p>do-while  </p>
+<p>do { ... } while(X);首先执行花括号中的代码，之后再跳出前测试X表达式。  </p>
+<p>break  </p>
+<p>放在循环中用于跳出循环。  </p>
+<p>continue  </p>
+<p>跳到循环尾。  </p>
+<p>goto  </p>
+<p>跳到你已经放置label的位置，你已经在dbg.h中看到它了，用于跳到error标签。  </p>
+<hr />
+</details>
+<h2 id="ex22">ex22 栈、作用域和全局</h2>
+<details class="abstract">
+<summary>栈、作用域和全局</summary>
+<p>在编程中，栈（Stack）、作用域（Scope）和全局（Global）是三个与变量和内存管理相关的重要概念。  </p>
+<ol>
+<li>栈（Stack）：<br />
+    栈是一种数据结构，通常用于存储函数调用期间的局部变量、函数参数和返回地址等信息。在程序执行期间，每当一个函数被调用时，系统都会为该函数创建一个称为“栈帧”的区域，用于存储函数中的局部变量以及执行过程中的其他信息。栈是一种“后进先出”（Last-In, First-Out，LIFO）的数据结构，最后进入栈的数据首先被取出。当函数执行完毕返回时，相应的栈帧会被销毁，释放栈空间。 <br />
+    栈只有一个口子，所以只有两个操作 压栈和出栈<br />
+<img alt="" src="./5.jpg" />  </li>
+</ol>
+<p><img alt="" src="../6.png" />  </p>
+<ol>
+<li>
+<p>作用域（Scope）：<br />
+    作用域是指在程序中可以访问变量的区域。在 C、C++、Java 等编程语言中，通常存在全局作用域和局部作用域。局部作用域是指变量只能在其声明的区域内访问，例如在函数内部声明的变量只能在该函数内部使用，这些变量具有局部作用域。全局作用域中的变量可以在整个程序中被访问，其生命周期持续整个程序的执行过程。  </p>
+</li>
+<li>
+<p>全局（Global）：<br />
+    全局是指在整个程序中都可以访问的变量、函数或其他实体。全局变量是在整个程序的执行过程中都存在的，其作用域是整个程序。全局变量通常在程序的顶层位置声明，并且在程序的任何地方都可以被引用。  </p>
+</li>
+</ol>
+<p>总结：  </p>
+<p>栈是用于存储函数调用期间的局部数据的数据结构，遵循后进先出的原则。<br />
+作用域指定了变量的可见性和访问范围，局部作用域和全局作用域是常见的作用域类型。<br />
+    全局表示在整个程序中可访问的变量或实体，在程序的任何地方都可以使用。<br />
+这些概念在程序设计中非常重要，了解它们有助于正确地管理变量的生命周期、作用域和内存分配。  </p>
+<p><mark>extern</mark>  </p>
+<p>这个关键词告诉编译器“这个变量已存在，但是他在别的‘外部区域’里”。通常它的意思是一个.c文件要用到另一个.c文件中定义的变量。这种情况下，我们可以说ex22.c中的THE_SIZE变量能被ex22_main.c访问到。  </p>
+<p><mark>static</mark>（文件）</p>
+<p>这个关键词某种意义上是<code>extern</code>的反义词，意思是这个变量只能在当前的.c文件中使用，程序的其它部分不可访问。要记住文件级别的<code>static</code>（比如这里的THE_AGE）和其它位置不同。  </p>
+<p><mark>static</mark>（函数）   </p>
+<p>如果你使用<code>static</code>在函数中声明变量，它和文件中的<code>static</code>定义类似，但是只能够在该函数中访问。它是一种创建某个函数的持续状态的方法，但事实上它很少用于现代的C语言，因为它们很难和线程一起使用。  </p>
+</details>
+<p>​   </p>
+<hr />
+<h2 id="ex23">ex23 认识达夫设备</h2>
+<details class="abstract">
+<summary>达夫设备</summary>
+<p>Duff's Device 通常用于需要大量重复的数据传输或拷贝操作，通过将数据分块，实现并行处理以提高效率。然而，由于其复杂的写法和对代码可读性的影响，现代编译器和优化技术已经在很大程度上减少了对此类技巧的需求  </p>
+</details>
+<p>​   </p>
+<hr />
+<h2 id="ex24">ex24 输入输出和文件</h2>
+<p>用到了fscanf 和 fgets   </p>
+<details class="abstract">
+<summary>输入输出和文件</summary>
+<p>1.printf： 格式化输出函数，用于将格式化的数据打印到标准输出（通常是终端）。  </p>
+<p>int printf(const char *format, ...);<br />
+2.scanf： 格式化输入函数，用于从标准输入（通常是键盘）读取格式化的数据。  </p>
+<p>int scanf(const char *format, ...);<br />
+3.fprintf： 格式化输出函数，用于将格式化的数据打印到指定的文件。  </p>
+<p>int fprintf(FILE <em>stream, const char </em>format, ...);<br />
+4.fscanf： 格式化输入函数，用于从指定的文件读取格式化的数据。  </p>
+<p>int fscanf(FILE <em>stream, const char </em>format, ...);<br />
+5.sprintf： 格式化输出函数，将格式化的数据写入字符串。  </p>
+<p>int sprintf(char <em>str, const char </em>format, ...);<br />
+6.snprintf： 安全的格式化输出函数，将格式化的数据写入字符串并限制写入的字符数，避免缓冲区溢出。  </p>
+<p>int snprintf(char <em>str, size_t size, const char </em>format, ...);<br />
+7.getchar： 从标准输入获取一个字符。  </p>
+<p>int getchar(void);<br />
+8.putchar： 将一个字符输出到标准输出。  </p>
+<p>int putchar(int character);<br />
+9.fgets： 从文件流读取一行数据。  </p>
+<p>char <em>fgets(char </em>str, int size, FILE *stream);<br />
+10.fputs： 将字符串写入文件流。  </p>
+<p>int fputs(const char <em>str, FILE </em>stream);<br />
+这些函数提供了基本的输入和输出功能，允许你从键盘读取数据、将数据打印到屏幕或写入文件。  请注意，I/O 函数涉及文件流（FILE 类型），并且需要正确处理文件的打开和关闭。  </p>
+<p>我感觉这段代码还好理解，毕竟就是与平常稍有语法差别的标准输入输出罢了，比较有意思的是 OTHER_EYES的值在代码中并未直接定义，你也能猜到它应该为4，可是为什么呢？  </p>
+<p>在给定的代码中，OTHER_EYES的值没有被明确地定义。在 C 语言中，枚举的值是从 0 开始递增的，每个成员的值比前一个成员的值增加 1。  </p>
+<p>由于 EyeColor枚举的成员顺序是从 BLUE_EYES 开始的，因此 OTHER_EYES 的值应该是 4。因此，你可以为 OTHER_EYES 明确指定值，也可以不指定，由编译器自动分配。  </p>
+<p><div class="highlight"><pre><span></span><code>typedef enum EyeColor {
+    BLUE_EYES, GREEN_EYES, BROWN_EYES,
+    BLACK_EYES, OTHER_EYES = 4
+} EyeColor;
+与
+
+typedef enum EyeColor {
+    BLUE_EYES, GREEN_EYES, BROWN_EYES,
+    BLACK_EYES, OTHER_EYES
+} EyeColor;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>是等价的，你可以你行修改代码，也可以让编译器自动为OTHER_EYES赋值。  
+fopen：
+
+用于打开文件，创建或者打开一个文件，返回文件指针供后续操作使用。
+freopen：
+
+用于重新指定一个已经打开的文件流到一个新的文件。
+    fdopen：
+
+将一个已经存在的文件描述符转换为文件指针。
+fclose：
+
+用于关闭打开的文件。
+fcloseall：
+
+关闭所有打开的文件流。
+文件位置操作函数：
+fgetpos：
+
+获取文件位置指示器的位置。
+fseek：
+
+移动文件位置指示器到指定位置。
+ftell：
+
+获取当前文件位置指示器的位置。
+rewind：
+
+将文件位置指示器设置到文件的开头。
+输出函数：
+fprintf：
+
+将格式化数据写入文件。
+fwrite：
+
+将数据块写入文件。
+输入函数：
+fread：
+从文件中读取数据块。
+这些函数提供了对文件进行读写操作的基本功能，通过它们可以进行文件的打开、读取、写入和关闭等操作。在使用这些函数时，需要注意文件指针、文件位置指示器以及文件操作的错误处理，以确保文件操作的正确性和安全性。
+</code></pre></div></p>
+</details>
+<p>​   </p>
+<hr />
+<h2 id="ex25">ex25 参变函数</h2>
+<details class="abstract">
+<summary>变参函数</summary>
+<p>这里的变参函数叫做read_scan，它使用了va_list数据结构执行和scanf相同的工作，并支持宏和函数。<br />
+<div class="highlight"><pre><span></span><code>va_list 是 C 语言标准库 &lt;stdarg.h&gt; 中定义的一个数据类型，它用于处理可变参数函数。可变参数函数是指能够接受不定数量的参数的函数，例如 printf() 和 scanf()。
+
+va_list 数据结构实际上是一个用于存储可变参数的信息的类型。它是一个指向可变参数列表的指针，在函数中，它用于迭代访问函数的参数。
+
+&lt;stdarg.h&gt; 头文件中包含了一组宏，这些宏能够让程序员以一种便携式的方式处理不定数量的参数。以下是一些常用的 &lt;stdarg.h&gt; 中的宏：
+
+va_start(ap, param)：初始化 va_list，将 ap 指向函数参数列表的起始位置，param 是最后一个确定的参数。这个宏必须在使用 va_arg 之前调用。
+va_arg(ap, type)：从 va_list 中获取下一个参数的值，type 是你期望的参数类型。这个宏返回 va_list 中当前参数的值，并将 va_list 向后移动到下一个参数。
+va_end(ap)：结束对 va_list 的使用，清理 va_list。
+下面是一个简单的示例，演示了 va_list 的使用方式：
+</code></pre></div></p>
+<p><div class="highlight"><pre><span></span><code>比如：
+#include &lt;stdio.h&gt;
+#include &lt;stdarg.h&gt;
+
+void example_va_func(int num, ...) {
+        va_list arg_ptr;
+    va_start(arg_ptr, num);
+
+    for (int i = 0; i &lt; num; i++) {
+        int val = va_arg(arg_ptr, int);
+        printf(&quot;%d &quot;, val);
+    }
+
+    va_end(arg_ptr);
+}
+
+int main() {
+    example_va_func(5, 1, 2, 3, 4, 5);
+    return 0;
+}
+</code></pre></div>
+在这个例子中，example_va_func() 函数使用 va_list 来访问不定数量的参数。它首先使用 va_start() 宏来初始化 va_list，然后使用 va_arg() 宏来逐个访问参数，最后使用 va_end() 来结束对 va_list 的使用。<br />
+calloc() 是 C 标准库 <stdlib.h> 中定义的一个函数，用于动态分配内存并初始化为零。它与 malloc() 类似，但 calloc() 在分配内存后会将分配的内存空间全部初始化为零。 </p>
+</details>
+<p>​   </p>
+<h2 id="ex26">ex26 实现一个真正的程序</h2>
+<details class="abstract">
+<summary>实现一个真正的程序</summary>
+<ol>
+<li>首先需要项目布局<br />
+创建<code>Makefile</code> 和 <code>README</code>   </li>
+<li>然后需要测试宏dbg.h，和从<code>http://bstring.sourceforge.net/</code>下载的bstrlib.h和bstrlib.c。下载.zip文件，解压并且将这个两个文件拷贝到项目中。  </li>
+<li>然后构建Makefile  </li>
+<li>创建并构建db.h 和db.c  </li>
+<li>创建并构建shell.h 和 shell.c  </li>
+<li>编写commands.h文件，commands.c文件  </li>
+<li>构建mevpkg.c<br />
+<img alt="" src="./c7.jpg" /><br />
+<img alt="" src="./c8.jpg" />  </li>
+</ol>
+</details>
+<hr />
+<h2 id="ex27">ex27 创造性和防御性编程</h2>
+<details class="abstract">
+<summary>创造性和防御性编程</summary>
+<p>创造性编程思维：  </p>
+<p>暂时接受一种可以不会惧怕风险的思维方式-&gt;  </p>
+<ul>
+<li>我不会犯错误。  </li>
+<li>人们所想的并不重要。  </li>
+<li>我脑子里面诞生的想法才是最好的。  </li>
+<li>
+<p>创造性思维的阴暗面-&gt;  </p>
+</li>
+<li>
+<p>编写完美的软件是可行的。  </p>
+</li>
+<li>我的大脑告诉我了真相，它不会发现任何错误，所以我写了完美的软件。  </li>
+<li>
+<p>我的代码就是我自己，批判它的人也在批判我。<br />
+    强调：  </p>
+</li>
+<li>
+<p>恐惧会快速地扼杀创造力<br />
+你经常会碰到一些程序员，它们对自己创造的软件具有强烈的荣誉感。这很正常，但是这种荣誉感会成为客观上改进作品的阻力。  </p>
+</li>
+</ul>
+<p>防御性编程思维：  </p>
+<ul>
+<li>软件中存在错误。  </li>
+<li>你并不是你的软件，但你需要为错误负责。  </li>
+<li>你永远不可能消除所有错误，只能降低它们的可能性。<br />
+    这种思维方式让你诚实地对待你的代码，并且为改进批判地分析它。注意上面并没有说你充满了错误，只是说你的代码充满错误。这是一个需要理解的关键，因为它给了你编写下一个实现的客观力量。<br />
+就像创造性思维，防御性编程思维也有阴暗面。防御性程序员是一个惧怕任何事情的偏执狂，这种恐惧使他们远离可能的错误或避免犯错误。当你尝试做到严格一致或正确时这很好，但是它是创造力和专注的杀手。  </li>
+</ul>
+<p>八个防御性编程策略（核心）：  </p>
+<ol>
+<li>
+<p>永远不要信任输入-&gt;永远不要提供的输入，并总是校验它。  </p>
+</li>
+<li>
+<p>避免错误-&gt;如果错误可能发生，不管可能性多低都要避免它。  </p>
+</li>
+<li>
+<p>过早暴露错误-&gt;过早暴露错误，并且评估发生了什么、在哪里发生以及如何修复。  </p>
+</li>
+<li>
+<p>记录假设-&gt;清楚地记录所有先决条件，后置条件以及不变量。  </p>
+</li>
+<li>
+<p>防止过多的文档-&gt;不要在实现阶段就编写文档，它们可以在代码完成时编写。  </p>
+</li>
+<li>
+<p>使一切自动化-&gt;使一切自动化，尤其是测试。  </p>
+</li>
+<li>
+<p>简单化和清晰化-&gt;永远简化你的代码，在没有牺牲安全性的同时变得最小和最整洁。  </p>
+</li>
+<li>
+<p>质疑权威-&gt;不要盲目遵循或拒绝规则。  </p>
+</li>
+</ol>
+</details>
+<hr />
+<h2 id="ex28-makefile">ex28 Makefile进阶</h2>
+<details class="abstract">
+<summary>Makefile进阶</summary>
+<p>首先要做的事情是创建一个C的目录框架，并且放置一些多续项目都拥有的，基本的文件和目录。<br />
+<div class="highlight"><pre><span></span><code>$ mkdir c-skeleton
+$ cd c-skeleton/
+$ touch LICENSE README.md Makefile
+$ mkdir bin src tests
+$ cp dbg.h src/   # this is from Ex20
+$ ls -l
+total 8
+-rw-r--r--  1 zedshaw  staff     0 Mar 31 16:38 LICENSE
+    -rw-r--r--  1 zedshaw  staff  1168 Apr  1 17:00 Makefile
+-rw-r--r--  1 zedshaw  staff     0 Mar 31 16:38 README.md
+drwxr-xr-x  2 zedshaw  staff    68 Mar 31 16:38 bin
+drwxr-xr-x  2 zedshaw  staff    68 Apr  1 10:07 build
+drwxr-xr-x  3 zedshaw  staff   102 Apr  3 16:28 src
+drwxr-xr-x  2 zedshaw  staff    68 Mar 31 16:38 tests
+    $ ls -l src
+total 8
+-rw-r--r--  1 zedshaw  staff  982 Apr  3 16:28 dbg.h
+    $
+</code></pre></div>
+下面是每个文件所做的事情：  </p>
+<p><code>LICENSE</code>  </p>
+<p>如果你在项目中发布源码，你会希望包含一份协议。如果你不这么多，虽然你有代码的版权，但是通常没有人有权使用。  </p>
+<p><code>README.md</code>  </p>
+<p>对你项目的简要说明。它以.md结尾，所以应该作为Markdown来解析。  </p>
+<p><code>Makefile</code>  </p>
+<p>这个项目的主要构建文件。  </p>
+<p><code>bin/</code>  </p>
+<p>放置可运行程序的地方。这里通常是空的，Makefile会在这里生成程序。  </p>
+<p><code>build/</code>  </p>
+<p>当值库和其它构建组件的地方。通常也是空的，Makefile会在这里生成这些东西。  </p>
+<p><code>src/</code>  </p>
+<p>放置源码的地方，通常是.c和.h文件。  </p>
+<p><code>tests/</code>  </p>
+<p>放置自动化测试的地方。  </p>
+<p>这个Makefile设计用于构建一个库，我们之后会用到它，并且通过使用GNU make的特殊特性使它在任何平台上都可用。我会在这一节拆分它的每一部分，先从头部开始。<br />
+   这个 Makefile 是一个用于构建 C 语言项目的典型 Makefile。下面是它的主要部分及其作用：<br />
+  ~~~
+  变量定义：
+ CFLAGS：编译器选项，包含调试信息 -g、优化等级 -O2、警告选项 -Wall -Wextra、指定源文件目录 -Isrc、-rdynamic 以及 NDEBUG 宏定义。$(OPTFLAGS) 是一个用户自定义的变量，用于设置其他编译选项。
+LIBS：链接时使用的库，这里包含 -ldl 和 $(OPTLIBS)，后者同样是用户自定义的变量。
+ PREFIX：安装路径，默认为 /usr/local。
+ 文件和目录定义：
+SOURCES：通过 wildcard 查找源文件，包括 src 目录下的所有 .c 文件。
+OBJECTS：通过 patsubst 将源文件的 .c 文件替换成相应的 .o 目标文件。
+TEST_SRC 和 TESTS：查找测试文件并生成相应的测试目标。
+TARGET 和 SO_TARGET：静态库和动态库的目标文件名。
+目标规则：
+all：默认目标，构建静态库、动态库以及运行测试。
+dev：用于开发环境，使用调试选首先要做的事情是创建一个C的目录框架，并且放置一些多续项目都拥有的，基本的文件和目录。<br />
+<div class="highlight"><pre><span></span><code>$ mkdir c-skeleton
+$ cd c-skeleton/
+$ touch LICENSE README.md Makefile
+$ mkdir bin src tests
+$ cp dbg.h src/   # this is from Ex20
+$ ls -l
+total 8
+-rw-r--r--  1 zedshaw  staff     0 Mar 31 16:38 LICENSE
+-rw-r--r--  1 zedshaw  staff  1168 Apr  1 17:00 Makefile
+-rw-r--r--  1 zedshaw  staff     0 Mar 31 16:38 README.md
+drwxr-xr-x  2 zedshaw  staff    68 Mar 31 16:38 bin
+drwxr-xr-x  2 zedshaw  staff    68 Apr  1 10:07 build
+drwxr-xr-x  3 zedshaw  staff   102 Apr  3 16:28 src
+ drwxr-xr-x  2 zedshaw  staff    68 Mar 31 16:38 tests
+$ ls -l src
+total 8
+-rw-r--r--  1 zedshaw  staff  982 Apr  3 16:28 dbg.h
+    $
+</code></pre></div>
+下面是每个文件所做的事情：  </p>
+<p><code>LICENSE</code>  </p>
+<p>如果你在项目中发布源码，你会希望包含一份协议。如果你不这么多，虽然你有代码的版权，但是通常没有人有权使用。  </p>
+<p><code>README.md</code>  </p>
+<p>对你项目的简要说明。它以.md结尾，所以应该作为Markdown来解析。  </p>
+<p><code>Makefile</code>  </p>
+<p>这个项目的主要构建文件。  </p>
+<p><code>bin/</code>  </p>
+<p>放置可运行程序的地方。这里通常是空的，Makefile会在这里生成程序。  </p>
+<p><code>build/</code>  </p>
+<p>当值库和其它构建组件的地方。通常也是空的，Makefile会在这里生成这些东西。  </p>
+<p><code>src/</code>  </p>
+<p>放置源码的地方，通常是.c和.h文件。  </p>
+<p><code>tests/</code>  </p>
+<p>放置自动化测试的地方。  </p>
+<h2 id="makefile">Makefile</h2>
+<p>这个Makefile设计用于构建一个库，我们之后会用到它，并且通过使用GNU make的特殊特性使它在任何平台上都可用。我会在这一节拆分它的每一部分，先从头部开始。<br />
+<sub>~</sub>
+变量定义：
+CFLAGS：编译器选项，包含调试信息 -g、优化等级 -O2、警告选项 -Wall -Wextra、指定源文件目录 -Isrc、-rdynamic 以及 NDEBUG 宏定义。$(OPTFLAGS) 是一个用户自定义的变量，用于设置其他编译选项。
+LIBS：链接时使用的库，这里包含 -ldl 和 $(OPTLIBS)，后者同样是用户自定义的变量。
+PREFIX：安装路径，默认为 /usr/local。
+文件和目录定义：
+SOURCES：通过 wildcard 查找源文件，包括 src 目录下的所有 .c 文件。
+OBJECTS：通过 patsubst 将源文件的 .c 文件替换成相应的 .o 目标文件。
+TEST_SRC 和 TESTS：查找测试文件并生成相应的测试目标。
+TARGET 和 SO_TARGET：静态库和动态库的目标文件名。
+目标规则：
+all：默认目标，构建静态库、动态库以及运行测试。
+dev：用于开发环境，使用调试选项重新构建。
+$(TARGET) 和 $(SO_TARGET)：构建静态库和动态库的规则。ar rcs 用于生成静态        库，$(CC) -shared 用于生成动态库。
+build：创建构建目录和输出目录。
+tests：构建并运行单元测试，使用 sh ./tests/runtests.sh 运行测试脚本。
+valgrind：使用 Valgrind 运行代码以检测内存泄漏。
+clean：清理生成的文件，包括构建目录、目标文件、测试文件以及编译器生成的文件。
+install：安装生成的静态库到指定路径。
+其他规则：
+check：用于查找代码中潜在危险的函数（如不安全的字符串操作函数），通过正则表达式匹配搜索源文件中的潜在问题函数调用。
+这个 Makefile 的主要目的是管理 C 语言项目的构建、测试、清理和安装，同时提供一些便捷的功能，如开发模式、内存泄漏检测等。
+项重新构建。
+$(TARGET) 和 $(SO_TARGET)：构建静态库和动态库的规则。ar rcs 用于生成静态库，$(CC) -shared 用于生成动态库。
+build：创建构建目录和输出目录。
+tests：构建并运行单元测试，使用 sh ./tests/runtests.sh 运行测试脚本。
+valgrind：使用 Valgrind 运行代码以检测内存泄漏。
+clean：清理生成的文件，包括构建目录、目标文件、测试文件以及编译器生成的文件。
+install：安装生成的静态库到指定路径。
+其他规则：
+        check：用于查找代码中潜在危险的函数（如不安全的字符串操作函数），通过正则表达式匹配搜索源文件中的潜在问题函数调用。
+这个 Makefile 的主要目的是管理 C 语言项目的构建、测试、清理和安装，同时提供一些便捷的功能，如开发模式、内存泄漏检测等。</p>
+</details>
+<p>​ <br />
+​   </p>
+<hr />
+<h2 id="ex29">ex29 库和链接</h2>
+<details class="abstract">
+<summary>库和链接</summary>
+<p>计算机编程中，"库（Library）"和"链接（Linking）"是两个重要的概念。</p>
+<h2 id="library">库（Library）：</h2>
+<p>库是预先编译好的可重用代码的集合，用于解决特定的问题或提供特定功能。库包含了一组函数、例程、类或其他可执行代码的集合，它们经过编译和组织，供程序员在开发软件时调用和使用。<br />
+类型：<br />
+静态库（Static Library）：也称为静态链接库，是编译时与程序静态链接的库。它在编译期间被拷贝到可执行文件中，程序运行时不再需要原始库文件。文件后缀通常是 .a（对于Unix/Linux系统）或 .lib（对于Windows系统）。<br />
+动态库（Dynamic Library）：也称为共享库，它在运行时被动态加载到内存中。它与静态库相比，占用更少的内存空间，并且多个程序可以共享同一个动态库。文件后缀通常是 .so（对于Unix/Linux系统）或 .dll（对于Windows系统）。  </p>
+<h2 id="linking">链接（Linking）：</h2>
+<p>链接是将程序的不同部分合并在一起形成最终可执行文件的过程。它涉及将编译后的目标文件、库文件以及其他必要的文件整合成一个可执行文件。链接可以分为两种：<br />
+编译时链接（Compile-time Linking）：将代码文件（源代码或目标文件）与静态库一起链接，生成可执行文件。<br />
+运行时链接（Runtime Linking）：在程序运行时动态加载和链接动态库文件，这种链接是动态的，程序在运行过程中可以根据需要加载或卸载库文件。<br />
+在编程中，库和链接是为了帮助开发人员提高代码重用性、降低开发成本、简化程序结构、提高代码的可维护性而存在的重要概念。通过使用库文件和链接过程，开发人员可以避免重复编写相同的代码，提高开发效率并确保程序运行所需的功能和资源得到有效利用。  </p>
+<h2 id="_38">讲人话</h2>
+<p>c程序的核心是跟操作系统（os）提供的库进行链接<br />
+通过链接，你可以从他人创建并打包在操作系C 统中的库中获取你所需的功能，并把它们加入到你自己的程序中。  </p>
+<p>●静态(static): 你在之前的习题中使用 ar 和 ranlib 创建的 libYOUR_LIBRARY. a文件就是一个静态库。这种类型的库只是一个包含了一系列. o目标文件及其功能的容器，当你构建自己的程序时，只需要把它当作一个大一点儿的. o文件就行了。　　<br />
+● 动态(dynamic): 动态库的典型后缀名有. so、. dll以及OS X中千奇百怪的各种命名(这些命名完全取决于操作系统和写程序的人)。不过严格来讲，OSX中的常用后缀名有 3 种,即. dylib、. bundle 和. framework,而这三者之间其实也并没有多大区别。这些文件构建后存放在一个公共目录下。当你运行程序时，操作系统会动态地加载这些文件，并且将它们随时链接到你的程序上。  </p>
+<h2 id="_39">在何时选择什么库？</h2>
+<p>中小型项目选择静态库<br />
+大型项目选择动态库  </p>
+<h2 id="_40">构建动态库</h2>
+<p>写好libex29.c (用来构建libex29.so 库)，和ex29.c的程序后，用下面三个命令编译<br />
+$ cc -c libex29.c -o libex29.o<br />
+$ cc -shared -o libex29.so libex29.o<br />
+$ cc -Wall -g -DNDEBUG ex29.c -ldl -o ex29  </p>
+</details>
+<p>​   </p>
+<hr />
+<h2 id="ex30">ex30 自动化测试</h2>
+<details class="example">
+<summary>自动化测试</summary>
+<p><img alt="" src="../14.jpg" />  </p>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023-现在 APTX4869-CONAN
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/APTX4869-CONAN" target="_blank" rel="noopener" title="GitHub | ZZP(APTX4869-CONAN)" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.indexes", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+    
+  </body>
+</html>
